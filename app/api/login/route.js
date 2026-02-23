@@ -44,6 +44,7 @@ export async function POST(req) {
       { status: 200 }
     );
   } catch (err) {
+    console.error("Login API Error:", err);
     return NextResponse.json(
       { message: "Server error", error: err.message },
       { status: 500 }
