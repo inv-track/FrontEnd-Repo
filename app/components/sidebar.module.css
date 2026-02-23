@@ -5,15 +5,20 @@
   display: flex;
   flex-direction: column;
 }
+
 .nav-menu {
+  padding: 54px 16px;
   display: flex;
   flex-direction: column;
-  padding: 0;
+  
 }
 
 .nav-link {
   color: #fff;
-  padding: 16px 25px;
+  margin: 0px 30px;
+  margin-bottom: 6px;
+  padding: 16px 8px;
+  border-radius: 16px;
   text-decoration: none;
   font-size: 15px;
   transition: all 0.3s ease;
@@ -24,13 +29,12 @@
 }
 
 .nav-link:hover {
-  background-color: rgba(255, 255, 255, 0.08);
-  border-right-color: #5b9bd5;
+  background-color: rgba(255, 255, 255, 0.09);
 }
 
 .nav-link.active {
-  background-color: #5b9bd5;
-  border-right-color: #82b5e8;
+  background-color: rgba(255, 255, 255, 0.09);
+  border-right: 6px solid #0088ff;
 }
 
 .nav-icon {
@@ -43,4 +47,63 @@
 
 .nav-text {
   font-size: 15px;
+}
+
+.menu-text {
+  margin-right: 8px;
+  font-weight: 600;
+}
+/* ==================== Mobile Menu Toggle ==================== */
+.menu-toggle {
+  display: none;
+  background-color: #0f4c81;
+  color: #fff;
+  border: none;
+  padding: 15px 25px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+  text-align: right;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.menu-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+
+/* ==================== Responsive Design ==================== */
+@media (max-width: 900px) {
+  .sidebar {
+    width: 100%;
+  }
+
+  /* Show menu toggle button on mobile */
+  .menu-toggle {
+    display: block;
+  }
+
+  /* Hide menu by default on mobile */
+  .nav-menu {
+    display: none;
+    animation: slideDown 0.3s ease;
+  }
+
+  /* Show menu when active */
+  .nav-menu.active {
+    display: flex;
+  }
+}
+
+/* Animation */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

@@ -18,9 +18,8 @@ export default function MainTitle() {
   > = {
     "/home": {
       title: "نظام جرد العهد والمخازن",
-      line1: "مرحبا بك في نظام إدارة العهد",
-      line2: "والمخازن",
-      bottomTitle: "كلية العلوم",
+      line1: "مرحبا بك في نظام إدارة العهد والمخازن",
+      bottomTitle: "لكلية العلوم",
       breadcrumb: "الرئيسية",
     },
     "/operations": {

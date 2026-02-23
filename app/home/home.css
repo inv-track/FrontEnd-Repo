@@ -17,6 +17,7 @@
   font-size: 15px;
   margin: 4px 0;
   line-height: 1.6;
+  font-family: "cairo", sans-serif;
 }
 
 .college-title {
@@ -62,8 +63,8 @@
 }
 
 .card-icon-wrapper {
-  width: 75px;
-  height: 75px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   margin: 0 auto 18px;
   display: flex;
@@ -76,16 +77,22 @@
   transform: scale(1.08);
 }
 
+.navy-icon {
+  background-color: #0F4C81;
+}
 .blue-icon {
-  background-color: #2196f3;
+  background-color: #155DFC;
 }
 
 .green-icon {
-  background-color: #4caf50;
+  background-color: #00A884;
 }
 
 .orange-icon {
   background-color: #ff9800;
+}
+.Violet-icon {
+  background-color: #8A2BE2;
 }
 
 .card-icon-emoji {
@@ -117,6 +124,7 @@
   transition: all 0.3s ease;
   color: #555;
   font-weight: 500;
+  display: inline-block;
 }
 
 .card-action-btn:hover {
@@ -169,16 +177,24 @@
 }
 
 .feature-item {
+  width: 172px;
+  height: 92px;
+  background-color: #fff;
+  border-radius: 6px;
+  padding: 16px 8px;
   text-align: center;
-  transition: transform 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border: 1px solid #e8e8e8;
 }
 
 .feature-item:hover {
-  transform: translateY(-5px);
+  transform: translateY(-6px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+
 }
 
 .feature-icon-box {
-  font-size: 42px;
   margin-bottom: 12px;
 }
 
