@@ -1,0 +1,111 @@
+/* [project]/app/warehouse/qrModal.css [app-client] (css) */
+.qr-overlay {
+  z-index: 1000;
+  background-color: #0009;
+  justify-content: center;
+  align-items: center;
+  animation: .2s fadeIn;
+  display: flex;
+  position: fixed;
+  inset: 0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.qr-box {
+  direction: rtl;
+  background-color: #fff;
+  border-radius: 16px;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  min-width: 320px;
+  padding: 32px;
+  animation: .2s scaleIn;
+  display: flex;
+  position: relative;
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.qr-close {
+  cursor: pointer;
+  background: #0f4c81;
+  border: none;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  font-size: 14px;
+  transition: background .2s;
+  display: flex;
+  position: absolute;
+  top: 12px;
+  left: 12px;
+}
+
+.qr-close:hover {
+  background: #0a3a5b;
+}
+
+.qr-info {
+  text-align: center;
+}
+
+.qr-name {
+  color: #1a3c6e;
+  margin: 0 0 4px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.qr-serial {
+  color: #666;
+  margin: 0;
+  font-size: 14px;
+}
+
+.qr-image-large {
+  border: 2px solid #eee;
+  border-radius: 8px;
+  width: 220px;
+  height: 220px;
+  padding: 8px;
+}
+
+.qr-print-btn {
+  color: #fff;
+  cursor: pointer;
+  background-color: #0f4c81;
+  border: none;
+  border-radius: 8px;
+  width: 100%;
+  padding: 10px 32px;
+  font-size: 15px;
+  transition: background .2s;
+}
+
+.qr-print-btn:hover {
+  background-color: #0a3a5b;
+}
+
+/*# sourceMappingURL=app_warehouse_qrModal_css_bad6b30c._.single.css.map*/

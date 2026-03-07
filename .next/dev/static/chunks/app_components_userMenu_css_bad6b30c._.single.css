@@ -1,0 +1,127 @@
+/* [project]/app/components/userMenu.css [app-client] (css) */
+.user-menu-wrapper {
+  position: relative;
+}
+
+.user-icon-btn {
+  cursor: pointer;
+  background: none;
+  border: none;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  padding: 4px;
+  transition: background .2s;
+  display: flex;
+}
+
+.user-icon-btn:hover {
+  background: #fff3;
+}
+
+.user-dropdown {
+  z-index: 999;
+  direction: rtl;
+  background: #fff;
+  border-radius: 12px;
+  min-width: 220px;
+  padding: 16px;
+  animation: .2s fadeDown;
+  position: absolute;
+  top: 48px;
+  left: 0;
+  box-shadow: 0 8px 24px #0000001f;
+}
+
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.user-info {
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  display: flex;
+}
+
+.user-avatar {
+  color: #fff;
+  background: #1a3c6e;
+  border-radius: 50%;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 42px;
+  height: 42px;
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+}
+
+.user-details {
+  flex-direction: column;
+  gap: 2px;
+  display: flex;
+}
+
+.user-name {
+  color: #1a3c6e;
+  margin: 0;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.user-role {
+  color: #888;
+  margin: 0;
+  font-size: 12px;
+}
+
+.user-divider {
+  background: #f0f0f0;
+  height: 1px;
+  margin: 10px 0;
+}
+
+.user-row {
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  display: flex;
+}
+
+.user-label {
+  color: #888;
+}
+
+.user-value {
+  color: #333;
+  font-weight: 600;
+}
+
+.logout-btn {
+  color: #e53e3e;
+  cursor: pointer;
+  background: #fff0f0;
+  border: none;
+  border-radius: 8px;
+  width: 100%;
+  margin-top: 4px;
+  padding: 9px;
+  font-size: 14px;
+  transition: background .2s;
+}
+
+.logout-btn:hover {
+  background: #ffe0e0;
+}
+
+/*# sourceMappingURL=app_components_userMenu_css_bad6b30c._.single.css.map*/

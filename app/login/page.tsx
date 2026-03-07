@@ -34,7 +34,7 @@ export default function LoginPage() {
   return (
     <div className="login-container">
       <div className="login-card">
-        <div className="circle"><i className="fa-regular fa-building"></i></div>
+        <div className="circle"><img src="/icon/mdi_company.svg" alt="mdi_company" width={50} height={50}/></div>
         <h2 className="title">نظام العهد والمخازن</h2>
         <p className="subtitle">لكلية العلوم جامعة قناة السويس</p>
         <form onSubmit={handleLogin}>
@@ -46,7 +46,7 @@ export default function LoginPage() {
               value={userName}
               onChange={(e) => setUserName(e.target.value)}
             />
-            <span className="icon"><i className="fa-regular fa-user"></i></span>
+            <span className="icon"><img src="/icon/lucide_user-round.svg" alt="user-round" /></span>
           </div>
 
           <div className="input-wrapper">
@@ -57,7 +57,8 @@ export default function LoginPage() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            <span className="icon"><i className="fa-solid fa-lock"></i></span>
+            <span className="icon"><img src="/icon/mdi_password-outline.svg" alt="password-outline" />
+            </span>
           </div>
 
           <button type="submit" className="login-btn">تسجيل الدخول</button>

@@ -1,0 +1,161 @@
+/* [project]/app/employee/AddEmployeeModal.module.css [app-client] (css) */
+.AddEmployeeModal-module__2hgWIW__modalRoot {
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  font-family: Inter, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
+  display: flex;
+  position: fixed;
+  inset: 0;
+}
+
+.AddEmployeeModal-module__2hgWIW__overlay {
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+  background: #0009;
+  position: fixed;
+  inset: 0;
+}
+
+.AddEmployeeModal-module__2hgWIW__card {
+  z-index: 1000;
+  text-align: right;
+  box-sizing: border-box;
+  direction: rtl;
+  background: #fff;
+  border-radius: 10px;
+  width: min(780px, 96%);
+  max-width: 780px;
+  max-height: 86vh;
+  padding: 22px 26px;
+  position: relative;
+  overflow: auto;
+  box-shadow: 0 10px 30px #00000059;
+}
+
+.AddEmployeeModal-module__2hgWIW__close {
+  cursor: pointer;
+  color: #333;
+  background: none;
+  border: none;
+  font-size: 20px;
+  position: absolute;
+  top: 12px;
+  left: 14px;
+}
+
+.AddEmployeeModal-module__2hgWIW__headerTitle {
+  color: #12263f;
+  margin: 0 0 4px;
+  font-size: 26px;
+  font-weight: 600;
+}
+
+.AddEmployeeModal-module__2hgWIW__subTitle {
+  color: #6b7280;
+  margin: 0 0 16px;
+  font-size: 13px;
+}
+
+.AddEmployeeModal-module__2hgWIW__form {
+  flex-direction: column;
+  gap: 10px;
+  display: flex;
+}
+
+.AddEmployeeModal-module__2hgWIW__field {
+  flex-direction: column;
+  gap: 6px;
+  display: flex;
+}
+
+.AddEmployeeModal-module__2hgWIW__label {
+  color: #334155;
+  font-size: 14px;
+}
+
+.AddEmployeeModal-module__2hgWIW__input {
+  box-sizing: border-box;
+  color: #0f172a;
+  background: linear-gradient(#fff 0%, #f7f7f7 100%);
+  border: 1px solid #e6e7ea;
+  border-radius: 6px;
+  outline: none;
+  height: 44px;
+  padding: 10px 12px;
+  font-size: 14px;
+}
+
+.AddEmployeeModal-module__2hgWIW__input:focus {
+  border-color: #0b5f9b;
+  box-shadow: 0 0 0 3px #0b5f9b14;
+}
+
+.AddEmployeeModal-module__2hgWIW__select {
+  color: #0f172a;
+  appearance: none;
+  background-color: #f3f4f6;
+  background-image: linear-gradient(45deg, #0000 50%, #6b7280 50%), linear-gradient(135deg, #6b7280 50%, #0000 50%), linear-gradient(to right, #f3f4f6, #f3f4f6);
+  background-position: calc(100% - 18px) calc(1em + 2px), calc(100% - 14px) calc(1em + 2px), 100% 0;
+  background-repeat: no-repeat;
+  background-size: 6px 6px, 6px 6px, 2.5em 2.5em;
+  background-attachment: scroll;
+  background-origin: padding-box;
+  background-clip: border-box;
+  border: 1px solid #e6e7ea;
+  border-radius: 6px;
+  height: 44px;
+  padding: 8px 35px;
+  font-size: 14px;
+}
+
+.AddEmployeeModal-module__2hgWIW__actions {
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 14px;
+  display: flex;
+}
+
+.AddEmployeeModal-module__2hgWIW__btnPrimary {
+  color: #fff;
+  cursor: pointer;
+  background: linear-gradient(#0b5f9b 0%, #0a4e86 100%);
+  border: none;
+  border-radius: 8px;
+  width: 100%;
+  min-width: 160px;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  box-shadow: inset 0 6px #0b5f9b0f;
+}
+
+.AddEmployeeModal-module__2hgWIW__error {
+  color: #b00020;
+  text-align: center;
+  margin-top: 10px;
+  font-size: 13px;
+}
+
+@media (max-width: 520px) {
+  .AddEmployeeModal-module__2hgWIW__card {
+    padding: 16px;
+  }
+
+  .AddEmployeeModal-module__2hgWIW__headerTitle {
+    font-size: 20px;
+  }
+
+  .AddEmployeeModal-module__2hgWIW__btnPrimary {
+    width: 100%;
+  }
+
+  .AddEmployeeModal-module__2hgWIW__actions {
+    flex-direction: column-reverse;
+    gap: 8px;
+  }
+}
+
+/*# sourceMappingURL=app_employee_AddEmployeeModal_module_css_bad6b30c._.single.css.map*/

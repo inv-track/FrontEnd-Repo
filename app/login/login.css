@@ -18,12 +18,12 @@ body {
   border-radius: 12px;
   text-align: center;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* لتأثير سلس */
+  transition: transform 0.5s ease, box-shadow 0.5s ease; 
 }
 
 .login-card:hover {
-  transform: scale(1.03); /* زوم خفيف */
-  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.12); /* شادو أعمق قليلاً */
+  transform: scale(1.03); 
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.12);
 }
 
 .circle {
@@ -78,7 +78,10 @@ label {
   color: #000;
   font-family: "Cairo", sans-serif;
 }
-
+.input-wrapper input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #0a4f8a;
+}
 .icon {
   position: absolute;
   right: 12px;
@@ -86,7 +89,11 @@ label {
   transform: translateY(-50%);
   font-size: 20px;
   color: #888;
-  margin-top: 10px;
+  margin-top: 15px;
+}
+.icon img {
+  width: 20px;
+  height: 20px;
 }
 
 .login-btn {
@@ -101,7 +108,7 @@ label {
   margin-top: 22px;
   cursor: pointer;
   font-weight: bold;
-  transition: all 0.3s ease;
+  transition: all 0.4s ease;
 }
 
 .login-btn:hover {

@@ -1,0 +1,102 @@
+/* ===== Overlay ===== */
+.qr-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ===== Box ===== */
+.qr-box {
+  background-color: #fff;
+  border-radius: 16px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  position: relative;
+  direction: rtl;
+  animation: scaleIn 0.2s ease;
+  min-width: 320px;
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to   { transform: scale(1);   opacity: 1; }
+}
+
+/* ===== Close Button ===== */
+.qr-close {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: #0f4c81;
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.qr-close:hover {
+  background: #0a3a5b;
+}
+
+/* ===== Info ===== */
+.qr-info {
+  text-align: center;
+}
+
+.qr-name {
+  font-size: 20px;
+  font-weight: bold;
+  color: #1a3c6e;
+  margin: 0 0 4px 0;
+}
+
+.qr-serial {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+}
+
+/* ===== QR Image ===== */
+.qr-image-large {
+  width: 220px;
+  height: 220px;
+  border: 2px solid #eee;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+/* ===== Print Button ===== */
+.qr-print-btn {
+  background-color: #0f4c81;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 32px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: background 0.2s;
+  width: 100%;
+}
+
+.qr-print-btn:hover {
+  background-color: #0a3a5b;
+}

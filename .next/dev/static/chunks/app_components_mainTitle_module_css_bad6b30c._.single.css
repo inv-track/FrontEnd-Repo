@@ -1,0 +1,35 @@
+/* [project]/app/components/mainTitle.module.css [app-client] (css) */
+.mainTitle-module___yiJNG__page-title-section {
+  text-align: right;
+  margin-bottom: 35px;
+}
+
+.mainTitle-module___yiJNG__main-title {
+  color: #2c2c2c;
+  margin-bottom: 12px;
+  font-size: 34px;
+  font-weight: 600;
+}
+
+.mainTitle-module___yiJNG__welcome-text {
+  color: #555;
+  margin: 4px 0;
+  font-size: 25px;
+  line-height: 1.6;
+}
+
+.mainTitle-module___yiJNG__college-title {
+  color: #2c2c2c;
+  margin-top: 15px;
+  font-size: 26px;
+  font-weight: 600;
+}
+
+.mainTitle-module___yiJNG__breadcrumb {
+  color: #000;
+  margin-bottom: 10px;
+  font-size: 14px;
+  text-align: right !important;
+}
+
+/*# sourceMappingURL=app_components_mainTitle_module_css_bad6b30c._.single.css.map*/

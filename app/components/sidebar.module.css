@@ -13,7 +13,8 @@
   
 }
 
-.nav-link {
+.nav-link,
+.logout-btn {
   color: #fff;
   margin: 0px 30px;
   margin-bottom: 6px;
@@ -28,7 +29,8 @@
   border-right: 3px solid transparent;
 }
 
-.nav-link:hover {
+.nav-link:hover,
+.logout-btn:hover {
   background-color: rgba(255, 255, 255, 0.09);
 }
 
@@ -53,6 +55,16 @@
   margin-right: 8px;
   font-weight: 600;
 }
+
+.logout-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: right;
+  font-family: inherit;
+  width: calc(100% - 60px);
+}
+
 /* ==================== Mobile Menu Toggle ==================== */
 .menu-toggle {
   display: none;

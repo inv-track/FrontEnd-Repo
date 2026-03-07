@@ -1,0 +1,230 @@
+/* [project]/app/warehouse/addAssetModal.css [app-client] (css) */
+.modal-overlay {
+  z-index: 1000;
+  background-color: #00000080;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  position: fixed;
+  inset: 0;
+}
+
+.modal-box {
+  direction: rtl;
+  background-color: #fff;
+  border-radius: 12px;
+  width: 550px;
+  max-width: 90%;
+  padding: 32px;
+  animation: .2s fadeIn;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.modal-title {
+  color: #000;
+  margin-bottom: 24px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.modal-grid {
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  display: grid;
+}
+
+.modal-field {
+  flex-direction: column;
+  gap: 4px;
+  display: flex;
+}
+
+.modal-field label {
+  color: #444;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.modal-field input, .modal-field select {
+  color: #333;
+  box-sizing: border-box;
+  background-color: #fff;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  outline: none;
+  width: 100%;
+  padding: 9px 12px;
+  font-size: 14px;
+  transition: all .2s;
+}
+
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.modal-field input:focus, .modal-field select:focus {
+  border-color: #333;
+  box-shadow: 0 0 0 2px #2563eb33;
+}
+
+.filter-select {
+  display: inline-block;
+  position: relative;
+}
+
+.filter-select select {
+  appearance: none;
+  border-radius: 8px;
+  padding: 9px 35px 9px 12px;
+}
+
+.filter-select:after {
+  content: "";
+  pointer-events: none;
+  background: url("/icon/ep_arrow-down.svg") center / contain no-repeat;
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+}
+
+.add-category-btn {
+  color: #1a3c6e;
+  cursor: pointer;
+  background: none;
+  border: none;
+  margin-top: 6px;
+  padding: 0;
+  font-size: 13px;
+  text-decoration: underline;
+}
+
+.add-category-btn:hover {
+  color: #15305a;
+}
+
+.new-category-row {
+  gap: 6px;
+  margin-top: 6px;
+  display: flex;
+}
+
+.new-category-row input {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  outline: none;
+  flex: 1;
+  padding: 6px 10px;
+  font-size: 13px;
+}
+
+.new-category-row input:focus {
+  border-color: #1a3c6e;
+}
+
+.new-category-row .btn-add {
+  color: #fff;
+  cursor: pointer;
+  background: #0f4c81;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 13px;
+  transition: background .2s;
+}
+
+.new-category-row .btn-add:hover {
+  background: #0a3a5b;
+}
+
+.new-category-row .btn-add:disabled {
+  cursor: not-allowed;
+  background: #aaa;
+}
+
+.new-category-row .btn-close {
+  color: #000;
+  cursor: pointer;
+  background: #f0f0f0;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 13px;
+  transition: background .2s;
+}
+
+.new-category-row .btn-close:hover {
+  background: #e0e0e0;
+}
+
+.modal-error {
+  color: red;
+  background: #fff0f0;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  padding: 8px 12px;
+  font-size: 13px;
+}
+
+.modal-actions {
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 24px;
+  display: flex;
+}
+
+.btn-cancel {
+  color: #333;
+  cursor: pointer;
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 24px;
+  font-size: 14px;
+  transition: background .2s;
+}
+
+.btn-cancel:hover {
+  background-color: #e0e0e0;
+}
+
+.btn-submit {
+  color: #fff;
+  cursor: pointer;
+  background-color: #0f4c81;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 24px;
+  font-size: 14px;
+  transition: background .2s;
+}
+
+.btn-submit:hover {
+  background-color: #0a3a5b;
+}
+
+.btn-submit:disabled {
+  cursor: not-allowed;
+  background-color: #aaa;
+}
+
+/*# sourceMappingURL=app_warehouse_addAssetModal_css_bad6b30c._.single.css.map*/

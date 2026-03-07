@@ -3,11 +3,12 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import styles from "./sidebar.module.css";
+import { fetchWithAuth } from "@/lib/fetchWithAuth";
 
 export default function Sidebar() {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  
+
   const links = [
     { href: "/home", icon: "fa-solid fa-house", text: "الرئيسية" },
     { href: "/operations", icon: "fa-solid fa-rotate", text: "العمليات" },
@@ -15,7 +16,6 @@ export default function Sidebar() {
     { href: "/employee", icon: "fa-solid fa-users", text: "الموظفين" },
     { href: "/location", icon: "fa-solid fa-location-dot", text: "المكان" },
     { href: "/editors", icon: "fa-solid fa-user-tie", text: "المجردين" },
-    { href: "/login", icon: "fa-solid fa-sign-out-alt", text: "تسجيل الخروج" },
   ];
 
   const toggleMenu = () => {
@@ -26,10 +26,15 @@ export default function Sidebar() {
     setIsMenuOpen(false);
   };
 
+  const handleLogout = async () => {
+    await fetchWithAuth("/api/logout", { method: "POST", credentials: "include" });
+    window.location.href = "/login";
+  };
+
   return (
     <aside className={styles["sidebar"]}>
       {/* زر القائمة للموبايل */}
-      <button 
+      <button
         className={`${styles["menu-toggle"]} ${isMenuOpen ? styles["active"] : ""}`}
         onClick={toggleMenu}
       >
@@ -37,7 +42,9 @@ export default function Sidebar() {
       </button>
 
       {/* القائمة */}
-      <nav className={`${styles["nav-menu"]} ${isMenuOpen ? styles["active"] : ""}`}>
+      <nav
+        className={`${styles["nav-menu"]} ${isMenuOpen ? styles["active"] : ""}`}
+      >
         {links.map((link) => {
           const isActive = pathname === link.href;
           return (
@@ -56,6 +63,15 @@ export default function Sidebar() {
             </Link>
           );
         })}
+        <button
+          className={`${styles["nav-link"]} ${styles["logout-btn"]}`}
+          onClick={handleLogout}
+        >
+          <span className={styles["nav-icon"]}>
+            <i className="fa-solid fa-sign-out-alt"></i>
+          </span>
+          <span className={styles["nav-text"]}>تسجيل الخروج</span>
+        </button>
       </nav>
     </aside>
   );

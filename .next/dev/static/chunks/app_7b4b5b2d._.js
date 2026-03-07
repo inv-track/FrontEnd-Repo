@@ -1,0 +1,1582 @@
+(globalThis.TURBOPACK || (globalThis.TURBOPACK = [])).push([typeof document === "object" ? document.currentScript : undefined,
+"[project]/app/components/sidebar.module.css [app-client] (css module)", ((__turbopack_context__) => {
+
+__turbopack_context__.v({
+  "active": "sidebar-module__XUuFKW__active",
+  "menu-text": "sidebar-module__XUuFKW__menu-text",
+  "menu-toggle": "sidebar-module__XUuFKW__menu-toggle",
+  "nav-icon": "sidebar-module__XUuFKW__nav-icon",
+  "nav-link": "sidebar-module__XUuFKW__nav-link",
+  "nav-menu": "sidebar-module__XUuFKW__nav-menu",
+  "nav-text": "sidebar-module__XUuFKW__nav-text",
+  "sidebar": "sidebar-module__XUuFKW__sidebar",
+  "slideDown": "sidebar-module__XUuFKW__slideDown",
+});
+}),
+"[project]/app/components/sidebar.tsx [app-client] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "default",
+    ()=>Sidebar
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/client/app-dir/link.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/navigation.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$sidebar$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__ = __turbopack_context__.i("[project]/app/components/sidebar.module.css [app-client] (css module)");
+;
+var _s = __turbopack_context__.k.signature();
+"use client";
+;
+;
+;
+;
+function Sidebar() {
+    _s();
+    const pathname = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["usePathname"])();
+    const [isMenuOpen, setIsMenuOpen] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
+    const links = [
+        {
+            href: "/home",
+            icon: "fa-solid fa-house",
+            text: "الرئيسية"
+        },
+        {
+            href: "/operations",
+            icon: "fa-solid fa-rotate",
+            text: "العمليات"
+        },
+        {
+            href: "/warehouse",
+            icon: "fa-solid fa-box",
+            text: "العهد/المخازن"
+        },
+        {
+            href: "/employee",
+            icon: "fa-solid fa-users",
+            text: "الموظفين"
+        },
+        {
+            href: "/location",
+            icon: "fa-solid fa-location-dot",
+            text: "المكان"
+        },
+        {
+            href: "/editors",
+            icon: "fa-solid fa-user-tie",
+            text: "المجردين"
+        },
+        {
+            href: "/login",
+            icon: "fa-solid fa-sign-out-alt",
+            text: "تسجيل الخروج"
+        }
+    ];
+    const toggleMenu = ()=>{
+        setIsMenuOpen(!isMenuOpen);
+    };
+    const closeMenu = ()=>{
+        setIsMenuOpen(false);
+    };
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("aside", {
+        className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$sidebar$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"]["sidebar"],
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                className: `${__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$sidebar$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"]["menu-toggle"]} ${isMenuOpen ? __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$sidebar$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"]["active"] : ""}`,
+                onClick: toggleMenu,
+                children: "القائمة"
+            }, void 0, false, {
+                fileName: "[project]/app/components/sidebar.tsx",
+                lineNumber: 32,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("nav", {
+                className: `${__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$sidebar$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"]["nav-menu"]} ${isMenuOpen ? __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$sidebar$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"]["active"] : ""}`,
+                children: links.map((link)=>{
+                    const isActive = pathname === link.href;
+                    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                        href: link.href,
+                        className: `${__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$sidebar$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"]["nav-link"]} ${isActive ? __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$sidebar$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"]["active"] : ""}`,
+                        onClick: closeMenu,
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$sidebar$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"]["nav-icon"],
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("i", {
+                                    className: link.icon
+                                }, void 0, false, {
+                                    fileName: "[project]/app/components/sidebar.tsx",
+                                    lineNumber: 53,
+                                    columnNumber: 17
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "[project]/app/components/sidebar.tsx",
+                                lineNumber: 52,
+                                columnNumber: 15
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$sidebar$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"]["nav-text"],
+                                children: link.text
+                            }, void 0, false, {
+                                fileName: "[project]/app/components/sidebar.tsx",
+                                lineNumber: 55,
+                                columnNumber: 15
+                            }, this)
+                        ]
+                    }, link.href, true, {
+                        fileName: "[project]/app/components/sidebar.tsx",
+                        lineNumber: 44,
+                        columnNumber: 13
+                    }, this);
+                })
+            }, void 0, false, {
+                fileName: "[project]/app/components/sidebar.tsx",
+                lineNumber: 40,
+                columnNumber: 7
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "[project]/app/components/sidebar.tsx",
+        lineNumber: 30,
+        columnNumber: 5
+    }, this);
+}
+_s(Sidebar, "d/L2GqF9l44rBl7/rgBWSc2ljcI=", false, function() {
+    return [
+        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["usePathname"]
+    ];
+});
+_c = Sidebar;
+var _c;
+__turbopack_context__.k.register(_c, "Sidebar");
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
+}
+}),
+"[project]/app/components/header.module.css [app-client] (css module)", ((__turbopack_context__) => {
+
+__turbopack_context__.v({
+  "header": "header-module__edqLnG__header",
+  "header-actions": "header-module__edqLnG__header-actions",
+  "logo": "header-module__edqLnG__logo",
+  "profile-btn": "header-module__edqLnG__profile-btn",
+  "search-container": "header-module__edqLnG__search-container",
+});
+}),
+"[project]/app/components/header.tsx [app-client] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "default",
+    ()=>Header
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$header$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__ = __turbopack_context__.i("[project]/app/components/header.module.css [app-client] (css module)");
+"use client";
+;
+;
+function Header() {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("header", {
+        className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$header$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].header,
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$header$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].logo,
+                children: "نظام جرد العهد والمخازن"
+            }, void 0, false, {
+                fileName: "[project]/app/components/header.tsx",
+                lineNumber: 7,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$header$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"]["header-actions"],
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                    className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$header$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"]["profile-btn"],
+                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("i", {
+                        className: "fa-regular fa-user"
+                    }, void 0, false, {
+                        fileName: "[project]/app/components/header.tsx",
+                        lineNumber: 9,
+                        columnNumber: 51
+                    }, this)
+                }, void 0, false, {
+                    fileName: "[project]/app/components/header.tsx",
+                    lineNumber: 9,
+                    columnNumber: 9
+                }, this)
+            }, void 0, false, {
+                fileName: "[project]/app/components/header.tsx",
+                lineNumber: 8,
+                columnNumber: 7
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "[project]/app/components/header.tsx",
+        lineNumber: 6,
+        columnNumber: 5
+    }, this);
+}
+_c = Header;
+var _c;
+__turbopack_context__.k.register(_c, "Header");
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
+}
+}),
+"[project]/app/components/mainTitle.module.css [app-client] (css module)", ((__turbopack_context__) => {
+
+__turbopack_context__.v({
+  "breadcrumb": "mainTitle-module___yiJNG__breadcrumb",
+  "college-title": "mainTitle-module___yiJNG__college-title",
+  "main-title": "mainTitle-module___yiJNG__main-title",
+  "page-title-section": "mainTitle-module___yiJNG__page-title-section",
+  "welcome-text": "mainTitle-module___yiJNG__welcome-text",
+});
+}),
+"[project]/app/components/mainTitle.tsx [app-client] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "default",
+    ()=>MainTitle
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/navigation.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$mainTitle$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__ = __turbopack_context__.i("[project]/app/components/mainTitle.module.css [app-client] (css module)");
+;
+var _s = __turbopack_context__.k.signature();
+"use client";
+;
+;
+function MainTitle() {
+    _s();
+    const pathname = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["usePathname"])();
+    const pages = {
+        "/home": {
+            title: "نظام جرد العهد والمخازن",
+            line1: "مرحبا بك في نظام إدارة العهد والمخازن",
+            bottomTitle: "لكلية العلوم",
+            breadcrumb: "الرئيسية"
+        },
+        "/operations": {
+            title: "العمليات",
+            line1: "أدارة عمليات الصرف والنقل والارجاع",
+            breadcrumb: "الرئيسية > العمليات"
+        },
+        "/employee": {
+            title: "الموظفين",
+            line1: "عرض وإدارة بيانات الموظفين والعهد المسلمه لهم",
+            breadcrumb: "الرئيسية > الموظفين"
+        },
+        "/warehouse": {
+            title: "العهدة / المخازن",
+            line1: "إدارة المخزون والعهد",
+            breadcrumb: "الرئيسية > العهدة / المخازن"
+        },
+        "/location": {
+            title: "المكان",
+            line1: "عرض وإدارة مواقع التخزين في الكلية",
+            breadcrumb: "الرئيسية > المكان"
+        },
+        "/editors": {
+            title: "المجردين",
+            line1: "إدارة حسابات المُجرِّدين الخارجيين ومنحهم صلاحيات الوصول لتطبيق الجرد عبر الموبايل",
+            breadcrumb: "الرئيسية > المجردين"
+        }
+    };
+    const current = pages[pathname] || {
+        title: "لوحة التحكم",
+        breadcrumb: "الرئيسية > لوحة التحكم"
+    };
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+        className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$mainTitle$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"]["page-title-section"],
+        style: {
+            textAlign: pathname === "/home" ? "center" : "right"
+        },
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$mainTitle$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"]["breadcrumb"],
+                children: current.breadcrumb
+            }, void 0, false, {
+                fileName: "[project]/app/components/mainTitle.tsx",
+                lineNumber: 66,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
+                className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$mainTitle$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"]["main-title"],
+                children: current.title
+            }, void 0, false, {
+                fileName: "[project]/app/components/mainTitle.tsx",
+                lineNumber: 69,
+                columnNumber: 7
+            }, this),
+            current.line1 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$mainTitle$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"]["welcome-text"],
+                children: current.line1
+            }, void 0, false, {
+                fileName: "[project]/app/components/mainTitle.tsx",
+                lineNumber: 73,
+                columnNumber: 9
+            }, this),
+            current.line2 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$mainTitle$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"]["welcome-text"],
+                children: current.line2
+            }, void 0, false, {
+                fileName: "[project]/app/components/mainTitle.tsx",
+                lineNumber: 76,
+                columnNumber: 9
+            }, this),
+            current.bottomTitle && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$mainTitle$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"]["college-title"],
+                children: current.bottomTitle
+            }, void 0, false, {
+                fileName: "[project]/app/components/mainTitle.tsx",
+                lineNumber: 81,
+                columnNumber: 9
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "[project]/app/components/mainTitle.tsx",
+        lineNumber: 59,
+        columnNumber: 5
+    }, this);
+}
+_s(MainTitle, "xbyQPtUVMO7MNj7WjJlpdWqRcTo=", false, function() {
+    return [
+        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["usePathname"]
+    ];
+});
+_c = MainTitle;
+var _c;
+__turbopack_context__.k.register(_c, "MainTitle");
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
+}
+}),
+"[project]/app/employee/AddEmployeeModal.module.css [app-client] (css module)", ((__turbopack_context__) => {
+
+__turbopack_context__.v({
+  "actions": "AddEmployeeModal-module__2hgWIW__actions",
+  "btnPrimary": "AddEmployeeModal-module__2hgWIW__btnPrimary",
+  "card": "AddEmployeeModal-module__2hgWIW__card",
+  "close": "AddEmployeeModal-module__2hgWIW__close",
+  "error": "AddEmployeeModal-module__2hgWIW__error",
+  "field": "AddEmployeeModal-module__2hgWIW__field",
+  "form": "AddEmployeeModal-module__2hgWIW__form",
+  "headerTitle": "AddEmployeeModal-module__2hgWIW__headerTitle",
+  "input": "AddEmployeeModal-module__2hgWIW__input",
+  "label": "AddEmployeeModal-module__2hgWIW__label",
+  "modalRoot": "AddEmployeeModal-module__2hgWIW__modalRoot",
+  "overlay": "AddEmployeeModal-module__2hgWIW__overlay",
+  "select": "AddEmployeeModal-module__2hgWIW__select",
+  "subTitle": "AddEmployeeModal-module__2hgWIW__subTitle",
+});
+}),
+"[project]/app/employee/AddEmployeeModal.tsx [app-client] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "default",
+    ()=>AddEmployeeModal
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$AddEmployeeModal$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__ = __turbopack_context__.i("[project]/app/employee/AddEmployeeModal.module.css [app-client] (css module)");
+"use client";
+;
+;
+function AddEmployeeModal({ isOpen, onClose }) {
+    if (!isOpen) return null;
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+        className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$AddEmployeeModal$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].modalRoot,
+        role: "dialog",
+        "aria-modal": "true",
+        dir: "rtl",
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$AddEmployeeModal$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].overlay
+            }, void 0, false, {
+                fileName: "[project]/app/employee/AddEmployeeModal.tsx",
+                lineNumber: 16,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$AddEmployeeModal$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].card,
+                "aria-label": "Add employee modal",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                        className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$AddEmployeeModal$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].close,
+                        onClick: onClose,
+                        "aria-label": "إغلاق",
+                        children: "✕"
+                    }, void 0, false, {
+                        fileName: "[project]/app/employee/AddEmployeeModal.tsx",
+                        lineNumber: 19,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                        className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$AddEmployeeModal$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].headerTitle,
+                        children: "اضافة موظف جديد"
+                    }, void 0, false, {
+                        fileName: "[project]/app/employee/AddEmployeeModal.tsx",
+                        lineNumber: 23,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                        className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$AddEmployeeModal$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].subTitle,
+                        children: "أدخل بيانات الموظف الجديد"
+                    }, void 0, false, {
+                        fileName: "[project]/app/employee/AddEmployeeModal.tsx",
+                        lineNumber: 24,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
+                        className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$AddEmployeeModal$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].form,
+                        onSubmit: (e)=>e.preventDefault(),
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$AddEmployeeModal$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].field,
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                        className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$AddEmployeeModal$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].label,
+                                        children: "الاسم الكامل"
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/employee/AddEmployeeModal.tsx",
+                                        lineNumber: 28,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                        className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$AddEmployeeModal$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].input,
+                                        name: "fullName",
+                                        placeholder: "مثال: أحمد محمد علي",
+                                        "aria-label": "الاسم الكامل",
+                                        required: true
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/employee/AddEmployeeModal.tsx",
+                                        lineNumber: 29,
+                                        columnNumber: 13
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/app/employee/AddEmployeeModal.tsx",
+                                lineNumber: 27,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$AddEmployeeModal$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].field,
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                        className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$AddEmployeeModal$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].label,
+                                        children: "الرقم القومي"
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/employee/AddEmployeeModal.tsx",
+                                        lineNumber: 39,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                        className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$AddEmployeeModal$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].input,
+                                        name: "ssn",
+                                        placeholder: "مثال: 1234567890123456",
+                                        inputMode: "numeric",
+                                        "aria-label": "الرقم القومي",
+                                        required: true
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/employee/AddEmployeeModal.tsx",
+                                        lineNumber: 40,
+                                        columnNumber: 13
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/app/employee/AddEmployeeModal.tsx",
+                                lineNumber: 38,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$AddEmployeeModal$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].field,
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                        className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$AddEmployeeModal$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].label,
+                                        children: "مكان الموظف"
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/employee/AddEmployeeModal.tsx",
+                                        lineNumber: 51,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
+                                        className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$AddEmployeeModal$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].select,
+                                        name: "place",
+                                        "aria-label": "مكان الموظف",
+                                        defaultValue: "",
+                                        required: true,
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                value: "",
+                                                disabled: true,
+                                                children: "اختر الكلية"
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/employee/AddEmployeeModal.tsx",
+                                                lineNumber: 59,
+                                                columnNumber: 15
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                children: "كلية الهندسة"
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/employee/AddEmployeeModal.tsx",
+                                                lineNumber: 62,
+                                                columnNumber: 15
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                children: "كلية العلوم"
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/employee/AddEmployeeModal.tsx",
+                                                lineNumber: 63,
+                                                columnNumber: 15
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                children: "كلية الاداب"
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/employee/AddEmployeeModal.tsx",
+                                                lineNumber: 64,
+                                                columnNumber: 15
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/app/employee/AddEmployeeModal.tsx",
+                                        lineNumber: 52,
+                                        columnNumber: 13
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/app/employee/AddEmployeeModal.tsx",
+                                lineNumber: 50,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$AddEmployeeModal$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].field,
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                        className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$AddEmployeeModal$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].label,
+                                        children: "رقم الهاتف"
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/employee/AddEmployeeModal.tsx",
+                                        lineNumber: 69,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                        className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$AddEmployeeModal$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].input,
+                                        name: "phone",
+                                        placeholder: "مثال: 0123456789",
+                                        inputMode: "tel",
+                                        "aria-label": "رقم الهاتف",
+                                        required: true
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/employee/AddEmployeeModal.tsx",
+                                        lineNumber: 70,
+                                        columnNumber: 13
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/app/employee/AddEmployeeModal.tsx",
+                                lineNumber: 68,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$AddEmployeeModal$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].actions,
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                    type: "submit",
+                                    className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$AddEmployeeModal$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].btnPrimary,
+                                    children: "أضفـه"
+                                }, void 0, false, {
+                                    fileName: "[project]/app/employee/AddEmployeeModal.tsx",
+                                    lineNumber: 81,
+                                    columnNumber: 13
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "[project]/app/employee/AddEmployeeModal.tsx",
+                                lineNumber: 80,
+                                columnNumber: 11
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/app/employee/AddEmployeeModal.tsx",
+                        lineNumber: 26,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/app/employee/AddEmployeeModal.tsx",
+                lineNumber: 18,
+                columnNumber: 7
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "[project]/app/employee/AddEmployeeModal.tsx",
+        lineNumber: 15,
+        columnNumber: 5
+    }, this);
+}
+_c = AddEmployeeModal;
+var _c;
+__turbopack_context__.k.register(_c, "AddEmployeeModal");
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
+}
+}),
+"[project]/app/employee/EmployeeList.module.css [app-client] (css module)", ((__turbopack_context__) => {
+
+__turbopack_context__.v({
+  "add-employee-icon": "EmployeeList-module__4252mW__add-employee-icon",
+  "employee-item": "EmployeeList-module__4252mW__employee-item",
+  "employee-list": "EmployeeList-module__4252mW__employee-list",
+  "employee-name": "EmployeeList-module__4252mW__employee-name",
+  "header": "EmployeeList-module__4252mW__header",
+  "list": "EmployeeList-module__4252mW__list",
+  "name-custody": "EmployeeList-module__4252mW__name-custody",
+  "search-bar": "EmployeeList-module__4252mW__search-bar",
+  "search-container": "EmployeeList-module__4252mW__search-container",
+  "search-icon": "EmployeeList-module__4252mW__search-icon",
+  "search-input": "EmployeeList-module__4252mW__search-input",
+  "title": "EmployeeList-module__4252mW__title",
+});
+}),
+"[project]/app/employee/EmployeeList.tsx [app-client] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "default",
+    ()=>EmployeeList
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$AddEmployeeModal$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/app/employee/AddEmployeeModal.tsx [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$EmployeeList$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__ = __turbopack_context__.i("[project]/app/employee/EmployeeList.module.css [app-client] (css module)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/image.js [app-client] (ecmascript)");
+;
+var _s = __turbopack_context__.k.signature();
+"use client";
+;
+;
+;
+;
+function EmployeeList({ onSelect }) {
+    _s();
+    const [open, setOpen] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
+    // داتا مبدئية لحد ما API يخلص
+    const employees = [
+        {
+            id: "1",
+            name: "أحمد محمد",
+            dept: "قسم الفيزياء",
+            custody: "5"
+        },
+        {
+            id: "2",
+            name: "محمد علي",
+            dept: "قسم الكيمياء",
+            custody: "3"
+        },
+        {
+            id: "3",
+            name: "إبراهيم حسن",
+            dept: "قسم الرياضيات",
+            custody: "2"
+        },
+        {
+            id: "4",
+            name: "خالد سمير",
+            dept: "قسم الأحياء",
+            custody: "1"
+        }
+    ];
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+        className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$EmployeeList$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"]["employee-list"],
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$EmployeeList$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"]["header"],
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                        className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$EmployeeList$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"]["title"],
+                        children: " قائمة الموظفين"
+                    }, void 0, false, {
+                        fileName: "[project]/app/employee/EmployeeList.tsx",
+                        lineNumber: 26,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                        src: "/icon/addEmployee.png",
+                        alt: "addEmployee",
+                        width: 20,
+                        height: 20,
+                        className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$EmployeeList$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"]["add-employee-icon"],
+                        onClick: ()=>setOpen(true),
+                        style: {
+                            cursor: "pointer"
+                        }
+                    }, void 0, false, {
+                        fileName: "[project]/app/employee/EmployeeList.tsx",
+                        lineNumber: 27,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/app/employee/EmployeeList.tsx",
+                lineNumber: 25,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$EmployeeList$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"]["search-container"],
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                        type: "text",
+                        className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$EmployeeList$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"]["search-input"],
+                        placeholder: "بحث..."
+                    }, void 0, false, {
+                        fileName: "[project]/app/employee/EmployeeList.tsx",
+                        lineNumber: 39,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                        className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$EmployeeList$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"]["search-icon"],
+                        children: "🔍"
+                    }, void 0, false, {
+                        fileName: "[project]/app/employee/EmployeeList.tsx",
+                        lineNumber: 44,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/app/employee/EmployeeList.tsx",
+                lineNumber: 38,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$EmployeeList$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"]["employee"],
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
+                    className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$EmployeeList$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"]["list"],
+                    children: employees.map((emp)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
+                            className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$EmployeeList$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"]["employee-item"],
+                            onClick: ()=>onSelect(emp.id),
+                            style: {
+                                cursor: "pointer"
+                            },
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$EmployeeList$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"]["name-custody"],
+                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                        className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$EmployeeList$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"]["employee-name"],
+                                        children: emp.name
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/employee/EmployeeList.tsx",
+                                        lineNumber: 57,
+                                        columnNumber: 17
+                                    }, this)
+                                }, void 0, false, {
+                                    fileName: "[project]/app/employee/EmployeeList.tsx",
+                                    lineNumber: 56,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                    className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$EmployeeList$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"]["employee-location"],
+                                    children: emp.dept
+                                }, void 0, false, {
+                                    fileName: "[project]/app/employee/EmployeeList.tsx",
+                                    lineNumber: 60,
+                                    columnNumber: 15
+                                }, this)
+                            ]
+                        }, emp.id, true, {
+                            fileName: "[project]/app/employee/EmployeeList.tsx",
+                            lineNumber: 50,
+                            columnNumber: 13
+                        }, this))
+                }, void 0, false, {
+                    fileName: "[project]/app/employee/EmployeeList.tsx",
+                    lineNumber: 48,
+                    columnNumber: 9
+                }, this)
+            }, void 0, false, {
+                fileName: "[project]/app/employee/EmployeeList.tsx",
+                lineNumber: 47,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$AddEmployeeModal$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                isOpen: open,
+                onClose: ()=>setOpen(false)
+            }, void 0, false, {
+                fileName: "[project]/app/employee/EmployeeList.tsx",
+                lineNumber: 66,
+                columnNumber: 7
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "[project]/app/employee/EmployeeList.tsx",
+        lineNumber: 24,
+        columnNumber: 5
+    }, this);
+}
+_s(EmployeeList, "xG1TONbKtDWtdOTrXaTAsNhPg/Q=");
+_c = EmployeeList;
+var _c;
+__turbopack_context__.k.register(_c, "EmployeeList");
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
+}
+}),
+"[project]/app/employee/EmployeeDetails.module.css [app-client] (css module)", ((__turbopack_context__) => {
+
+__turbopack_context__.v({
+  "actionBtn": "EmployeeDetails-module__zWh4EW__actionBtn",
+  "actionIcon": "EmployeeDetails-module__zWh4EW__actionIcon",
+  "assetsTable": "EmployeeDetails-module__zWh4EW__assetsTable",
+  "avatar": "EmployeeDetails-module__zWh4EW__avatar",
+  "card": "EmployeeDetails-module__zWh4EW__card",
+  "colAction": "EmployeeDetails-module__zWh4EW__colAction",
+  "colDate": "EmployeeDetails-module__zWh4EW__colDate",
+  "colName": "EmployeeDetails-module__zWh4EW__colName",
+  "colQty": "EmployeeDetails-module__zWh4EW__colQty",
+  "contact": "EmployeeDetails-module__zWh4EW__contact",
+  "emptyBox": "EmployeeDetails-module__zWh4EW__emptyBox",
+  "headerRow": "EmployeeDetails-module__zWh4EW__headerRow",
+  "info": "EmployeeDetails-module__zWh4EW__info",
+  "job": "EmployeeDetails-module__zWh4EW__job",
+  "name": "EmployeeDetails-module__zWh4EW__name",
+  "printBtn": "EmployeeDetails-module__zWh4EW__printBtn",
+  "profile": "EmployeeDetails-module__zWh4EW__profile",
+  "tabActive": "EmployeeDetails-module__zWh4EW__tabActive",
+  "tabBtn": "EmployeeDetails-module__zWh4EW__tabBtn",
+  "table": "EmployeeDetails-module__zWh4EW__table",
+  "tableWrap": "EmployeeDetails-module__zWh4EW__tableWrap",
+  "tabsRow": "EmployeeDetails-module__zWh4EW__tabsRow",
+  "text": "EmployeeDetails-module__zWh4EW__text",
+  "wrapper": "EmployeeDetails-module__zWh4EW__wrapper",
+});
+}),
+"[project]/app/employee/EmployeeDetails.tsx [app-client] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "default",
+    ()=>EmployeeDetails
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$EmployeeDetails$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__ = __turbopack_context__.i("[project]/app/employee/EmployeeDetails.module.css [app-client] (css module)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/image.js [app-client] (ecmascript)");
+;
+var _s = __turbopack_context__.k.signature();
+"use client";
+;
+;
+;
+/* بيانات تجريبية */ const DUMMY = {
+    "1": {
+        id: "1",
+        name: "أحمد محمد علي",
+        jobTitle: "مهندس",
+        department: "قسم الفيزياء",
+        phone: "01274244766",
+        nationalId: "123456789123",
+        avatarUrl: "/icon/lucide_user-round.svg",
+        assets: [
+            {
+                item: "جهاز كمبيوتر محمول Dell",
+                qty: 1,
+                lastTransfer: "2024-06-20"
+            },
+            {
+                item: "شاشة LCD 24 بوصة",
+                qty: 2,
+                lastTransfer: "2025-01-10"
+            }
+        ],
+        operations: [
+            {
+                type: "نقل",
+                item: "لوحة مفاتيح",
+                qty: 3,
+                date: "2025-09-20"
+            },
+            {
+                type: "نقل",
+                item: "شاشة LCD 24 بوصة",
+                qty: 2,
+                date: "2025-01-10"
+            },
+            {
+                type: "استلام",
+                item: "ماوس",
+                qty: 1,
+                date: "2025-10-01"
+            }
+        ]
+    },
+    "2": {
+        id: "2",
+        name: "محمد علي",
+        jobTitle: "فني مختبر",
+        department: "قسم الكيمياء",
+        phone: "01012345678",
+        nationalId: "987654321987",
+        avatarUrl: "/icon/lucide_user-round.svg",
+        assets: [
+            {
+                item: "ميكروسكوب",
+                qty: 1,
+                lastTransfer: "2024-08-10"
+            }
+        ],
+        operations: [
+            {
+                type: "استلام",
+                item: "ميكروسكوب",
+                qty: 1,
+                date: "2024-08-10"
+            }
+        ]
+    },
+    "3": {
+        id: "3",
+        name: "إبراهيم حسن",
+        jobTitle: "محاضر",
+        department: "قسم الرياضيات",
+        phone: "01122334455",
+        nationalId: "321654987123",
+        avatarUrl: "/icon/lucide_user-round.svg",
+        assets: [
+            {
+                item: "حاسبة علمية",
+                qty: 1,
+                lastTransfer: "2023-05-12"
+            }
+        ],
+        operations: [
+            {
+                type: "استلام",
+                item: "حاسبة علمية",
+                qty: 1,
+                date: "2023-05-12"
+            }
+        ]
+    },
+    "4": {
+        id: "4",
+        name: "خالد سمير",
+        jobTitle: "معيد",
+        department: "قسم الأحياء",
+        phone: "01500998877",
+        nationalId: "998877665544",
+        avatarUrl: "/icon/lucide_user-round.svg",
+        assets: [],
+        operations: []
+    }
+};
+function EmptyDetails() {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+        className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$EmployeeDetails$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].emptyBox,
+        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+            className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$EmployeeDetails$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].text,
+            children: [
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                    src: "/icon/lucide_user-round.svg",
+                    alt: "Employee",
+                    width: 50,
+                    height: 50,
+                    className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$EmployeeDetails$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"]["add-employee-icon"]
+                }, void 0, false, {
+                    fileName: "[project]/app/employee/EmployeeDetails.tsx",
+                    lineNumber: 86,
+                    columnNumber: 9
+                }, this),
+                "اختر موظف لعرض التفاصيل"
+            ]
+        }, void 0, true, {
+            fileName: "[project]/app/employee/EmployeeDetails.tsx",
+            lineNumber: 85,
+            columnNumber: 7
+        }, this)
+    }, void 0, false, {
+        fileName: "[project]/app/employee/EmployeeDetails.tsx",
+        lineNumber: 84,
+        columnNumber: 5
+    }, this);
+}
+_c = EmptyDetails;
+function EmployeeDetails({ selectedId, employee }) {
+    _s();
+    const [emp, setEmp] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(employee ?? null);
+    const [loading, setLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
+    const [tab, setTab] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("ops");
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
+        "EmployeeDetails.useEffect": ()=>{
+            if (employee) {
+                setEmp(employee);
+                return;
+            }
+            if (!selectedId) {
+                setEmp(null);
+                return;
+            }
+            let mounted = true;
+            setLoading(true);
+            ({
+                "EmployeeDetails.useEffect": async ()=>{
+                    try {
+                        const res = await fetch(`/api/employee/${selectedId}`);
+                        if (!res.ok) throw new Error("no api");
+                        const data = await res.json();
+                        if (!mounted) return;
+                        setEmp(data);
+                    } catch  {
+                        if (!mounted) return;
+                        setEmp(DUMMY[selectedId] ?? null);
+                    } finally{
+                        if (mounted) setLoading(false);
+                    }
+                }
+            })["EmployeeDetails.useEffect"]();
+            return ({
+                "EmployeeDetails.useEffect": ()=>{
+                    mounted = false;
+                }
+            })["EmployeeDetails.useEffect"];
+        }
+    }["EmployeeDetails.useEffect"], [
+        selectedId,
+        employee
+    ]);
+    if (!selectedId && !emp) return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(EmptyDetails, {}, void 0, false, {
+        fileName: "[project]/app/employee/EmployeeDetails.tsx",
+        lineNumber: 147,
+        columnNumber: 35
+    }, this);
+    if (loading) return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+        className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$EmployeeDetails$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].emptyBox,
+        children: "...جاري التحميل"
+    }, void 0, false, {
+        fileName: "[project]/app/employee/EmployeeDetails.tsx",
+        lineNumber: 148,
+        columnNumber: 23
+    }, this);
+    if (!emp) return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+        className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$EmployeeDetails$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].emptyBox,
+        children: "لا توجد بيانات للموظف المحدد"
+    }, void 0, false, {
+        fileName: "[project]/app/employee/EmployeeDetails.tsx",
+        lineNumber: 150,
+        columnNumber: 12
+    }, this);
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+        className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$EmployeeDetails$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].wrapper,
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$EmployeeDetails$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].headerRow,
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$EmployeeDetails$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].profile,
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$EmployeeDetails$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].avatar,
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                    src: emp.avatarUrl ?? "/icon/lucide_user-round.svg",
+                                    alt: emp.name,
+                                    width: 64,
+                                    height: 64
+                                }, void 0, false, {
+                                    fileName: "[project]/app/employee/EmployeeDetails.tsx",
+                                    lineNumber: 157,
+                                    columnNumber: 13
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "[project]/app/employee/EmployeeDetails.tsx",
+                                lineNumber: 156,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$EmployeeDetails$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].info,
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$EmployeeDetails$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].name,
+                                        children: emp.name
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/employee/EmployeeDetails.tsx",
+                                        lineNumber: 165,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$EmployeeDetails$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].job,
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                                src: "/icon/pixel_business.svg",
+                                                alt: "Job",
+                                                width: 16,
+                                                height: 16
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/employee/EmployeeDetails.tsx",
+                                                lineNumber: 167,
+                                                columnNumber: 15
+                                            }, this),
+                                            emp.department ?? emp.jobTitle
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/app/employee/EmployeeDetails.tsx",
+                                        lineNumber: 166,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$EmployeeDetails$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].contact,
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                                src: "/icon/fluent_call-20-regular.svg",
+                                                alt: "Job",
+                                                width: 16,
+                                                height: 16
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/employee/EmployeeDetails.tsx",
+                                                lineNumber: 176,
+                                                columnNumber: 15
+                                            }, this),
+                                            emp.phone
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/app/employee/EmployeeDetails.tsx",
+                                        lineNumber: 175,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$EmployeeDetails$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].contact,
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                                src: "/icon/lucide_user-round.svg",
+                                                alt: "Job",
+                                                width: 16,
+                                                height: 16
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/employee/EmployeeDetails.tsx",
+                                                lineNumber: 185,
+                                                columnNumber: 15
+                                            }, this),
+                                            emp.nationalId
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/app/employee/EmployeeDetails.tsx",
+                                        lineNumber: 184,
+                                        columnNumber: 13
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/app/employee/EmployeeDetails.tsx",
+                                lineNumber: 164,
+                                columnNumber: 11
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/app/employee/EmployeeDetails.tsx",
+                        lineNumber: 155,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                        className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$EmployeeDetails$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].printBtn,
+                        children: "طباعة العهد"
+                    }, void 0, false, {
+                        fileName: "[project]/app/employee/EmployeeDetails.tsx",
+                        lineNumber: 196,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/app/employee/EmployeeDetails.tsx",
+                lineNumber: 154,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$EmployeeDetails$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].tabsRow,
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                        className: `${__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$EmployeeDetails$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].tabBtn} ${tab === "assets" ? __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$EmployeeDetails$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].tabActive : ""}`,
+                        onClick: ()=>setTab("assets"),
+                        children: "العهد المملوكة"
+                    }, void 0, false, {
+                        fileName: "[project]/app/employee/EmployeeDetails.tsx",
+                        lineNumber: 200,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                        className: `${__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$EmployeeDetails$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].tabBtn} ${tab === "ops" ? __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$EmployeeDetails$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].tabActive : ""}`,
+                        onClick: ()=>setTab("ops"),
+                        children: "سجل العمليات"
+                    }, void 0, false, {
+                        fileName: "[project]/app/employee/EmployeeDetails.tsx",
+                        lineNumber: 209,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/app/employee/EmployeeDetails.tsx",
+                lineNumber: 199,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$EmployeeDetails$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].card,
+                children: tab === "assets" ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$EmployeeDetails$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].tableWrap,
+                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("table", {
+                        className: `${__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$EmployeeDetails$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].table} ${__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$EmployeeDetails$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].assetsTable}`,
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("thead", {
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
+                                            className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$EmployeeDetails$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].colName,
+                                            children: "اسم الصنف"
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/employee/EmployeeDetails.tsx",
+                                            lineNumber: 225,
+                                            columnNumber: 19
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
+                                            className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$EmployeeDetails$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].colQty,
+                                            children: "الكمية"
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/employee/EmployeeDetails.tsx",
+                                            lineNumber: 226,
+                                            columnNumber: 19
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
+                                            className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$EmployeeDetails$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].colDate,
+                                            children: "تاريخ آخر عملية"
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/employee/EmployeeDetails.tsx",
+                                            lineNumber: 227,
+                                            columnNumber: 19
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/app/employee/EmployeeDetails.tsx",
+                                    lineNumber: 224,
+                                    columnNumber: 17
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "[project]/app/employee/EmployeeDetails.tsx",
+                                lineNumber: 223,
+                                columnNumber: 15
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tbody", {
+                                children: emp.assets && emp.assets.length > 0 ? emp.assets.map((a, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
+                                                className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$EmployeeDetails$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].colName,
+                                                children: a.item
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/employee/EmployeeDetails.tsx",
+                                                lineNumber: 234,
+                                                columnNumber: 23
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
+                                                className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$EmployeeDetails$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].colQty,
+                                                children: a.qty
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/employee/EmployeeDetails.tsx",
+                                                lineNumber: 235,
+                                                columnNumber: 23
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
+                                                className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$EmployeeDetails$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].colDate,
+                                                children: a.lastTransfer ?? "-"
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/employee/EmployeeDetails.tsx",
+                                                lineNumber: 236,
+                                                columnNumber: 23
+                                            }, this)
+                                        ]
+                                    }, i, true, {
+                                        fileName: "[project]/app/employee/EmployeeDetails.tsx",
+                                        lineNumber: 233,
+                                        columnNumber: 21
+                                    }, this)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
+                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
+                                        colSpan: 3,
+                                        style: {
+                                            textAlign: "center",
+                                            padding: "18px"
+                                        },
+                                        children: "لا توجد عُهد"
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/employee/EmployeeDetails.tsx",
+                                        lineNumber: 243,
+                                        columnNumber: 21
+                                    }, this)
+                                }, void 0, false, {
+                                    fileName: "[project]/app/employee/EmployeeDetails.tsx",
+                                    lineNumber: 242,
+                                    columnNumber: 19
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "[project]/app/employee/EmployeeDetails.tsx",
+                                lineNumber: 230,
+                                columnNumber: 15
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/app/employee/EmployeeDetails.tsx",
+                        lineNumber: 222,
+                        columnNumber: 13
+                    }, this)
+                }, void 0, false, {
+                    fileName: "[project]/app/employee/EmployeeDetails.tsx",
+                    lineNumber: 221,
+                    columnNumber: 11
+                }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$EmployeeDetails$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].tableWrap,
+                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("table", {
+                        className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$EmployeeDetails$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].table,
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("thead", {
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
+                                            className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$EmployeeDetails$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].colAction,
+                                            children: "نوع العملية"
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/employee/EmployeeDetails.tsx",
+                                            lineNumber: 259,
+                                            columnNumber: 19
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
+                                            className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$EmployeeDetails$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].colName,
+                                            children: "الصنف"
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/employee/EmployeeDetails.tsx",
+                                            lineNumber: 260,
+                                            columnNumber: 19
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
+                                            className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$EmployeeDetails$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].colQty,
+                                            children: "الكمية"
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/employee/EmployeeDetails.tsx",
+                                            lineNumber: 261,
+                                            columnNumber: 19
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
+                                            className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$EmployeeDetails$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].colDate,
+                                            children: "تاريخ العملية"
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/employee/EmployeeDetails.tsx",
+                                            lineNumber: 262,
+                                            columnNumber: 19
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/app/employee/EmployeeDetails.tsx",
+                                    lineNumber: 258,
+                                    columnNumber: 17
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "[project]/app/employee/EmployeeDetails.tsx",
+                                lineNumber: 257,
+                                columnNumber: 15
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tbody", {
+                                children: emp.operations && emp.operations.length > 0 ? emp.operations.map((op, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
+                                                className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$EmployeeDetails$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].colAction,
+                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                    className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$EmployeeDetails$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].actionLabel,
+                                                    children: op.type
+                                                }, void 0, false, {
+                                                    fileName: "[project]/app/employee/EmployeeDetails.tsx",
+                                                    lineNumber: 271,
+                                                    columnNumber: 25
+                                                }, this)
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/employee/EmployeeDetails.tsx",
+                                                lineNumber: 269,
+                                                columnNumber: 23
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
+                                                className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$EmployeeDetails$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].colName,
+                                                children: op.item
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/employee/EmployeeDetails.tsx",
+                                                lineNumber: 273,
+                                                columnNumber: 23
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
+                                                className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$EmployeeDetails$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].colQty,
+                                                children: op.qty
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/employee/EmployeeDetails.tsx",
+                                                lineNumber: 274,
+                                                columnNumber: 23
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
+                                                className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$EmployeeDetails$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].colDate,
+                                                children: op.date
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/employee/EmployeeDetails.tsx",
+                                                lineNumber: 275,
+                                                columnNumber: 23
+                                            }, this)
+                                        ]
+                                    }, i, true, {
+                                        fileName: "[project]/app/employee/EmployeeDetails.tsx",
+                                        lineNumber: 268,
+                                        columnNumber: 21
+                                    }, this)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
+                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
+                                        colSpan: 4,
+                                        style: {
+                                            textAlign: "center",
+                                            padding: "18px"
+                                        },
+                                        children: "لا توجد عمليات مسجلة"
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/employee/EmployeeDetails.tsx",
+                                        lineNumber: 280,
+                                        columnNumber: 21
+                                    }, this)
+                                }, void 0, false, {
+                                    fileName: "[project]/app/employee/EmployeeDetails.tsx",
+                                    lineNumber: 279,
+                                    columnNumber: 19
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "[project]/app/employee/EmployeeDetails.tsx",
+                                lineNumber: 265,
+                                columnNumber: 15
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/app/employee/EmployeeDetails.tsx",
+                        lineNumber: 256,
+                        columnNumber: 13
+                    }, this)
+                }, void 0, false, {
+                    fileName: "[project]/app/employee/EmployeeDetails.tsx",
+                    lineNumber: 255,
+                    columnNumber: 11
+                }, this)
+            }, void 0, false, {
+                fileName: "[project]/app/employee/EmployeeDetails.tsx",
+                lineNumber: 219,
+                columnNumber: 7
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "[project]/app/employee/EmployeeDetails.tsx",
+        lineNumber: 153,
+        columnNumber: 5
+    }, this);
+}
+_s(EmployeeDetails, "Zcl/S/1KkPLbLewl2dGr97b8XPU=");
+_c1 = EmployeeDetails;
+var _c, _c1;
+__turbopack_context__.k.register(_c, "EmptyDetails");
+__turbopack_context__.k.register(_c1, "EmployeeDetails");
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
+}
+}),
+"[project]/app/employee/page.tsx [app-client] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "default",
+    ()=>Employee
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$sidebar$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/app/components/sidebar.tsx [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$header$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/app/components/header.tsx [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$mainTitle$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/app/components/mainTitle.tsx [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$EmployeeList$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/app/employee/EmployeeList.tsx [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$EmployeeDetails$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/app/employee/EmployeeDetails.tsx [app-client] (ecmascript)");
+;
+var _s = __turbopack_context__.k.signature();
+"use client";
+;
+;
+;
+;
+;
+;
+;
+function Employee() {
+    _s();
+    const [selectedId, setSelectedId] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+        className: "container",
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$header$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
+                fileName: "[project]/app/employee/page.tsx",
+                lineNumber: 17,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "main-layout",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$sidebar$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
+                        fileName: "[project]/app/employee/page.tsx",
+                        lineNumber: 22,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
+                        className: "main-content",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$mainTitle$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
+                                fileName: "[project]/app/employee/page.tsx",
+                                lineNumber: 26,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "contentEmployee",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$EmployeeList$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                        onSelect: setSelectedId
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/employee/page.tsx",
+                                        lineNumber: 30,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$employee$2f$EmployeeDetails$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                        selectedId: selectedId
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/employee/page.tsx",
+                                        lineNumber: 33,
+                                        columnNumber: 13
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/app/employee/page.tsx",
+                                lineNumber: 28,
+                                columnNumber: 11
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/app/employee/page.tsx",
+                        lineNumber: 24,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/app/employee/page.tsx",
+                lineNumber: 20,
+                columnNumber: 7
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "[project]/app/employee/page.tsx",
+        lineNumber: 15,
+        columnNumber: 5
+    }, this);
+}
+_s(Employee, "6tRyBKpA6Tf8zEXxvntvrffDmeA=");
+_c = Employee;
+var _c;
+__turbopack_context__.k.register(_c, "Employee");
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
+}
+}),
+]);
+
+//# sourceMappingURL=app_7b4b5b2d._.js.map

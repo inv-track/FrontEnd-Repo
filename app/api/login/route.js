@@ -14,7 +14,7 @@ export async function POST(req) {
           Accept: "*/*",
         },
         body: JSON.stringify(body),
-      }
+      },
     );
 
     const data = await response.json();
@@ -23,31 +23,44 @@ export async function POST(req) {
     if (!response.ok || !data.isAuthenticated) {
       return NextResponse.json(
         { message: data.message || "Login failed" },
-        { status: 401 }
+        { status: 401 },
       );
     }
 
     const cookieStore = await cookies();
-
-    cookieStore.set({
-      name: "token",
-      value: data.token,
+    cookieStore.set("token", data.token, {
       httpOnly: true,
-      secure: true,
-      sameSite: "strict",
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "lax",
       path: "/",
-      expires: new Date(data.expiration),
+      expires: new Date(Date.now() + 24 * 60 * 60 * 1000),
     });
+
+    cookieStore.set(
+      "user",
+      JSON.stringify({
+        userName: data.userName,
+        role: data.role,
+        ssn: data.ssn,
+      }),
+      {
+        httpOnly: false,
+        secure: process.env.NODE_ENV === "production",
+        sameSite: "lax",
+        path: "/",
+        expires: new Date(Date.now() + 24 * 60 * 60 * 1000),
+      },
+    );
 
     return NextResponse.json(
       { message: "Login successful", user: data.username, role: data.role },
-      { status: 200 }
+      { status: 200 },
     );
   } catch (err) {
     console.error("Login API Error:", err);
     return NextResponse.json(
       { message: "Server error", error: err.message },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

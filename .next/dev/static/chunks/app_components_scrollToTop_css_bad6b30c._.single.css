@@ -1,0 +1,36 @@
+/* [project]/app/components/scrollToTop.css [app-client] (css) */
+.scroll-top-btn {
+  color: #fff;
+  cursor: pointer;
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  background-color: #0f4c81;
+  border: none;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  font-size: 20px;
+  transition: all .3s;
+  display: flex;
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  transform: translateY(20px);
+  box-shadow: 0 4px 12px #0003;
+}
+
+.scroll-top-btn.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.scroll-top-btn:hover {
+  background-color: #0a3a5b;
+  transform: translateY(-3px);
+}
+
+/*# sourceMappingURL=app_components_scrollToTop_css_bad6b30c._.single.css.map*/

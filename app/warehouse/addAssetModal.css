@@ -1,0 +1,220 @@
+/* ===== Overlay ===== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* ===== Box ===== */
+.modal-box {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 32px;
+  width: 550px;
+  max-width: 90%;
+  direction: rtl;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.modal-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 24px;
+  color: #000000;
+}
+
+/* ===== Grid ===== */
+.modal-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.modal-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.modal-field label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #444;
+}
+
+.modal-field input,
+.modal-field select {
+  padding: 9px 12px;
+  border: 1px solid #d1d5db;
+  background-color: #fff;
+  color: #333;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  transition: border 0.2s;
+  width: 100%;
+  box-sizing: border-box;
+  transition: 0.2s;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.modal-field input:focus,
+.modal-field select:focus {
+  border-color: #333;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+}
+.filter-select{
+  position: relative;
+  display: inline-block;
+}
+.filter-select select {
+  appearance: none;
+  -webkit-appearance: none;  
+  -moz-appearance: none;
+
+  padding: 9px 35px 9px 12px;
+  border-radius: 8px;
+}
+.filter-select::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  width: 12px;
+  height: 12px;
+  background: url("/icon/ep_arrow-down.svg") no-repeat center;
+  background-size: contain;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+/* ===== Category Section ===== */
+.add-category-btn {
+  margin-top: 6px;
+  background: none;
+  border: none;
+  color: #1a3c6e;
+  cursor: pointer;
+  font-size: 13px;
+  text-decoration: underline;
+  padding: 0;
+}
+
+.add-category-btn:hover {
+  color: #15305a;
+}
+
+.new-category-row {
+  display: flex;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.new-category-row input {
+  flex: 1;
+  padding: 6px 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 13px;
+  outline: none;
+}
+
+.new-category-row input:focus {
+  border-color: #1a3c6e;
+}
+
+.new-category-row .btn-add {
+  background: #0f4c81;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: background 0.2s;
+}
+
+.new-category-row .btn-add:hover {
+  background: #0a3a5b;
+}
+
+.new-category-row .btn-add:disabled {
+  background: #aaa;
+  cursor: not-allowed;
+}
+
+.new-category-row .btn-close {
+  background: #f0f0f0;
+  color: #000;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: background 0.2s;
+}
+
+.new-category-row .btn-close:hover {
+  background: #e0e0e0;
+}
+
+/* ===== Error ===== */
+.modal-error {
+  color: red;
+  font-size: 13px;
+  margin-bottom: 12px;
+  background: #fff0f0;
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+
+/* ===== Buttons ===== */
+.modal-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+  justify-content: flex-end;
+}
+
+.btn-cancel {
+  background-color: #f0f0f0;
+  color: #333;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 24px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+
+.btn-cancel:hover { background-color: #e0e0e0; }
+
+.btn-submit {
+  background-color: #0f4c81;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 24px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+
+.btn-submit:hover { background-color: #0a3a5b; }
+
+.btn-submit:disabled {
+  background-color: #aaa;
+  cursor: not-allowed;
+}

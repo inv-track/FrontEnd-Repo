@@ -1,0 +1,89 @@
+/* [project]/app/employee/EmployeeList.module.css [app-client] (css) */
+.EmployeeList-module__4252mW__employee-list {
+  color: #000;
+  background-color: #fff;
+  border-radius: 15px;
+  width: 290px;
+  height: 100%;
+  padding: 16px;
+}
+
+.EmployeeList-module__4252mW__header {
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  display: flex;
+}
+
+.EmployeeList-module__4252mW__title {
+  font-size: 16px;
+}
+
+.EmployeeList-module__4252mW__add-employee-icon {
+  cursor: pointer;
+}
+
+.EmployeeList-module__4252mW__search-container {
+  background-color: #333;
+  border-radius: 3px;
+  align-items: center;
+  width: 100%;
+  margin-top: 13px;
+  padding: 10px;
+  display: flex;
+}
+
+.EmployeeList-module__4252mW__search-input {
+  color: #fff;
+  background: none;
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 13px;
+}
+
+.EmployeeList-module__4252mW__search-input::placeholder {
+  color: #aaa;
+}
+
+.EmployeeList-module__4252mW__search-icon {
+  cursor: pointer;
+  color: #aaa;
+  background: none;
+  border: none;
+  align-items: center;
+  padding: 0;
+  font-size: 16px;
+  display: flex;
+}
+
+.EmployeeList-module__4252mW__search-bar:focus {
+  border: 2px solid #007bff;
+  outline: none;
+}
+
+.EmployeeList-module__4252mW__list {
+  margin-top: 16px;
+  list-style: none;
+}
+
+.EmployeeList-module__4252mW__employee-item {
+  cursor: pointer;
+  border: 1px solid #d6d6d6;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  padding: 16px;
+}
+
+.EmployeeList-module__4252mW__name-custody {
+  justify-content: space-between;
+  display: flex;
+}
+
+.EmployeeList-module__4252mW__employee-name {
+  align-items: end;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+/*# sourceMappingURL=app_employee_EmployeeList_module_css_bad6b30c._.single.css.map*/
