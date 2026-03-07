@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import "./addAssetModal.css";
-import { fetchWithAuth } from "@/lib/fetchWithAuth";
+import { fetchWithAuth } from "../lib/fetchWithAuth";
 
 interface AddAssetModalProps {
   isOpen: boolean;

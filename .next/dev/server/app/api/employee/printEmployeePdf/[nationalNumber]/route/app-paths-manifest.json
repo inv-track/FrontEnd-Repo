@@ -1,0 +1,3 @@
+{
+  "/api/employee/printEmployeePdf/[nationalNumber]/route": "app/api/employee/printEmployeePdf/[nationalNumber]/route.js"
+}

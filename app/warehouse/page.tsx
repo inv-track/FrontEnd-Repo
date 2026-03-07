@@ -8,7 +8,7 @@ import MainTitle from "../components/mainTitle";
 import AddAssetModal from "./addAssetModal";
 import "./warehouse.css";
 import QRModal from "./qrModal";
-import { fetchWithAuth } from "@/lib/fetchWithAuth";
+import { fetchWithAuth } from "../lib/fetchWithAuth";
 
 interface Asset {
   name: string;

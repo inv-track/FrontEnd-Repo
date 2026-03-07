@@ -2,7 +2,9 @@
 .contentEmployee {
   gap: 20px;
   width: 100%;
+  max-height: 500px;
   display: flex;
+  overflow: hidden;
 }
 
 .contentEmployee > :first-child {

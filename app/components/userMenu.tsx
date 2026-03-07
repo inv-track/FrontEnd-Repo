@@ -1,6 +1,6 @@
 "use client";
 
-import { fetchWithAuth } from "@/lib/fetchWithAuth";
+import { fetchWithAuth } from "../lib/fetchWithAuth";
 import { useEffect, useRef, useState } from "react";
 import "./userMenu.css";
 

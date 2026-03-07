@@ -1,7 +1,19 @@
 import { cookies } from "next/headers";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
-export async function GET(req) {
+interface Asset {
+  name: string;
+  status: string;
+  price: number;
+  serialNumber: string;
+  assetType: string;
+  room: string;
+  category: string;
+  unit: string;
+  quantity: number;
+}
+
+export async function GET(req: NextRequest): Promise<NextResponse> {
   try {
     const cookieStore = await cookies();
     const token = cookieStore.get("token")?.value;
@@ -29,7 +41,8 @@ export async function GET(req) {
       cache: "no-store",
     });
 
-    const data = await response.json();
+    const data: Asset | Asset[] = await response.json();
+
     return NextResponse.json(data, {
       status: 200,
       headers: {
@@ -37,7 +50,11 @@ export async function GET(req) {
       },
     });
 
-  } catch (err) {
-    return NextResponse.json({ message: "Server error" }, { status: 500 });
+  } catch (err: unknown) {
+    const errorMessage = err instanceof Error ? err.message : "Unknown error";
+    return NextResponse.json(
+      { message: "Server error", error: errorMessage },
+      { status: 500 }
+    );
   }
 }

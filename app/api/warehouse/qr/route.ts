@@ -1,7 +1,7 @@
 import { cookies } from "next/headers";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
-export async function GET(req) {
+export async function GET(req: NextRequest): Promise<NextResponse> {
   try {
     const cookieStore = await cookies();
     const token = cookieStore.get("token")?.value;
@@ -12,6 +12,10 @@ export async function GET(req) {
 
     const { searchParams } = new URL(req.url);
     const code = searchParams.get("code");
+
+    if (!code) {
+      return NextResponse.json({ message: "Code is required" }, { status: 400 });
+    }
 
     const response = await fetch(
       `http://invtrackapi.runasp.net/api/QRCode/GenerateQRCode?code=${code}`,
@@ -25,7 +29,7 @@ export async function GET(req) {
     );
 
     const imageBuffer = await response.arrayBuffer();
-    
+
     return new NextResponse(imageBuffer, {
       status: 200,
       headers: {
@@ -33,7 +37,11 @@ export async function GET(req) {
       },
     });
 
-  } catch (err) {
-    return NextResponse.json({ message: "Server error" }, { status: 500 });
+  } catch (err: unknown) {
+    const errorMessage = err instanceof Error ? err.message : "Unknown error";
+    return NextResponse.json(
+      { message: "Server error", error: errorMessage },
+      { status: 500 }
+    );
   }
 }

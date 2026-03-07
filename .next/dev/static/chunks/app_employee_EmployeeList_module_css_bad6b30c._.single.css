@@ -63,8 +63,30 @@
 }
 
 .EmployeeList-module__4252mW__list {
+  direction: ltr;
+  max-height: 400px;
   margin-top: 16px;
+  padding-left: 0;
+  padding-right: 8px;
   list-style: none;
+  overflow-y: auto;
+}
+
+.EmployeeList-module__4252mW__list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.EmployeeList-module__4252mW__list::-webkit-scrollbar-track {
+  background: none;
+}
+
+.EmployeeList-module__4252mW__list::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+}
+
+.EmployeeList-module__4252mW__list::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
 }
 
 .EmployeeList-module__4252mW__employee-item {
@@ -82,7 +104,7 @@
 
 .EmployeeList-module__4252mW__employee-name {
   align-items: end;
-  font-size: 22px;
+  font-size: 18px;
   font-weight: bold;
 }
 

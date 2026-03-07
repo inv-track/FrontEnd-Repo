@@ -1,7 +1,21 @@
 import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
 
-export async function POST() {
+interface Room {
+  roomName: string;
+}
+
+interface Floor {
+  name: string;
+  rooms: Room[];
+}
+
+interface Building {
+  name: string;
+  floors: Floor[];
+}
+
+export async function POST(): Promise<NextResponse> {
   try {
     const cookieStore = await cookies();
     const token = cookieStore.get("token")?.value;
@@ -22,10 +36,14 @@ export async function POST() {
       }
     );
 
-    const data = await response.json();
+    const data: Building[] = await response.json();
     return NextResponse.json(data, { status: 200 });
 
-  } catch (err) {
-    return NextResponse.json({ message: "Server error" }, { status: 500 });
+  } catch (err: unknown) {
+    const errorMessage = err instanceof Error ? err.message : "Unknown error";
+    return NextResponse.json(
+      { message: "Server error", error: errorMessage },
+      { status: 500 }
+    );
   }
 }
