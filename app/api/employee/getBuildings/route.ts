@@ -14,12 +14,11 @@ export async function GET() {
     const response = await fetch(
       "http://invtrackapi.runasp.net/api/Location/GetAllBuildingAndFloorsAndRooms",
       {
-        method: "POST", // 👈 السيرفر الخارجي POST
+        method: "GET", // 👈 السيرفر الخارجي GET
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({}),
       },
     );
 

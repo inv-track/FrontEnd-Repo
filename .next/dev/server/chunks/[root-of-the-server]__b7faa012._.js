@@ -65,12 +65,11 @@ async function GET() {
             });
         }
         const response = await fetch("http://invtrackapi.runasp.net/api/Location/GetAllBuildingAndFloorsAndRooms", {
-            method: "POST",
+            method: "GET",
             headers: {
                 Authorization: `Bearer ${token}`,
                 "Content-Type": "application/json"
-            },
-            body: JSON.stringify({})
+            }
         });
         if (!response.ok) {
             const text = await response.text();

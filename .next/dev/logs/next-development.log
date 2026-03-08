@@ -1,21 +1,4 @@
-[00:00:03.582] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
-[00:00:04.435] Server  LOG      ✓ Ready in 3.5s
-[00:00:15.032] Server  LOG      ○ Compiling / ...
-[00:00:21.169] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:25.554] Server  LOG     API called
-[00:00:25.570] Server  LOG     Token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0ZXIiLCJqdGkiOiI2NzY2NmE1NS1iZWY3LTRmNTItYjcxZC1lMDM2ZDFiZjJmMTUiLCJuYW1laWQiOiIyIiwicm9sZXMiOiJBZG1pbiIsImV4cCI6MTc3MzA4NTM1NSwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMSIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjUwMDEifQ.ZTqnOpmCJMhwJm-9cz_WECcFdGyOCUzcG1Ikbyv3gsc"
-[00:00:26.015] Server  LOG     External status: 200
-[00:00:26.068] Server  LOG     API called
-[00:00:26.090] Server  LOG     Token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0ZXIiLCJqdGkiOiI2NzY2NmE1NS1iZWY3LTRmNTItYjcxZC1lMDM2ZDFiZjJmMTUiLCJuYW1laWQiOiIyIiwicm9sZXMiOiJBZG1pbiIsImV4cCI6MTc3MzA4NTM1NSwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMSIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjUwMDEifQ.ZTqnOpmCJMhwJm-9cz_WECcFdGyOCUzcG1Ikbyv3gsc"
-[00:00:26.190] Server  LOG     External status: 200
-[00:00:35.054] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:45.999] Server  LOG     Login response data: {}
-[00:00:51.982] Server  LOG     API called
-[00:00:51.985] Server  LOG     Token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0ZXIiLCJqdGkiOiJkMGIzMmU1Ni1hZjAxLTQ4ZWEtYmM2Mi1jZGVlNTMzZWIyMTciLCJuYW1laWQiOiIyIiwicm9sZXMiOiJBZG1pbiIsImV4cCI6MTc3MzA5NjQzOSwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMSIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjUwMDEifQ.JKmJqNKlLWp-Kim-hQsibozhBjZvnGIMuBbxv3FxgS4"
-[00:00:52.152] Server  LOG     External status: 200
-[00:00:52.216] Server  LOG     API called
-[00:00:52.235] Server  LOG     Token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0ZXIiLCJqdGkiOiJkMGIzMmU1Ni1hZjAxLTQ4ZWEtYmM2Mi1jZGVlNTMzZWIyMTciLCJuYW1laWQiOiIyIiwicm9sZXMiOiJBZG1pbiIsImV4cCI6MTc3MzA5NjQzOSwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMSIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjUwMDEifQ.JKmJqNKlLWp-Kim-hQsibozhBjZvnGIMuBbxv3FxgS4"
-[00:00:52.324] Server  LOG     External status: 200
-[00:01:23.729] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:02:21.363] Server  LOG      ✓ Compiled in 236ms
-[00:02:25.410] Server  LOG      ✓ Compiled in 182ms
+[00:00:04.252] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+[00:00:05.406] Server  LOG      ✓ Ready in 4.4s
+[00:00:09.394] Server  LOG      ○ Compiling /login ...
+[00:00:15.584] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
