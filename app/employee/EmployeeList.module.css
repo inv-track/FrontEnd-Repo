@@ -20,9 +20,9 @@
 }
 
 .search-container {
+  position: relative;
   display: flex;
   align-items: center;
-  background-color: #333;
   border-radius: 3px;
   width: 100%;
   margin-top: 13px;
@@ -30,26 +30,29 @@
 }
 
 .search-input {
-  border: none;
+  color: #333;
+  background-color: #fff;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
   outline: none;
-  background: transparent;
   width: 100%;
-  font-size: 13px;
-  color: #fff;
+  padding: 10px 33px 10px 14px;
+  font-size: 14px;
+  transition: all 0.2s;
 }
 
 .search-input::placeholder {
   color: #aaa;
 }
 .search-icon {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-  color: #aaa;
-  padding: 0;
-  display: flex;
-  align-items: center;
+  opacity: 0.6;
+  pointer-events: none;
+  width: 17px;
+  height: 17px;
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
 }
 .search-bar:focus {
   outline: none;
@@ -59,7 +62,7 @@
   list-style: none;
   margin-top: 16px;
   max-height: 400px;
-   direction: ltr;
+  direction: ltr;
   overflow-y: auto;
   padding-left: 0;
   padding-right: 8px; /* المسافة بين العناصر والاسكرول */

@@ -1,16 +1,3 @@
 {
-  "/_not-found/page": "app/_not-found/page.js",
-  "/api/Location/[action]/route": "app/api/Location/[action]/route.js",
-  "/api/login/route": "app/api/login/route.js",
-  "/api/warehouse/add/route": "app/api/warehouse/add/route.js",
-  "/api/warehouse/categories/route": "app/api/warehouse/categories/route.js",
-  "/api/warehouse/locations/route": "app/api/warehouse/locations/route.js",
-  "/api/warehouse/qr/route": "app/api/warehouse/qr/route.js",
-  "/api/warehouse/route": "app/api/warehouse/route.js",
-  "/api/warehouse/units/route": "app/api/warehouse/units/route.js",
-  "/home/page": "app/home/page.js",
-  "/location/page": "app/location/page.js",
-  "/login/page": "app/login/page.js",
-  "/operations/page": "app/operations/page.js",
-  "/warehouse/page": "app/warehouse/page.js"
+  "/login/page": "app/login/page.js"
 }
