@@ -23,13 +23,13 @@ interface Asset {
 }
 
 const SEARCH_MODES = [
-  { value: "all", label: "جميع العمليات" },
+  { value: "all", label: "جميع العهد" },
   { value: "serialNumber", label: "الرقم التسلسلي" },
   { value: "name", label: "الاسم" },
   { value: "status", label: "الحالة" },
+  { value: "category", label: "الفئة" },
   { value: "assetType", label: "نوع الأصل" },
   { value: "room", label: "المكان" },
-  { value: "category", label: "الفئة" },
 ];
 
 export default function Warehouse() {

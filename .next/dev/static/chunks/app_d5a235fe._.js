@@ -643,6 +643,10 @@ function AddAssetModal({ isOpen, onClose, onSuccess }) {
     const [newCategory, setNewCategory] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("");
     const [addingCategory, setAddingCategory] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const [showAddCategory, setShowAddCategory] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
+    const [units, setUnits] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])([]);
+    const [newUnit, setNewUnit] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("");
+    const [addingUnit, setAddingUnit] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
+    const [showAddUnit, setShowAddUnit] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const [form, setForm] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(EMPTY_FORM);
     const [loading, setLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const [error, setError] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
@@ -652,7 +656,7 @@ function AddAssetModal({ isOpen, onClose, onSuccess }) {
             if (isOpen) {
                 //  المباني
                 (0, __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$lib$2f$fetchWithAuth$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["fetchWithAuth"])("/api/warehouse/locations", {
-                    method: "POST",
+                    method: "GET",
                     credentials: "include"
                 }).then({
                     "AddAssetModal.useEffect": (res)=>res.json()
@@ -670,6 +674,16 @@ function AddAssetModal({ isOpen, onClose, onSuccess }) {
                     "AddAssetModal.useEffect": (data)=>setCategories(Array.isArray(data) ? data : [])
                 }["AddAssetModal.useEffect"]).catch({
                     "AddAssetModal.useEffect": ()=>setCategories([])
+                }["AddAssetModal.useEffect"]);
+                //   الوحدات
+                (0, __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$lib$2f$fetchWithAuth$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["fetchWithAuth"])("/api/warehouse/units", {
+                    credentials: "include"
+                }).then({
+                    "AddAssetModal.useEffect": (res)=>res.json()
+                }["AddAssetModal.useEffect"]).then({
+                    "AddAssetModal.useEffect": (data)=>setUnits(Array.isArray(data) ? data : [])
+                }["AddAssetModal.useEffect"]).catch({
+                    "AddAssetModal.useEffect": ()=>setUnits([])
                 }["AddAssetModal.useEffect"]);
             }
         }
@@ -735,6 +749,39 @@ function AddAssetModal({ isOpen, onClose, onSuccess }) {
             setAddingCategory(false);
         }
     };
+    const handleAddUnit = async ()=>{
+        if (!newUnit.trim()) return;
+        setAddingUnit(true);
+        try {
+            const res = await fetch("/api/warehouse/units", {
+                method: "POST",
+                credentials: "include",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    name: newUnit
+                })
+            });
+            if (!res.ok) throw new Error("فشل");
+            setUnits((prev)=>[
+                    ...prev,
+                    {
+                        name: newUnit
+                    }
+                ]);
+            setForm((prev)=>({
+                    ...prev,
+                    unit: newUnit
+                }));
+            setNewUnit("");
+            setShowAddUnit(false);
+        } catch  {
+        // handle error
+        } finally{
+            setAddingUnit(false);
+        }
+    };
     if (!isOpen) return null;
     const handleChange = (e)=>{
         const { name, value } = e.target;
@@ -769,6 +816,10 @@ function AddAssetModal({ isOpen, onClose, onSuccess }) {
             setSelectedFloor("");
             setFloors([]);
             setRooms([]);
+            setShowAddCategory(false);
+            setNewCategory("");
+            setShowAddUnit(false);
+            setNewUnit("");
             onSuccess();
             onClose();
         } catch (err) {
@@ -793,7 +844,7 @@ function AddAssetModal({ isOpen, onClose, onSuccess }) {
                     children: "إضافة عهدة جديدة"
                 }, void 0, false, {
                     fileName: "[project]/app/warehouse/addAssetModal.tsx",
-                    lineNumber: 203,
+                    lineNumber: 242,
                     columnNumber: 9
                 }, this),
                 error && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -801,7 +852,7 @@ function AddAssetModal({ isOpen, onClose, onSuccess }) {
                     children: error
                 }, void 0, false, {
                     fileName: "[project]/app/warehouse/addAssetModal.tsx",
-                    lineNumber: 205,
+                    lineNumber: 244,
                     columnNumber: 19
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -814,7 +865,7 @@ function AddAssetModal({ isOpen, onClose, onSuccess }) {
                                     children: "الاسم *"
                                 }, void 0, false, {
                                     fileName: "[project]/app/warehouse/addAssetModal.tsx",
-                                    lineNumber: 209,
+                                    lineNumber: 248,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -825,13 +876,170 @@ function AddAssetModal({ isOpen, onClose, onSuccess }) {
                                     autoComplete: "off"
                                 }, void 0, false, {
                                     fileName: "[project]/app/warehouse/addAssetModal.tsx",
-                                    lineNumber: 210,
+                                    lineNumber: 249,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/warehouse/addAssetModal.tsx",
-                            lineNumber: 208,
+                            lineNumber: 247,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "modal-field",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                    children: "الرقم التسلسلي *"
+                                }, void 0, false, {
+                                    fileName: "[project]/app/warehouse/addAssetModal.tsx",
+                                    lineNumber: 259,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                    name: "serialNumber",
+                                    value: form.serialNumber,
+                                    onChange: handleChange,
+                                    placeholder: "الرقم التسلسلي",
+                                    autoComplete: "off"
+                                }, void 0, false, {
+                                    fileName: "[project]/app/warehouse/addAssetModal.tsx",
+                                    lineNumber: 260,
+                                    columnNumber: 13
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/app/warehouse/addAssetModal.tsx",
+                            lineNumber: 258,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "modal-field",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                    children: "الفئة *"
+                                }, void 0, false, {
+                                    fileName: "[project]/app/warehouse/addAssetModal.tsx",
+                                    lineNumber: 270,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "filter-select",
+                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
+                                        name: "category",
+                                        value: form.category,
+                                        onChange: handleChange,
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                value: "",
+                                                children: "اختر الفئة"
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/warehouse/addAssetModal.tsx",
+                                                lineNumber: 277,
+                                                columnNumber: 17
+                                            }, this),
+                                            categories.map((c)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                    value: c.name,
+                                                    children: c.name
+                                                }, c.name, false, {
+                                                    fileName: "[project]/app/warehouse/addAssetModal.tsx",
+                                                    lineNumber: 279,
+                                                    columnNumber: 19
+                                                }, this))
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/app/warehouse/addAssetModal.tsx",
+                                        lineNumber: 272,
+                                        columnNumber: 15
+                                    }, this)
+                                }, void 0, false, {
+                                    fileName: "[project]/app/warehouse/addAssetModal.tsx",
+                                    lineNumber: 271,
+                                    columnNumber: 13
+                                }, this),
+                                !showAddCategory ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                    type: "button",
+                                    onClick: ()=>setShowAddCategory(true),
+                                    className: "add-category-btn",
+                                    children: "+ إضافة فئة جديدة"
+                                }, void 0, false, {
+                                    fileName: "[project]/app/warehouse/addAssetModal.tsx",
+                                    lineNumber: 286,
+                                    columnNumber: 15
+                                }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "new-category-row",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                            type: "text",
+                                            value: newCategory,
+                                            onChange: (e)=>setNewCategory(e.target.value),
+                                            placeholder: "اسم الفئة الجديدة",
+                                            autoComplete: "off"
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/warehouse/addAssetModal.tsx",
+                                            lineNumber: 295,
+                                            columnNumber: 17
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                            type: "button",
+                                            onClick: handleAddCategory,
+                                            disabled: addingCategory,
+                                            className: "btn-add",
+                                            children: addingCategory ? "..." : "إضافة"
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/warehouse/addAssetModal.tsx",
+                                            lineNumber: 302,
+                                            columnNumber: 17
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                            type: "button",
+                                            onClick: ()=>{
+                                                setShowAddCategory(false);
+                                                setNewCategory("");
+                                            },
+                                            className: "btn-close",
+                                            children: "✕"
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/warehouse/addAssetModal.tsx",
+                                            lineNumber: 310,
+                                            columnNumber: 17
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/app/warehouse/addAssetModal.tsx",
+                                    lineNumber: 294,
+                                    columnNumber: 15
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/app/warehouse/addAssetModal.tsx",
+                            lineNumber: 269,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "modal-field",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                    children: "نوع الأصل *"
+                                }, void 0, false, {
+                                    fileName: "[project]/app/warehouse/addAssetModal.tsx",
+                                    lineNumber: 325,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                    name: "assetType",
+                                    value: form.assetType,
+                                    onChange: handleChange,
+                                    placeholder: "نوع الأصل",
+                                    autoComplete: "off"
+                                }, void 0, false, {
+                                    fileName: "[project]/app/warehouse/addAssetModal.tsx",
+                                    lineNumber: 326,
+                                    columnNumber: 13
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/app/warehouse/addAssetModal.tsx",
+                            lineNumber: 324,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -841,7 +1049,7 @@ function AddAssetModal({ isOpen, onClose, onSuccess }) {
                                     children: "الحالة *"
                                 }, void 0, false, {
                                     fileName: "[project]/app/warehouse/addAssetModal.tsx",
-                                    lineNumber: 220,
+                                    lineNumber: 336,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -856,7 +1064,7 @@ function AddAssetModal({ isOpen, onClose, onSuccess }) {
                                                 children: "اختر الحالة"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/warehouse/addAssetModal.tsx",
-                                                lineNumber: 223,
+                                                lineNumber: 339,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -864,7 +1072,7 @@ function AddAssetModal({ isOpen, onClose, onSuccess }) {
                                                 children: "جديد"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/warehouse/addAssetModal.tsx",
-                                                lineNumber: 224,
+                                                lineNumber: 340,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -872,24 +1080,24 @@ function AddAssetModal({ isOpen, onClose, onSuccess }) {
                                                 children: "مستعمل"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/warehouse/addAssetModal.tsx",
-                                                lineNumber: 225,
+                                                lineNumber: 341,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/warehouse/addAssetModal.tsx",
-                                        lineNumber: 222,
+                                        lineNumber: 338,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/app/warehouse/addAssetModal.tsx",
-                                    lineNumber: 221,
+                                    lineNumber: 337,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/warehouse/addAssetModal.tsx",
-                            lineNumber: 219,
+                            lineNumber: 335,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -899,7 +1107,7 @@ function AddAssetModal({ isOpen, onClose, onSuccess }) {
                                     children: "السعر *"
                                 }, void 0, false, {
                                     fileName: "[project]/app/warehouse/addAssetModal.tsx",
-                                    lineNumber: 232,
+                                    lineNumber: 348,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -911,67 +1119,13 @@ function AddAssetModal({ isOpen, onClose, onSuccess }) {
                                     autoComplete: "off"
                                 }, void 0, false, {
                                     fileName: "[project]/app/warehouse/addAssetModal.tsx",
-                                    lineNumber: 233,
+                                    lineNumber: 349,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/warehouse/addAssetModal.tsx",
-                            lineNumber: 231,
-                            columnNumber: 11
-                        }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "modal-field",
-                            children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                    children: "الرقم التسلسلي *"
-                                }, void 0, false, {
-                                    fileName: "[project]/app/warehouse/addAssetModal.tsx",
-                                    lineNumber: 244,
-                                    columnNumber: 13
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                    name: "serialNumber",
-                                    value: form.serialNumber,
-                                    onChange: handleChange,
-                                    placeholder: "الرقم التسلسلي",
-                                    autoComplete: "off"
-                                }, void 0, false, {
-                                    fileName: "[project]/app/warehouse/addAssetModal.tsx",
-                                    lineNumber: 245,
-                                    columnNumber: 13
-                                }, this)
-                            ]
-                        }, void 0, true, {
-                            fileName: "[project]/app/warehouse/addAssetModal.tsx",
-                            lineNumber: 243,
-                            columnNumber: 11
-                        }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "modal-field",
-                            children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                    children: "نوع الأصل *"
-                                }, void 0, false, {
-                                    fileName: "[project]/app/warehouse/addAssetModal.tsx",
-                                    lineNumber: 255,
-                                    columnNumber: 13
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                    name: "assetType",
-                                    value: form.assetType,
-                                    onChange: handleChange,
-                                    placeholder: "نوع الأصل",
-                                    autoComplete: "off"
-                                }, void 0, false, {
-                                    fileName: "[project]/app/warehouse/addAssetModal.tsx",
-                                    lineNumber: 256,
-                                    columnNumber: 13
-                                }, this)
-                            ]
-                        }, void 0, true, {
-                            fileName: "[project]/app/warehouse/addAssetModal.tsx",
-                            lineNumber: 254,
+                            lineNumber: 347,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -981,7 +1135,7 @@ function AddAssetModal({ isOpen, onClose, onSuccess }) {
                                     children: "المبنى *"
                                 }, void 0, false, {
                                     fileName: "[project]/app/warehouse/addAssetModal.tsx",
-                                    lineNumber: 267,
+                                    lineNumber: 361,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -995,7 +1149,7 @@ function AddAssetModal({ isOpen, onClose, onSuccess }) {
                                                 children: "اختر المبنى"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/warehouse/addAssetModal.tsx",
-                                                lineNumber: 270,
+                                                lineNumber: 364,
                                                 columnNumber: 17
                                             }, this),
                                             buildings.map((b)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -1003,24 +1157,127 @@ function AddAssetModal({ isOpen, onClose, onSuccess }) {
                                                     children: b.name
                                                 }, b.name, false, {
                                                     fileName: "[project]/app/warehouse/addAssetModal.tsx",
-                                                    lineNumber: 272,
+                                                    lineNumber: 366,
                                                     columnNumber: 19
                                                 }, this))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/warehouse/addAssetModal.tsx",
-                                        lineNumber: 269,
+                                        lineNumber: 363,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/app/warehouse/addAssetModal.tsx",
-                                    lineNumber: 268,
+                                    lineNumber: 362,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/warehouse/addAssetModal.tsx",
-                            lineNumber: 266,
+                            lineNumber: 360,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "modal-field",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                    children: "الوحدة *"
+                                }, void 0, false, {
+                                    fileName: "[project]/app/warehouse/addAssetModal.tsx",
+                                    lineNumber: 375,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "filter-select",
+                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
+                                        name: "unit",
+                                        value: form.unit,
+                                        onChange: handleChange,
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                value: "",
+                                                children: "اختر الوحدة"
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/warehouse/addAssetModal.tsx",
+                                                lineNumber: 378,
+                                                columnNumber: 17
+                                            }, this),
+                                            units.map((u)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                    value: u.name,
+                                                    children: u.name
+                                                }, u.name, false, {
+                                                    fileName: "[project]/app/warehouse/addAssetModal.tsx",
+                                                    lineNumber: 380,
+                                                    columnNumber: 19
+                                                }, this))
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/app/warehouse/addAssetModal.tsx",
+                                        lineNumber: 377,
+                                        columnNumber: 15
+                                    }, this)
+                                }, void 0, false, {
+                                    fileName: "[project]/app/warehouse/addAssetModal.tsx",
+                                    lineNumber: 376,
+                                    columnNumber: 13
+                                }, this),
+                                !showAddUnit ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                    type: "button",
+                                    onClick: ()=>setShowAddUnit(true),
+                                    className: "add-category-btn",
+                                    children: "+ إضافة وحدة جديدة"
+                                }, void 0, false, {
+                                    fileName: "[project]/app/warehouse/addAssetModal.tsx",
+                                    lineNumber: 388,
+                                    columnNumber: 15
+                                }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "new-category-row",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                            type: "text",
+                                            value: newUnit,
+                                            onChange: (e)=>setNewUnit(e.target.value),
+                                            placeholder: "اسم الوحدة الجديدة",
+                                            autoComplete: "off"
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/warehouse/addAssetModal.tsx",
+                                            lineNumber: 397,
+                                            columnNumber: 17
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                            type: "button",
+                                            onClick: handleAddUnit,
+                                            disabled: addingUnit,
+                                            className: "btn-add",
+                                            children: addingUnit ? "..." : "إضافة"
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/warehouse/addAssetModal.tsx",
+                                            lineNumber: 404,
+                                            columnNumber: 17
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                            type: "button",
+                                            onClick: ()=>{
+                                                setShowAddUnit(false);
+                                                setNewUnit("");
+                                            },
+                                            className: "btn-close",
+                                            children: "✕"
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/warehouse/addAssetModal.tsx",
+                                            lineNumber: 412,
+                                            columnNumber: 17
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/app/warehouse/addAssetModal.tsx",
+                                    lineNumber: 396,
+                                    columnNumber: 15
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/app/warehouse/addAssetModal.tsx",
+                            lineNumber: 374,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1030,7 +1287,7 @@ function AddAssetModal({ isOpen, onClose, onSuccess }) {
                                     children: "الدور *"
                                 }, void 0, false, {
                                     fileName: "[project]/app/warehouse/addAssetModal.tsx",
-                                    lineNumber: 282,
+                                    lineNumber: 428,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1045,7 +1302,7 @@ function AddAssetModal({ isOpen, onClose, onSuccess }) {
                                                 children: "اختر الدور"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/warehouse/addAssetModal.tsx",
-                                                lineNumber: 289,
+                                                lineNumber: 435,
                                                 columnNumber: 17
                                             }, this),
                                             floors.map((f)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -1053,24 +1310,52 @@ function AddAssetModal({ isOpen, onClose, onSuccess }) {
                                                     children: f.name
                                                 }, f.name, false, {
                                                     fileName: "[project]/app/warehouse/addAssetModal.tsx",
-                                                    lineNumber: 291,
+                                                    lineNumber: 437,
                                                     columnNumber: 19
                                                 }, this))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/warehouse/addAssetModal.tsx",
-                                        lineNumber: 284,
+                                        lineNumber: 430,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/app/warehouse/addAssetModal.tsx",
-                                    lineNumber: 283,
+                                    lineNumber: 429,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/warehouse/addAssetModal.tsx",
-                            lineNumber: 281,
+                            lineNumber: 427,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "modal-field",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                    children: "الكمية"
+                                }, void 0, false, {
+                                    fileName: "[project]/app/warehouse/addAssetModal.tsx",
+                                    lineNumber: 446,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                    name: "quantity",
+                                    type: "number",
+                                    value: form.quantity,
+                                    onChange: handleChange,
+                                    placeholder: "الكمية (افتراضي: 1)",
+                                    autoComplete: "off"
+                                }, void 0, false, {
+                                    fileName: "[project]/app/warehouse/addAssetModal.tsx",
+                                    lineNumber: 447,
+                                    columnNumber: 13
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/app/warehouse/addAssetModal.tsx",
+                            lineNumber: 445,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1080,7 +1365,7 @@ function AddAssetModal({ isOpen, onClose, onSuccess }) {
                                     children: "الغرفة *"
                                 }, void 0, false, {
                                     fileName: "[project]/app/warehouse/addAssetModal.tsx",
-                                    lineNumber: 301,
+                                    lineNumber: 459,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1096,7 +1381,7 @@ function AddAssetModal({ isOpen, onClose, onSuccess }) {
                                                 children: "اختر الغرفة"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/warehouse/addAssetModal.tsx",
-                                                lineNumber: 309,
+                                                lineNumber: 467,
                                                 columnNumber: 17
                                             }, this),
                                             rooms.map((r)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -1104,188 +1389,30 @@ function AddAssetModal({ isOpen, onClose, onSuccess }) {
                                                     children: r.roomName
                                                 }, r.roomName, false, {
                                                     fileName: "[project]/app/warehouse/addAssetModal.tsx",
-                                                    lineNumber: 311,
+                                                    lineNumber: 469,
                                                     columnNumber: 19
                                                 }, this))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/warehouse/addAssetModal.tsx",
-                                        lineNumber: 303,
+                                        lineNumber: 461,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/app/warehouse/addAssetModal.tsx",
-                                    lineNumber: 302,
+                                    lineNumber: 460,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/warehouse/addAssetModal.tsx",
-                            lineNumber: 300,
-                            columnNumber: 11
-                        }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "modal-field",
-                            children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                    children: "الوحدة *"
-                                }, void 0, false, {
-                                    fileName: "[project]/app/warehouse/addAssetModal.tsx",
-                                    lineNumber: 320,
-                                    columnNumber: 13
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                    name: "unit",
-                                    value: form.unit,
-                                    onChange: handleChange,
-                                    placeholder: "الوحدة",
-                                    autoComplete: "off"
-                                }, void 0, false, {
-                                    fileName: "[project]/app/warehouse/addAssetModal.tsx",
-                                    lineNumber: 321,
-                                    columnNumber: 13
-                                }, this)
-                            ]
-                        }, void 0, true, {
-                            fileName: "[project]/app/warehouse/addAssetModal.tsx",
-                            lineNumber: 319,
-                            columnNumber: 11
-                        }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "modal-field",
-                            children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                    children: "الكمية"
-                                }, void 0, false, {
-                                    fileName: "[project]/app/warehouse/addAssetModal.tsx",
-                                    lineNumber: 331,
-                                    columnNumber: 13
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                    name: "quantity",
-                                    type: "number",
-                                    value: form.quantity,
-                                    onChange: handleChange,
-                                    placeholder: "الكمية (افتراضي: 1)",
-                                    autoComplete: "off"
-                                }, void 0, false, {
-                                    fileName: "[project]/app/warehouse/addAssetModal.tsx",
-                                    lineNumber: 332,
-                                    columnNumber: 13
-                                }, this)
-                            ]
-                        }, void 0, true, {
-                            fileName: "[project]/app/warehouse/addAssetModal.tsx",
-                            lineNumber: 330,
-                            columnNumber: 11
-                        }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "modal-field",
-                            children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                    children: "الفئة *"
-                                }, void 0, false, {
-                                    fileName: "[project]/app/warehouse/addAssetModal.tsx",
-                                    lineNumber: 343,
-                                    columnNumber: 13
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "filter-select",
-                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
-                                        name: "category",
-                                        value: form.category,
-                                        onChange: handleChange,
-                                        children: [
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
-                                                value: "",
-                                                children: "اختر الفئة"
-                                            }, void 0, false, {
-                                                fileName: "[project]/app/warehouse/addAssetModal.tsx",
-                                                lineNumber: 350,
-                                                columnNumber: 17
-                                            }, this),
-                                            categories.map((c)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
-                                                    value: c.name,
-                                                    children: c.name
-                                                }, c.name, false, {
-                                                    fileName: "[project]/app/warehouse/addAssetModal.tsx",
-                                                    lineNumber: 352,
-                                                    columnNumber: 19
-                                                }, this))
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "[project]/app/warehouse/addAssetModal.tsx",
-                                        lineNumber: 345,
-                                        columnNumber: 15
-                                    }, this)
-                                }, void 0, false, {
-                                    fileName: "[project]/app/warehouse/addAssetModal.tsx",
-                                    lineNumber: 344,
-                                    columnNumber: 13
-                                }, this),
-                                !showAddCategory ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                    type: "button",
-                                    onClick: ()=>setShowAddCategory(true),
-                                    className: "add-category-btn",
-                                    children: "+ إضافة فئة جديدة"
-                                }, void 0, false, {
-                                    fileName: "[project]/app/warehouse/addAssetModal.tsx",
-                                    lineNumber: 359,
-                                    columnNumber: 15
-                                }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "new-category-row",
-                                    children: [
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                            type: "text",
-                                            value: newCategory,
-                                            onChange: (e)=>setNewCategory(e.target.value),
-                                            placeholder: "اسم الفئة الجديدة",
-                                            autoComplete: "off"
-                                        }, void 0, false, {
-                                            fileName: "[project]/app/warehouse/addAssetModal.tsx",
-                                            lineNumber: 368,
-                                            columnNumber: 17
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                            type: "button",
-                                            onClick: handleAddCategory,
-                                            disabled: addingCategory,
-                                            className: "btn-add",
-                                            children: addingCategory ? "..." : "إضافة"
-                                        }, void 0, false, {
-                                            fileName: "[project]/app/warehouse/addAssetModal.tsx",
-                                            lineNumber: 375,
-                                            columnNumber: 17
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                            type: "button",
-                                            onClick: ()=>{
-                                                setShowAddCategory(false);
-                                                setNewCategory("");
-                                            },
-                                            className: "btn-close",
-                                            children: "✕"
-                                        }, void 0, false, {
-                                            fileName: "[project]/app/warehouse/addAssetModal.tsx",
-                                            lineNumber: 383,
-                                            columnNumber: 17
-                                        }, this)
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "[project]/app/warehouse/addAssetModal.tsx",
-                                    lineNumber: 367,
-                                    columnNumber: 15
-                                }, this)
-                            ]
-                        }, void 0, true, {
-                            fileName: "[project]/app/warehouse/addAssetModal.tsx",
-                            lineNumber: 342,
+                            lineNumber: 458,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/warehouse/addAssetModal.tsx",
-                    lineNumber: 207,
+                    lineNumber: 246,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1297,7 +1424,7 @@ function AddAssetModal({ isOpen, onClose, onSuccess }) {
                             children: "إلغاء"
                         }, void 0, false, {
                             fileName: "[project]/app/warehouse/addAssetModal.tsx",
-                            lineNumber: 399,
+                            lineNumber: 479,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1307,28 +1434,28 @@ function AddAssetModal({ isOpen, onClose, onSuccess }) {
                             children: loading ? "جاري الإضافة..." : "إضافة"
                         }, void 0, false, {
                             fileName: "[project]/app/warehouse/addAssetModal.tsx",
-                            lineNumber: 402,
+                            lineNumber: 482,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/warehouse/addAssetModal.tsx",
-                    lineNumber: 398,
+                    lineNumber: 478,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/app/warehouse/addAssetModal.tsx",
-            lineNumber: 202,
+            lineNumber: 241,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/app/warehouse/addAssetModal.tsx",
-        lineNumber: 201,
+        lineNumber: 240,
         columnNumber: 5
     }, this);
 }
-_s(AddAssetModal, "+mq94xXA+sKMwJFQJB4tlKSOtys=");
+_s(AddAssetModal, "/V/CFPZrqaxWcAuGTFpGYeXz5AU=");
 _c = AddAssetModal;
 var _c;
 __turbopack_context__.k.register(_c, "AddAssetModal");
@@ -1493,7 +1620,7 @@ var _s = __turbopack_context__.k.signature();
 const SEARCH_MODES = [
     {
         value: "all",
-        label: "جميع العمليات"
+        label: "جميع العهد"
     },
     {
         value: "serialNumber",
@@ -1508,16 +1635,16 @@ const SEARCH_MODES = [
         label: "الحالة"
     },
     {
+        value: "category",
+        label: "الفئة"
+    },
+    {
         value: "assetType",
         label: "نوع الأصل"
     },
     {
         value: "room",
         label: "المكان"
-    },
-    {
-        value: "category",
-        label: "الفئة"
     }
 ];
 function Warehouse() {

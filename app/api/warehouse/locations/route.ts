@@ -15,7 +15,7 @@ interface Building {
   floors: Floor[];
 }
 
-export async function POST(): Promise<NextResponse> {
+export async function GET(): Promise<NextResponse> {
   try {
     const cookieStore = await cookies();
     const token = cookieStore.get("token")?.value;
@@ -27,7 +27,7 @@ export async function POST(): Promise<NextResponse> {
     const response = await fetch(
       "http://invtrackapi.runasp.net/api/Location/GetAllBuildingAndFloorsAndRooms",
       {
-        method: "POST",
+        method: "GET",
         headers: {
           Accept: "*/*",
           Authorization: `Bearer ${token}`,
