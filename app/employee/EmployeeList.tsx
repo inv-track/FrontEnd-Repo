@@ -75,6 +75,7 @@ export default function EmployeeList({
       </div>
       {/* Search */}
       <div className={styles["search-container"]}>
+        <Image className={styles["search-icon"]} src="/icon/search.svg" alt="search" width={20} height={20} />
         <input
           type="text"
           className={styles["search-input"]}
@@ -82,7 +83,6 @@ export default function EmployeeList({
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
-        <button className={styles["search-icon"]}>🔍</button>
       </div>
       {/* Loading */}
       {loading && <p>Loading...</p>}
