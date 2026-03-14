@@ -1,3 +1,18 @@
 {
-  "/login/page": "app/login/page.js"
+  "/_not-found/page": "app/_not-found/page.js",
+  "/api/Location/[action]/route": "app/api/Location/[action]/route.js",
+  "/api/auditors/addAuditors/route": "app/api/auditors/addAuditors/route.js",
+  "/api/auditors/deleteAuditor/route": "app/api/auditors/deleteAuditor/route.js",
+  "/api/auditors/getAllAuditors/route": "app/api/auditors/getAllAuditors/route.js",
+  "/api/auditors/toggleActive/route": "app/api/auditors/toggleActive/route.js",
+  "/api/auditors/updateAuditor/route": "app/api/auditors/updateAuditor/route.js",
+  "/api/employee/employeeById/[nationalNumber]/route": "app/api/employee/employeeById/[nationalNumber]/route.js",
+  "/api/employee/getAllEmployee/route": "app/api/employee/getAllEmployee/route.js",
+  "/api/warehouse/qr/route": "app/api/warehouse/qr/route.js",
+  "/api/warehouse/route": "app/api/warehouse/route.js",
+  "/editors/page": "app/editors/page.js",
+  "/employee/page": "app/employee/page.js",
+  "/location/page": "app/location/page.js",
+  "/page": "app/page.js",
+  "/warehouse/page": "app/warehouse/page.js"
 }

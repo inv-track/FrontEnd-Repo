@@ -8,31 +8,30 @@ import styles from "./EditAuditorModal.module.css";
 
 interface EditAuditorForm {
   name: string;
-  phone: string;
-  department: string;
+  newNationalNumber: string;
 }
 
 interface FormErrors {
   name?: string;
-  phone?: string;
-  department?: string;
+  newNationalNumber?: string;
 }
 
 interface EditAuditorModalProps {
   isOpen: boolean;
   onClose: () => void;
   onSubmit: (data: EditAuditorForm) => Promise<void>;
-  auditor: { id: number; name: string; phone: string; department: string } | null;
+  auditor: { nationalNumber: string; name: string } | null;
 }
 
 // ─── Validation ───────────────────────────────────────────────────────────────
 
 function validate(form: EditAuditorForm): FormErrors {
   const errors: FormErrors = {};
-  if (!form.name.trim())       errors.name       = "الاسم مطلوب";
-  if (!form.phone.trim())      errors.phone      = "رقم الهاتف مطلوب";
-  else if (!/^01[0-9]{9}$/.test(form.phone)) errors.phone = "رقم هاتف غير صحيح";
-  if (!form.department.trim()) errors.department = "القسم مطلوب";
+  if (!form.name.trim()) errors.name = "الاسم مطلوب";
+  if (!form.newNationalNumber.trim())
+    errors.newNationalNumber = "الرقم القومي مطلوب";
+  else if (form.newNationalNumber.length < 14)
+    errors.newNationalNumber = "الرقم القومي يجب أن يكون 14 رقم";
   return errors;
 }
 
@@ -44,14 +43,20 @@ export default function EditAuditorModal({
   onSubmit,
   auditor,
 }: EditAuditorModalProps) {
-  const [form, setForm]     = useState<EditAuditorForm>({ name: "", phone: "", department: "" });
+  const [form, setForm] = useState<EditAuditorForm>({
+    name: "",
+    newNationalNumber: "",
+  });
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   // لما المودل يفتح يحط داتا المجرد في الفورم
   useEffect(() => {
     if (auditor) {
-      setForm({ name: auditor.name, phone: auditor.phone, department: auditor.department });
+      setForm({
+        name: auditor.name,
+        newNationalNumber: auditor.nationalNumber,
+      });
       setErrors({});
     }
   }, [auditor]);
@@ -87,21 +92,23 @@ export default function EditAuditorModal({
   return (
     <div className={styles.overlay} onClick={handleOverlayClick}>
       <div className={styles.modal}>
-
         {/* Header */}
         <div className={styles.header}>
           <div>
             <h2 className={styles.title}>تعديل بيانات المجرد</h2>
             <p className={styles.subtitle}>قم بتعديل البيانات ثم اضغط حفظ</p>
           </div>
-          <button className={styles.closeBtn} onClick={onClose} aria-label="إغلاق">
+          <button
+            className={styles.closeBtn}
+            onClick={onClose}
+            aria-label="إغلاق"
+          >
             <X size={20} />
           </button>
         </div>
 
         {/* Body */}
         <div className={styles.body}>
-
           {/* الاسم الكامل */}
           <div className={styles.field}>
             <label className={styles.label}>الاسم الكامل</label>
@@ -112,34 +119,30 @@ export default function EditAuditorModal({
               onChange={(e) => handleChange("name", e.target.value)}
               className={`${styles.input} ${errors.name ? styles.error : ""}`}
             />
-            {errors.name && <span className={styles.errorMsg}>{errors.name}</span>}
+            {errors.name && (
+              <span className={styles.errorMsg}>{errors.name}</span>
+            )}
           </div>
 
-          {/* رقم الهاتف */}
+          {/* الرقم القومي */}
           <div className={styles.field}>
-            <label className={styles.label}>رقم الهاتف</label>
-            <input
-              type="tel"
-              placeholder="01xxxxxxxxx"
-              value={form.phone}
-              onChange={(e) => handleChange("phone", e.target.value)}
-              className={`${styles.input} ${errors.phone ? styles.error : ""}`}
-              dir="ltr"
-            />
-            {errors.phone && <span className={styles.errorMsg}>{errors.phone}</span>}
-          </div>
-
-          {/* القسم */}
-          <div className={styles.field}>
-            <label className={styles.label}>القسم</label>
+            <label className={styles.label}>الرقم القومي</label>
             <input
               type="text"
-              placeholder="مثال: قسم جرد الاصول"
-              value={form.department}
-              onChange={(e) => handleChange("department", e.target.value)}
-              className={`${styles.input} ${errors.department ? styles.error : ""}`}
+              placeholder="مثال: 30201011234567"
+              value={form.newNationalNumber}
+              onChange={(e) =>
+                handleChange("newNationalNumber", e.target.value)
+              }
+              className={`${styles.input} ${errors.newNationalNumber ? styles.error : ""}`}
+              maxLength={14}
+              dir="ltr"
             />
-            {errors.department && <span className={styles.errorMsg}>{errors.department}</span>}
+            {errors.newNationalNumber && (
+              <span className={styles.errorMsg}>
+                {errors.newNationalNumber}
+              </span>
+            )}
           </div>
 
           {/* Submit */}
@@ -150,7 +153,6 @@ export default function EditAuditorModal({
           >
             {isSubmitting ? "جاري الحفظ..." : "حفظ التعديلات"}
           </button>
-
         </div>
       </div>
     </div>

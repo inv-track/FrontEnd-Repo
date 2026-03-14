@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 46, "column": 0}, "map": {"version":3,"sources":["file:///D:/Science/Graduation%20Project/FrontEnd-Repo/app/api/logout/route.ts"],"sourcesContent":["import { cookies } from \"next/headers\";\r\nimport { NextResponse } from \"next/server\";\r\n\r\nexport async function POST(): Promise<NextResponse> {\r\n  const cookieStore = await cookies();\r\n  cookieStore.delete(\"token\");\r\n  cookieStore.delete(\"user\");\r\n  return NextResponse.json({ message: \"Logged out\" }, { status: 200 });\r\n}"],"names":[],"mappings":";;;;AAAA;AACA;;;AAEO,eAAe;IACpB,MAAM,cAAc,MAAM,IAAA,4IAAO;IACjC,YAAY,MAAM,CAAC;IACnB,YAAY,MAAM,CAAC;IACnB,OAAO,gJAAY,CAAC,IAAI,CAAC;QAAE,SAAS;IAAa,GAAG;QAAE,QAAQ;IAAI;AACpE"}}]
-}

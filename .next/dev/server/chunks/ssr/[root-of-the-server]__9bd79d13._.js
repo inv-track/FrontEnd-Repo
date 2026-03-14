@@ -599,11 +599,16 @@ __turbopack_context__.v({
   "searchInput": "auditorsTable-module__pPMXBq__searchInput",
   "searchWrapper": "auditorsTable-module__pPMXBq__searchWrapper",
   "skeleton": "auditorsTable-module__pPMXBq__skeleton",
+  "slideUp": "auditorsTable-module__pPMXBq__slideUp",
   "table": "auditorsTable-module__pPMXBq__table",
   "tableScroll": "auditorsTable-module__pPMXBq__tableScroll",
   "tbody": "auditorsTable-module__pPMXBq__tbody",
   "thead": "auditorsTable-module__pPMXBq__thead",
   "title": "auditorsTable-module__pPMXBq__title",
+  "toast": "auditorsTable-module__pPMXBq__toast",
+  "toastContainer": "auditorsTable-module__pPMXBq__toastContainer",
+  "toastError": "auditorsTable-module__pPMXBq__toastError",
+  "toastSuccess": "auditorsTable-module__pPMXBq__toastSuccess",
   "toggle": "auditorsTable-module__pPMXBq__toggle",
   "toggleOff": "auditorsTable-module__pPMXBq__toggleOff",
   "toggleOn": "auditorsTable-module__pPMXBq__toggleOn",
@@ -654,16 +659,14 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$editors$2f$Addauditor
 function validate(form) {
     const errors = {};
     if (!form.name.trim()) errors.name = "الاسم مطلوب";
-    if (!form.phone.trim()) errors.phone = "رقم الهاتف مطلوب";
-    else if (!/^01[0-9]{9}$/.test(form.phone)) errors.phone = "رقم هاتف غير صحيح";
-    if (!form.department.trim()) errors.department = "القسم مطلوب";
+    if (!form.nationalNumber.trim()) errors.nationalNumber = "الرقم القومي مطلوب";
+    else if (form.nationalNumber.length < 14) errors.nationalNumber = "الرقم القومي يجب أن يكون 14 رقم";
     return errors;
 }
 function AddAuditorModal({ isOpen, onClose, onSubmit }) {
     const [form, setForm] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])({
         name: "",
-        phone: "",
-        department: ""
+        nationalNumber: ""
     });
     const [errors, setErrors] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])({});
     const [isSubmitting, setIsSubmitting] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
@@ -673,7 +676,6 @@ function AddAuditorModal({ isOpen, onClose, onSubmit }) {
                 ...prev,
                 [field]: value
             }));
-        // Clear error on change
         if (errors[field]) setErrors((prev)=>({
                 ...prev,
                 [field]: undefined
@@ -690,8 +692,7 @@ function AddAuditorModal({ isOpen, onClose, onSubmit }) {
             await onSubmit(form);
             setForm({
                 name: "",
-                phone: "",
-                department: ""
+                nationalNumber: ""
             });
             setErrors({});
             onClose();
@@ -720,7 +721,7 @@ function AddAuditorModal({ isOpen, onClose, onSubmit }) {
                                     children: "اضافة مجرد جديد"
                                 }, void 0, false, {
                                     fileName: "[project]/app/editors/Addauditormodal.tsx",
-                                    lineNumber: 90,
+                                    lineNumber: 86,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -728,13 +729,13 @@ function AddAuditorModal({ isOpen, onClose, onSubmit }) {
                                     children: "أدخل البيانات الأساسية وسيتم إنشاء بيانات الدخول تلقائياً"
                                 }, void 0, false, {
                                     fileName: "[project]/app/editors/Addauditormodal.tsx",
-                                    lineNumber: 91,
+                                    lineNumber: 87,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/editors/Addauditormodal.tsx",
-                            lineNumber: 89,
+                            lineNumber: 85,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -745,18 +746,18 @@ function AddAuditorModal({ isOpen, onClose, onSubmit }) {
                                 size: 20
                             }, void 0, false, {
                                 fileName: "[project]/app/editors/Addauditormodal.tsx",
-                                lineNumber: 100,
+                                lineNumber: 96,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/app/editors/Addauditormodal.tsx",
-                            lineNumber: 95,
+                            lineNumber: 91,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/editors/Addauditormodal.tsx",
-                    lineNumber: 88,
+                    lineNumber: 84,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -770,7 +771,7 @@ function AddAuditorModal({ isOpen, onClose, onSubmit }) {
                                     children: "الاسم الكامل"
                                 }, void 0, false, {
                                     fileName: "[project]/app/editors/Addauditormodal.tsx",
-                                    lineNumber: 108,
+                                    lineNumber: 104,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -781,7 +782,7 @@ function AddAuditorModal({ isOpen, onClose, onSubmit }) {
                                     className: `${__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$editors$2f$Addauditormodal$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].input} ${errors.name ? __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$editors$2f$Addauditormodal$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].error : ""}`
                                 }, void 0, false, {
                                     fileName: "[project]/app/editors/Addauditormodal.tsx",
-                                    lineNumber: 109,
+                                    lineNumber: 105,
                                     columnNumber: 13
                                 }, this),
                                 errors.name && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -789,13 +790,13 @@ function AddAuditorModal({ isOpen, onClose, onSubmit }) {
                                     children: errors.name
                                 }, void 0, false, {
                                     fileName: "[project]/app/editors/Addauditormodal.tsx",
-                                    lineNumber: 117,
+                                    lineNumber: 113,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/editors/Addauditormodal.tsx",
-                            lineNumber: 107,
+                            lineNumber: 103,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -803,72 +804,37 @@ function AddAuditorModal({ isOpen, onClose, onSubmit }) {
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
                                     className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$editors$2f$Addauditormodal$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].label,
-                                    children: "رقم الهاتف"
+                                    children: "الرقم القومي"
                                 }, void 0, false, {
                                     fileName: "[project]/app/editors/Addauditormodal.tsx",
-                                    lineNumber: 123,
-                                    columnNumber: 13
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                    type: "tel",
-                                    placeholder: "012742476",
-                                    value: form.phone,
-                                    onChange: (e)=>handleChange("phone", e.target.value),
-                                    className: `${__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$editors$2f$Addauditormodal$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].input} ${errors.phone ? __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$editors$2f$Addauditormodal$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].error : ""}`,
-                                    dir: "ltr"
-                                }, void 0, false, {
-                                    fileName: "[project]/app/editors/Addauditormodal.tsx",
-                                    lineNumber: 124,
-                                    columnNumber: 13
-                                }, this),
-                                errors.phone && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                    className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$editors$2f$Addauditormodal$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].errorMsg,
-                                    children: errors.phone
-                                }, void 0, false, {
-                                    fileName: "[project]/app/editors/Addauditormodal.tsx",
-                                    lineNumber: 133,
-                                    columnNumber: 15
-                                }, this)
-                            ]
-                        }, void 0, true, {
-                            fileName: "[project]/app/editors/Addauditormodal.tsx",
-                            lineNumber: 122,
-                            columnNumber: 11
-                        }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$editors$2f$Addauditormodal$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].field,
-                            children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                    className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$editors$2f$Addauditormodal$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].label,
-                                    children: "القسم"
-                                }, void 0, false, {
-                                    fileName: "[project]/app/editors/Addauditormodal.tsx",
-                                    lineNumber: 139,
+                                    lineNumber: 119,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
                                     type: "text",
-                                    placeholder: "مثال: قسم جرد الاصول",
-                                    value: form.department,
-                                    onChange: (e)=>handleChange("department", e.target.value),
-                                    className: `${__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$editors$2f$Addauditormodal$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].input} ${errors.department ? __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$editors$2f$Addauditormodal$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].error : ""}`
+                                    placeholder: "مثال: 30201011234567",
+                                    value: form.nationalNumber,
+                                    onChange: (e)=>handleChange("nationalNumber", e.target.value),
+                                    className: `${__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$editors$2f$Addauditormodal$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].input} ${errors.nationalNumber ? __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$editors$2f$Addauditormodal$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].error : ""}`,
+                                    maxLength: 14,
+                                    dir: "ltr"
                                 }, void 0, false, {
                                     fileName: "[project]/app/editors/Addauditormodal.tsx",
-                                    lineNumber: 140,
+                                    lineNumber: 120,
                                     columnNumber: 13
                                 }, this),
-                                errors.department && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                errors.nationalNumber && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                     className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$editors$2f$Addauditormodal$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].errorMsg,
-                                    children: errors.department
+                                    children: errors.nationalNumber
                                 }, void 0, false, {
                                     fileName: "[project]/app/editors/Addauditormodal.tsx",
-                                    lineNumber: 148,
+                                    lineNumber: 130,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/editors/Addauditormodal.tsx",
-                            lineNumber: 138,
+                            lineNumber: 118,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -876,7 +842,7 @@ function AddAuditorModal({ isOpen, onClose, onSubmit }) {
                             children: "🔒 سيتم إنشاء اسم المستخدم وكلمة المرور تلقائياً من النظام"
                         }, void 0, false, {
                             fileName: "[project]/app/editors/Addauditormodal.tsx",
-                            lineNumber: 153,
+                            lineNumber: 135,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -886,24 +852,24 @@ function AddAuditorModal({ isOpen, onClose, onSubmit }) {
                             children: isSubmitting ? "جاري الإضافة..." : "أضافه"
                         }, void 0, false, {
                             fileName: "[project]/app/editors/Addauditormodal.tsx",
-                            lineNumber: 158,
+                            lineNumber: 140,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/editors/Addauditormodal.tsx",
-                    lineNumber: 105,
+                    lineNumber: 101,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/app/editors/Addauditormodal.tsx",
-            lineNumber: 86,
+            lineNumber: 82,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/app/editors/Addauditormodal.tsx",
-        lineNumber: 85,
+        lineNumber: 81,
         columnNumber: 5
     }, this);
 }
@@ -1310,16 +1276,14 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$editors$2f$EditAudito
 function validate(form) {
     const errors = {};
     if (!form.name.trim()) errors.name = "الاسم مطلوب";
-    if (!form.phone.trim()) errors.phone = "رقم الهاتف مطلوب";
-    else if (!/^01[0-9]{9}$/.test(form.phone)) errors.phone = "رقم هاتف غير صحيح";
-    if (!form.department.trim()) errors.department = "القسم مطلوب";
+    if (!form.newNationalNumber.trim()) errors.newNationalNumber = "الرقم القومي مطلوب";
+    else if (form.newNationalNumber.length < 14) errors.newNationalNumber = "الرقم القومي يجب أن يكون 14 رقم";
     return errors;
 }
 function EditAuditorModal({ isOpen, onClose, onSubmit, auditor }) {
     const [form, setForm] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])({
         name: "",
-        phone: "",
-        department: ""
+        newNationalNumber: ""
     });
     const [errors, setErrors] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])({});
     const [isSubmitting, setIsSubmitting] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
@@ -1328,8 +1292,7 @@ function EditAuditorModal({ isOpen, onClose, onSubmit, auditor }) {
         if (auditor) {
             setForm({
                 name: auditor.name,
-                phone: auditor.phone,
-                department: auditor.department
+                newNationalNumber: auditor.nationalNumber
             });
             setErrors({});
         }
@@ -1382,7 +1345,7 @@ function EditAuditorModal({ isOpen, onClose, onSubmit, auditor }) {
                                     children: "تعديل بيانات المجرد"
                                 }, void 0, false, {
                                     fileName: "[project]/app/editors/EditAuditorModal.tsx",
-                                    lineNumber: 94,
+                                    lineNumber: 98,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1390,13 +1353,13 @@ function EditAuditorModal({ isOpen, onClose, onSubmit, auditor }) {
                                     children: "قم بتعديل البيانات ثم اضغط حفظ"
                                 }, void 0, false, {
                                     fileName: "[project]/app/editors/EditAuditorModal.tsx",
-                                    lineNumber: 95,
+                                    lineNumber: 99,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/editors/EditAuditorModal.tsx",
-                            lineNumber: 93,
+                            lineNumber: 97,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1407,18 +1370,18 @@ function EditAuditorModal({ isOpen, onClose, onSubmit, auditor }) {
                                 size: 20
                             }, void 0, false, {
                                 fileName: "[project]/app/editors/EditAuditorModal.tsx",
-                                lineNumber: 98,
+                                lineNumber: 106,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/app/editors/EditAuditorModal.tsx",
-                            lineNumber: 97,
+                            lineNumber: 101,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/editors/EditAuditorModal.tsx",
-                    lineNumber: 92,
+                    lineNumber: 96,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1432,7 +1395,7 @@ function EditAuditorModal({ isOpen, onClose, onSubmit, auditor }) {
                                     children: "الاسم الكامل"
                                 }, void 0, false, {
                                     fileName: "[project]/app/editors/EditAuditorModal.tsx",
-                                    lineNumber: 107,
+                                    lineNumber: 114,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -1443,7 +1406,7 @@ function EditAuditorModal({ isOpen, onClose, onSubmit, auditor }) {
                                     className: `${__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$editors$2f$EditAuditorModal$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].input} ${errors.name ? __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$editors$2f$EditAuditorModal$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].error : ""}`
                                 }, void 0, false, {
                                     fileName: "[project]/app/editors/EditAuditorModal.tsx",
-                                    lineNumber: 108,
+                                    lineNumber: 115,
                                     columnNumber: 13
                                 }, this),
                                 errors.name && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1451,13 +1414,13 @@ function EditAuditorModal({ isOpen, onClose, onSubmit, auditor }) {
                                     children: errors.name
                                 }, void 0, false, {
                                     fileName: "[project]/app/editors/EditAuditorModal.tsx",
-                                    lineNumber: 115,
-                                    columnNumber: 29
+                                    lineNumber: 123,
+                                    columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/editors/EditAuditorModal.tsx",
-                            lineNumber: 106,
+                            lineNumber: 113,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1465,72 +1428,37 @@ function EditAuditorModal({ isOpen, onClose, onSubmit, auditor }) {
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
                                     className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$editors$2f$EditAuditorModal$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].label,
-                                    children: "رقم الهاتف"
-                                }, void 0, false, {
-                                    fileName: "[project]/app/editors/EditAuditorModal.tsx",
-                                    lineNumber: 120,
-                                    columnNumber: 13
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                    type: "tel",
-                                    placeholder: "01xxxxxxxxx",
-                                    value: form.phone,
-                                    onChange: (e)=>handleChange("phone", e.target.value),
-                                    className: `${__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$editors$2f$EditAuditorModal$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].input} ${errors.phone ? __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$editors$2f$EditAuditorModal$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].error : ""}`,
-                                    dir: "ltr"
-                                }, void 0, false, {
-                                    fileName: "[project]/app/editors/EditAuditorModal.tsx",
-                                    lineNumber: 121,
-                                    columnNumber: 13
-                                }, this),
-                                errors.phone && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                    className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$editors$2f$EditAuditorModal$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].errorMsg,
-                                    children: errors.phone
+                                    children: "الرقم القومي"
                                 }, void 0, false, {
                                     fileName: "[project]/app/editors/EditAuditorModal.tsx",
                                     lineNumber: 129,
-                                    columnNumber: 30
-                                }, this)
-                            ]
-                        }, void 0, true, {
-                            fileName: "[project]/app/editors/EditAuditorModal.tsx",
-                            lineNumber: 119,
-                            columnNumber: 11
-                        }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$editors$2f$EditAuditorModal$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].field,
-                            children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                    className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$editors$2f$EditAuditorModal$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].label,
-                                    children: "القسم"
-                                }, void 0, false, {
-                                    fileName: "[project]/app/editors/EditAuditorModal.tsx",
-                                    lineNumber: 134,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
                                     type: "text",
-                                    placeholder: "مثال: قسم جرد الاصول",
-                                    value: form.department,
-                                    onChange: (e)=>handleChange("department", e.target.value),
-                                    className: `${__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$editors$2f$EditAuditorModal$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].input} ${errors.department ? __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$editors$2f$EditAuditorModal$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].error : ""}`
+                                    placeholder: "مثال: 30201011234567",
+                                    value: form.newNationalNumber,
+                                    onChange: (e)=>handleChange("newNationalNumber", e.target.value),
+                                    className: `${__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$editors$2f$EditAuditorModal$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].input} ${errors.newNationalNumber ? __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$editors$2f$EditAuditorModal$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].error : ""}`,
+                                    maxLength: 14,
+                                    dir: "ltr"
                                 }, void 0, false, {
                                     fileName: "[project]/app/editors/EditAuditorModal.tsx",
-                                    lineNumber: 135,
+                                    lineNumber: 130,
                                     columnNumber: 13
                                 }, this),
-                                errors.department && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                errors.newNationalNumber && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                     className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$editors$2f$EditAuditorModal$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].errorMsg,
-                                    children: errors.department
+                                    children: errors.newNationalNumber
                                 }, void 0, false, {
                                     fileName: "[project]/app/editors/EditAuditorModal.tsx",
                                     lineNumber: 142,
-                                    columnNumber: 35
+                                    columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/editors/EditAuditorModal.tsx",
-                            lineNumber: 133,
+                            lineNumber: 128,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1540,24 +1468,24 @@ function EditAuditorModal({ isOpen, onClose, onSubmit, auditor }) {
                             children: isSubmitting ? "جاري الحفظ..." : "حفظ التعديلات"
                         }, void 0, false, {
                             fileName: "[project]/app/editors/EditAuditorModal.tsx",
-                            lineNumber: 146,
+                            lineNumber: 149,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/editors/EditAuditorModal.tsx",
-                    lineNumber: 103,
+                    lineNumber: 111,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/app/editors/EditAuditorModal.tsx",
-            lineNumber: 89,
+            lineNumber: 94,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/app/editors/EditAuditorModal.tsx",
-        lineNumber: 88,
+        lineNumber: 93,
         columnNumber: 5
     }, this);
 }
@@ -1578,6 +1506,8 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$re
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$smartphone$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Smartphone$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/smartphone.js [app-ssr] (ecmascript) <export default as Smartphone>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$left$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronLeft$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/chevron-left.js [app-ssr] (ecmascript) <export default as ChevronLeft>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$right$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronRight$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/chevron-right.js [app-ssr] (ecmascript) <export default as ChevronRight>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2d$check$2d$big$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__CheckCircle$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/circle-check-big.js [app-ssr] (ecmascript) <export default as CheckCircle>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2d$x$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__XCircle$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/circle-x.js [app-ssr] (ecmascript) <export default as XCircle>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$editors$2f$auditorsTable$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__ = __turbopack_context__.i("[project]/app/editors/auditorsTable.module.css [app-ssr] (css module)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$editors$2f$Addauditormodal$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/app/editors/Addauditormodal.tsx [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$editors$2f$AuditorAccessModal$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/app/editors/AuditorAccessModal.tsx [app-ssr] (ecmascript)");
@@ -1596,7 +1526,7 @@ const STATUS_STYLES = {
         text: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$editors$2f$auditorsTable$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].active,
         dot: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$editors$2f$auditorsTable$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].dotActive
     },
-    Offline: {
+    Inactive: {
         text: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$editors$2f$auditorsTable$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].offline,
         dot: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$editors$2f$auditorsTable$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].dotOffline
     },
@@ -1605,150 +1535,114 @@ const STATUS_STYLES = {
         dot: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$editors$2f$auditorsTable$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].dotWait
     }
 };
-// ─── Mock data (شيلها لما الـ API يبقى جاهز) ─────────────────────────────────
-const MOCK = [
-    {
-        id: 1,
-        name: "م. خالد أحمد سالم",
-        phone: "01278945612",
-        department: "قسم جرد الاصول",
-        lastActivity: "2025-10-24 14:30",
-        status: "Offline",
-        enabled: true
-    },
-    {
-        id: 2,
-        name: "م. شنوده اشرف عزيز",
-        phone: "01278945612",
-        department: "قسم التدقيق المالي",
-        lastActivity: "2025-10-23 11:15",
-        status: "Active",
-        enabled: true
-    },
-    {
-        id: 3,
-        name: "م. نورة محمد إبراهيم",
-        phone: "01278945612",
-        department: "إدارة المراجعة الداخلية",
-        lastActivity: "2025-10-24 14:30",
-        status: "Active",
-        enabled: true
-    },
-    {
-        id: 4,
-        name: "أ. عبدالله حسين علي",
-        phone: "01278945612",
-        department: "قسم جرد الاصول",
-        lastActivity: "2025-10-23 11:15",
-        status: "Wait",
-        enabled: true
-    },
-    {
-        id: 5,
-        name: "م. خالد أحمد سالم",
-        phone: "01278945612",
-        department: "قسم التدقيق المالي",
-        lastActivity: "2025-10-24 14:30",
-        status: "Wait",
-        enabled: true
-    },
-    {
-        id: 6,
-        name: "م. شنوده اشرف عزيز",
-        phone: "01278945612",
-        department: "إدارة المراجعة الداخلية",
-        lastActivity: "2025-10-23 11:15",
-        status: "Offline",
-        enabled: false
-    },
-    {
-        id: 7,
-        name: "م. نورة محمد إبراهيم",
-        phone: "01278945612",
-        department: "قسم جرد الاصول",
-        lastActivity: "2025-10-24 14:30",
-        status: "Offline",
-        enabled: true
-    },
-    {
-        id: 8,
-        name: "أ. محمد علي حسن",
-        phone: "01198765432",
-        department: "قسم التدقيق المالي",
-        lastActivity: "2025-10-22 09:00",
-        status: "Active",
-        enabled: true
-    },
-    {
-        id: 9,
-        name: "م. سارة يوسف إبراهيم",
-        phone: "01012345678",
-        department: "إدارة المراجعة الداخلية",
-        lastActivity: "2025-10-21 13:45",
-        status: "Wait",
-        enabled: false
-    }
-];
 function AuditorsTable() {
-    const [auditors, setAuditors] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(MOCK);
+    const [auditors, setAuditors] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])([]);
+    const [isLoading, setIsLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(true);
+    const [error, setError] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
     const [search, setSearch] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("");
     const [page, setPage] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(1);
     const [isModalOpen, setIsModalOpen] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
+    const [toasts, setToasts] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])([]);
     const [selectedAuditor, setSelectedAuditor] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
     const [editAuditor, setEditAuditor] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
-    // ── Filter ──
+    // ── Toast ───────────────────────────────────────────────────────────────────
+    const showToast = (message, type)=>{
+        const id = Date.now();
+        setToasts((prev)=>[
+                ...prev,
+                {
+                    id,
+                    message,
+                    type
+                }
+            ]);
+        setTimeout(()=>setToasts((prev)=>prev.filter((t)=>t.id !== id)), 3000);
+    };
+    // ── Fetch ───────────────────────────────────────────────────────────────────
+    const fetchAuditors = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useCallback"])(async ()=>{
+        try {
+            setIsLoading(true);
+            const res = await fetch("/api/auditors/getAllAuditors");
+            if (res.status === 401) {
+                setError("غير مصرح، يرجى تسجيل الدخول");
+                return;
+            }
+            if (!res.ok) throw new Error("فشل تحميل البيانات");
+            const data = await res.json();
+            setAuditors(data);
+        } catch  {
+            setError("حدث خطأ أثناء تحميل البيانات");
+        } finally{
+            setIsLoading(false);
+        }
+    }, []);
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
+        fetchAuditors();
+    }, [
+        fetchAuditors
+    ]);
+    // ── Filter ──────────────────────────────────────────────────────────────────
     const filtered = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useMemo"])(()=>{
         const q = search.trim().toLowerCase();
         if (!q) return auditors;
-        return auditors.filter((a)=>a.name.includes(q) || a.department.includes(q) || a.phone.includes(q));
+        return auditors.filter((a)=>a.name.toLowerCase().includes(q) || a.nationalNumber.includes(q));
     }, [
         auditors,
         search
     ]);
-    // ── Pagination ──
+    // ── Pagination ──────────────────────────────────────────────────────────────
     const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
     const paginated = filtered.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
-    // ── Toggle (optimistic) ──
-    const handleToggle = async (id)=>{
-        setAuditors((prev)=>prev.map((a)=>a.id === id ? {
-                    ...a,
-                    enabled: !a.enabled
-                } : a));
-        const target = auditors.find((a)=>a.id === id);
+    // ── Toggle ──────────────────────────────────────────────────────────────────
+    const handleToggle = async (nationalNumber)=>{
+        const target = auditors.find((a)=>a.nationalNumber === nationalNumber);
         if (!target) return;
+        const newIsActive = !target.isActive;
+        const newStatus = newIsActive ? "Active" : "Inactive";
+        setAuditors((prev)=>prev.map((a)=>a.nationalNumber === nationalNumber ? {
+                    ...a,
+                    isActive: newIsActive,
+                    status: newStatus
+                } : a));
         try {
-            await fetch(`/api/auditors/${id}`, {
-                method: "PATCH",
+            const res = await fetch("/api/auditors/toggleActive", {
+                method: "POST",
                 headers: {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
-                    enabled: !target.enabled
+                    nationalNumber,
+                    isActive: newIsActive
                 })
             });
+            if (!res.ok) throw new Error("فشل التحديث");
         } catch  {
-            setAuditors((prev)=>prev.map((a)=>a.id === id ? {
+            setAuditors((prev)=>prev.map((a)=>a.nationalNumber === nationalNumber ? {
                         ...a,
-                        enabled: target.enabled
+                        isActive: target.isActive,
+                        status: target.status
                     } : a));
         }
     };
-    // ── Delete (optimistic) ──
-    const handleDelete = async (id)=>{
-        const backup = auditors.find((a)=>a.id === id);
-        setAuditors((prev)=>prev.filter((a)=>a.id !== id));
+    // ── Delete ──────────────────────────────────────────────────────────────────
+    const handleDelete = async (nationalNumber)=>{
+        const backup = auditors.find((a)=>a.nationalNumber === nationalNumber);
+        setAuditors((prev)=>prev.filter((a)=>a.nationalNumber !== nationalNumber));
         try {
-            await fetch(`/api/auditors/${id}`, {
+            const res = await fetch(`/api/auditors/deleteAuditor?nationalNumber=${nationalNumber}`, {
                 method: "DELETE"
             });
+            if (!res.ok) throw new Error("فشل الحذف");
+            showToast("تم الحذف بنجاح", "success");
         } catch  {
             if (backup) setAuditors((prev)=>[
                     ...prev,
                     backup
-                ].sort((a, b)=>a.id - b.id));
+                ]);
+            showToast("فشل الحذف، حاول مرة أخرى", "error");
         }
     };
-    // ── Pages list ──
+    // ── Pages list ──────────────────────────────────────────────────────────────
     const getPages = ()=>{
         if (totalPages <= 6) return Array.from({
             length: totalPages
@@ -1763,19 +1657,49 @@ function AuditorsTable() {
             totalPages
         ];
     };
-    // ─────────────────────────────────────────────────────────────────────────
+    // ────────────────────────────────────────────────────────────────────────────
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$editors$2f$auditorsTable$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].wrapper,
         children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$editors$2f$auditorsTable$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].toastContainer,
+                children: toasts.map((t)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: `${__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$editors$2f$auditorsTable$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].toast} ${t.type === "success" ? __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$editors$2f$auditorsTable$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].toastSuccess : __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$editors$2f$auditorsTable$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].toastError}`,
+                        children: [
+                            t.type === "success" ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2d$check$2d$big$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__CheckCircle$3e$__["CheckCircle"], {
+                                size: 16
+                            }, void 0, false, {
+                                fileName: "[project]/app/editors/AuditorsTable.tsx",
+                                lineNumber: 186,
+                                columnNumber: 15
+                            }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2d$x$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__XCircle$3e$__["XCircle"], {
+                                size: 16
+                            }, void 0, false, {
+                                fileName: "[project]/app/editors/AuditorsTable.tsx",
+                                lineNumber: 188,
+                                columnNumber: 15
+                            }, this),
+                            t.message
+                        ]
+                    }, t.id, true, {
+                        fileName: "[project]/app/editors/AuditorsTable.tsx",
+                        lineNumber: 181,
+                        columnNumber: 11
+                    }, this))
+            }, void 0, false, {
+                fileName: "[project]/app/editors/AuditorsTable.tsx",
+                lineNumber: 179,
+                columnNumber: 7
+            }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$editors$2f$auditorsTable$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].header,
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
                         className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$editors$2f$auditorsTable$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].title,
-                        children: "قائمة المجردين"
+                        children: "قائمة الفجّرين"
                     }, void 0, false, {
                         fileName: "[project]/app/editors/AuditorsTable.tsx",
-                        lineNumber: 208,
+                        lineNumber: 197,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1786,20 +1710,20 @@ function AuditorsTable() {
                                 size: 16
                             }, void 0, false, {
                                 fileName: "[project]/app/editors/AuditorsTable.tsx",
-                                lineNumber: 210,
+                                lineNumber: 199,
                                 columnNumber: 11
                             }, this),
                             "إضافة مجرد جديد"
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/editors/AuditorsTable.tsx",
-                        lineNumber: 209,
+                        lineNumber: 198,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/editors/AuditorsTable.tsx",
-                lineNumber: 207,
+                lineNumber: 196,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1810,12 +1734,12 @@ function AuditorsTable() {
                         className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$editors$2f$auditorsTable$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].searchIcon
                     }, void 0, false, {
                         fileName: "[project]/app/editors/AuditorsTable.tsx",
-                        lineNumber: 217,
+                        lineNumber: 206,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
                         type: "text",
-                        placeholder: "بحث....",
+                        placeholder: "بحث بالاسم أو الرقم القومي...",
                         value: search,
                         onChange: (e)=>{
                             setSearch(e.target.value);
@@ -1824,13 +1748,13 @@ function AuditorsTable() {
                         className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$editors$2f$auditorsTable$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].searchInput
                     }, void 0, false, {
                         fileName: "[project]/app/editors/AuditorsTable.tsx",
-                        lineNumber: 218,
+                        lineNumber: 207,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/editors/AuditorsTable.tsx",
-                lineNumber: 216,
+                lineNumber: 205,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1846,46 +1770,80 @@ function AuditorsTable() {
                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
                                         children: [
                                             "الاسم",
-                                            "رقم الهاتف",
-                                            "القسم",
-                                            "أخر نشاط",
+                                            "الرقم القومي",
                                             "الحالة",
                                             "الإجراءات"
                                         ].map((h)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
                                                 children: h
                                             }, h, false, {
                                                 fileName: "[project]/app/editors/AuditorsTable.tsx",
-                                                lineNumber: 244,
+                                                lineNumber: 226,
                                                 columnNumber: 19
                                             }, this))
                                     }, void 0, false, {
                                         fileName: "[project]/app/editors/AuditorsTable.tsx",
-                                        lineNumber: 235,
+                                        lineNumber: 224,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/app/editors/AuditorsTable.tsx",
-                                    lineNumber: 234,
+                                    lineNumber: 223,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("tbody", {
                                     className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$editors$2f$auditorsTable$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].tbody,
-                                    children: paginated.length === 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
+                                    children: isLoading ? Array.from({
+                                        length: 5
+                                    }).map((_, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
+                                            children: Array.from({
+                                                length: 4
+                                            }).map((_, j)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
+                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$editors$2f$auditorsTable$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].skeleton
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/app/editors/AuditorsTable.tsx",
+                                                        lineNumber: 237,
+                                                        columnNumber: 25
+                                                    }, this)
+                                                }, j, false, {
+                                                    fileName: "[project]/app/editors/AuditorsTable.tsx",
+                                                    lineNumber: 236,
+                                                    columnNumber: 23
+                                                }, this))
+                                        }, i, false, {
+                                            fileName: "[project]/app/editors/AuditorsTable.tsx",
+                                            lineNumber: 234,
+                                            columnNumber: 19
+                                        }, this)) : error ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
                                         className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$editors$2f$auditorsTable$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].emptyRow,
                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
-                                            colSpan: 6,
-                                            children: "لا توجد نتائج مطابقة"
+                                            colSpan: 4,
+                                            children: error
                                         }, void 0, false, {
                                             fileName: "[project]/app/editors/AuditorsTable.tsx",
-                                            lineNumber: 252,
+                                            lineNumber: 244,
                                             columnNumber: 19
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/app/editors/AuditorsTable.tsx",
-                                        lineNumber: 251,
+                                        lineNumber: 243,
+                                        columnNumber: 17
+                                    }, this) : paginated.length === 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
+                                        className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$editors$2f$auditorsTable$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].emptyRow,
+                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
+                                            colSpan: 4,
+                                            children: "لا توجد نتائج مطابقة"
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/editors/AuditorsTable.tsx",
+                                            lineNumber: 248,
+                                            columnNumber: 19
+                                        }, this)
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/editors/AuditorsTable.tsx",
+                                        lineNumber: 247,
                                         columnNumber: 17
                                     }, this) : paginated.map((a)=>{
-                                        const sc = STATUS_STYLES[a.status];
+                                        const sc = STATUS_STYLES[a.status] ?? STATUS_STYLES["Inactive"];
                                         return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -1893,30 +1851,15 @@ function AuditorsTable() {
                                                     children: a.name
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/editors/AuditorsTable.tsx",
-                                                    lineNumber: 259,
+                                                    lineNumber: 256,
                                                     columnNumber: 23
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
                                                     className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$editors$2f$auditorsTable$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].ltrCell,
-                                                    children: a.phone
+                                                    children: a.nationalNumber
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/editors/AuditorsTable.tsx",
-                                                    lineNumber: 260,
-                                                    columnNumber: 23
-                                                }, this),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
-                                                    children: a.department
-                                                }, void 0, false, {
-                                                    fileName: "[project]/app/editors/AuditorsTable.tsx",
-                                                    lineNumber: 261,
-                                                    columnNumber: 23
-                                                }, this),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
-                                                    className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$editors$2f$auditorsTable$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].ltrCell,
-                                                    children: a.lastActivity
-                                                }, void 0, false, {
-                                                    fileName: "[project]/app/editors/AuditorsTable.tsx",
-                                                    lineNumber: 262,
+                                                    lineNumber: 257,
                                                     columnNumber: 23
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -1927,19 +1870,19 @@ function AuditorsTable() {
                                                                 className: `${__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$editors$2f$auditorsTable$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].dot} ${sc.dot}`
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/editors/AuditorsTable.tsx",
-                                                                lineNumber: 267,
+                                                                lineNumber: 261,
                                                                 columnNumber: 27
                                                             }, this),
                                                             a.status
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/editors/AuditorsTable.tsx",
-                                                        lineNumber: 266,
+                                                        lineNumber: 260,
                                                         columnNumber: 25
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/editors/AuditorsTable.tsx",
-                                                    lineNumber: 265,
+                                                    lineNumber: 259,
                                                     columnNumber: 23
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -1950,115 +1893,110 @@ function AuditorsTable() {
                                                                 className: `${__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$editors$2f$auditorsTable$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].actionBtn} ${__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$editors$2f$auditorsTable$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].contactBtn}`,
                                                                 title: "تواصل",
                                                                 onClick: ()=>setSelectedAuditor({
-                                                                        id: a.id,
                                                                         name: a.name,
-                                                                        department: a.department,
-                                                                        phone: a.phone,
-                                                                        addedAt: a.lastActivity,
-                                                                        username: "khalid.inspector",
-                                                                        password: "pass1234"
+                                                                        nationalNumber: a.nationalNumber,
+                                                                        username: "TODO",
+                                                                        password: "TODO"
                                                                     }),
                                                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$smartphone$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Smartphone$3e$__["Smartphone"], {
                                                                     size: 15
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/editors/AuditorsTable.tsx",
-                                                                    lineNumber: 291,
+                                                                    lineNumber: 280,
                                                                     columnNumber: 29
                                                                 }, this)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/editors/AuditorsTable.tsx",
-                                                                lineNumber: 276,
+                                                                lineNumber: 268,
                                                                 columnNumber: 27
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                                                 className: `${__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$editors$2f$auditorsTable$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].actionBtn} ${__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$editors$2f$auditorsTable$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].editBtn}`,
                                                                 title: "تعديل",
                                                                 onClick: ()=>setEditAuditor({
-                                                                        id: a.id,
-                                                                        name: a.name,
-                                                                        phone: a.phone,
-                                                                        department: a.department
+                                                                        nationalNumber: a.nationalNumber,
+                                                                        name: a.name
                                                                     }),
                                                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$pencil$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Pencil$3e$__["Pencil"], {
                                                                     size: 15
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/editors/AuditorsTable.tsx",
-                                                                    lineNumber: 307,
+                                                                    lineNumber: 293,
                                                                     columnNumber: 29
                                                                 }, this)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/editors/AuditorsTable.tsx",
-                                                                lineNumber: 295,
+                                                                lineNumber: 283,
                                                                 columnNumber: 27
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                                                 className: `${__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$editors$2f$auditorsTable$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].actionBtn} ${__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$editors$2f$auditorsTable$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].deleteBtn}`,
-                                                                onClick: ()=>handleDelete(a.id),
                                                                 title: "حذف",
+                                                                onClick: ()=>handleDelete(a.nationalNumber),
                                                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$trash$2d$2$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Trash2$3e$__["Trash2"], {
                                                                     size: 15
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/editors/AuditorsTable.tsx",
-                                                                    lineNumber: 316,
+                                                                    lineNumber: 301,
                                                                     columnNumber: 29
                                                                 }, this)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/editors/AuditorsTable.tsx",
-                                                                lineNumber: 311,
+                                                                lineNumber: 296,
                                                                 columnNumber: 27
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                                                className: `${__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$editors$2f$auditorsTable$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].toggle} ${a.enabled ? __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$editors$2f$auditorsTable$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].toggleOn : __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$editors$2f$auditorsTable$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].toggleOff}`,
-                                                                onClick: ()=>handleToggle(a.id),
+                                                                className: `${__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$editors$2f$auditorsTable$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].toggle} ${a.isActive ? __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$editors$2f$auditorsTable$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].toggleOn : __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$editors$2f$auditorsTable$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].toggleOff}`,
+                                                                onClick: ()=>handleToggle(a.nationalNumber),
                                                                 role: "switch",
-                                                                "aria-checked": a.enabled,
+                                                                "aria-checked": a.isActive,
                                                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                    className: `${__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$editors$2f$auditorsTable$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].toggleThumb} ${a.enabled ? __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$editors$2f$auditorsTable$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].toggleThumbOn : __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$editors$2f$auditorsTable$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].toggleThumbOff}`
+                                                                    className: `${__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$editors$2f$auditorsTable$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].toggleThumb} ${a.isActive ? __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$editors$2f$auditorsTable$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].toggleThumbOn : __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$editors$2f$auditorsTable$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].toggleThumbOff}`
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/editors/AuditorsTable.tsx",
-                                                                    lineNumber: 326,
+                                                                    lineNumber: 310,
                                                                     columnNumber: 29
                                                                 }, this)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/editors/AuditorsTable.tsx",
-                                                                lineNumber: 320,
+                                                                lineNumber: 304,
                                                                 columnNumber: 27
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/editors/AuditorsTable.tsx",
-                                                        lineNumber: 274,
+                                                        lineNumber: 267,
                                                         columnNumber: 25
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/editors/AuditorsTable.tsx",
-                                                    lineNumber: 273,
+                                                    lineNumber: 266,
                                                     columnNumber: 23
                                                 }, this)
                                             ]
-                                        }, a.id, true, {
+                                        }, a.nationalNumber, true, {
                                             fileName: "[project]/app/editors/AuditorsTable.tsx",
-                                            lineNumber: 258,
+                                            lineNumber: 255,
                                             columnNumber: 21
                                         }, this);
                                     })
                                 }, void 0, false, {
                                     fileName: "[project]/app/editors/AuditorsTable.tsx",
-                                    lineNumber: 249,
+                                    lineNumber: 231,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/editors/AuditorsTable.tsx",
-                            lineNumber: 233,
+                            lineNumber: 222,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/app/editors/AuditorsTable.tsx",
-                        lineNumber: 232,
+                        lineNumber: 221,
                         columnNumber: 9
                     }, this),
-                    totalPages > 1 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    !isLoading && totalPages > 1 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$editors$2f$auditorsTable$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].pagination,
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -2069,12 +2007,12 @@ function AuditorsTable() {
                                     size: 15
                                 }, void 0, false, {
                                     fileName: "[project]/app/editors/AuditorsTable.tsx",
-                                    lineNumber: 348,
+                                    lineNumber: 331,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/editors/AuditorsTable.tsx",
-                                lineNumber: 343,
+                                lineNumber: 326,
                                 columnNumber: 13
                             }, this),
                             getPages().map((p, i)=>p === "..." ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2082,7 +2020,7 @@ function AuditorsTable() {
                                     children: "..."
                                 }, `d${i}`, false, {
                                     fileName: "[project]/app/editors/AuditorsTable.tsx",
-                                    lineNumber: 353,
+                                    lineNumber: 336,
                                     columnNumber: 17
                                 }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                     className: `${__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$editors$2f$auditorsTable$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].pageBtn} ${page === p ? __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$editors$2f$auditorsTable$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].pageBtnActive : ""}`,
@@ -2090,7 +2028,7 @@ function AuditorsTable() {
                                     children: String(p).padStart(2, "0")
                                 }, p, false, {
                                     fileName: "[project]/app/editors/AuditorsTable.tsx",
-                                    lineNumber: 357,
+                                    lineNumber: 340,
                                     columnNumber: 17
                                 }, this)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -2101,44 +2039,61 @@ function AuditorsTable() {
                                     size: 15
                                 }, void 0, false, {
                                     fileName: "[project]/app/editors/AuditorsTable.tsx",
-                                    lineNumber: 372,
+                                    lineNumber: 355,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/editors/AuditorsTable.tsx",
-                                lineNumber: 367,
+                                lineNumber: 350,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/editors/AuditorsTable.tsx",
-                        lineNumber: 342,
+                        lineNumber: 325,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/editors/AuditorsTable.tsx",
-                lineNumber: 231,
+                lineNumber: 220,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$editors$2f$Addauditormodal$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
                 isOpen: isModalOpen,
                 onClose: ()=>setIsModalOpen(false),
                 onSubmit: async (data)=>{
-                    console.log(data); // TODO: API
+                    const res = await fetch("/api/auditors/addAuditors", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify(data)
+                    });
+                    if (!res.ok) throw new Error("فشل الإضافة");
+                    showToast("تم إضافة المجرد بنجاح", "success");
+                    await fetchAuditors(); // refetch عشان الداتا تتحدث
                 }
             }, void 0, false, {
                 fileName: "[project]/app/editors/AuditorsTable.tsx",
-                lineNumber: 379,
+                lineNumber: 362,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$editors$2f$AuditorAccessModal$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
                 isOpen: !!selectedAuditor,
                 onClose: ()=>setSelectedAuditor(null),
-                auditor: selectedAuditor
+                auditor: selectedAuditor ? {
+                    id: 0,
+                    name: selectedAuditor.name,
+                    department: "",
+                    phone: selectedAuditor.nationalNumber,
+                    addedAt: "",
+                    username: selectedAuditor.username,
+                    password: selectedAuditor.password
+                } : null
             }, void 0, false, {
                 fileName: "[project]/app/editors/AuditorsTable.tsx",
-                lineNumber: 388,
+                lineNumber: 378,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$editors$2f$EditAuditorModal$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -2146,20 +2101,30 @@ function AuditorsTable() {
                 onClose: ()=>setEditAuditor(null),
                 auditor: editAuditor,
                 onSubmit: async (data)=>{
-                    setAuditors((prev)=>prev.map((a)=>a.id === editAuditor?.id ? {
-                                ...a,
-                                ...data
-                            } : a));
+                    const res = await fetch("/api/auditors/updateAuditor", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({
+                            name: data.name,
+                            oldNationalNumber: editAuditor?.nationalNumber,
+                            newNationalNumber: data.newNationalNumber
+                        })
+                    });
+                    if (!res.ok) throw new Error("فشل التعديل");
+                    showToast("تم التعديل بنجاح", "success");
+                    await fetchAuditors();
                 }
             }, void 0, false, {
                 fileName: "[project]/app/editors/AuditorsTable.tsx",
-                lineNumber: 395,
+                lineNumber: 397,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/app/editors/AuditorsTable.tsx",
-        lineNumber: 205,
+        lineNumber: 177,
         columnNumber: 5
     }, this);
 }

@@ -660,6 +660,55 @@
   font-size: .875rem;
 }
 
+.auditorsTable-module__pPMXBq__toastContainer {
+  z-index: 100;
+  pointer-events: none;
+  flex-direction: column;
+  gap: .5rem;
+  display: flex;
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.auditorsTable-module__pPMXBq__toast {
+  white-space: nowrap;
+  border-radius: .5rem;
+  align-items: center;
+  gap: .5rem;
+  padding: .6rem 1.25rem;
+  font-size: .875rem;
+  font-weight: 500;
+  animation: .3s auditorsTable-module__pPMXBq__slideUp;
+  display: inline-flex;
+  box-shadow: 0 4px 12px #00000026;
+}
+
+.auditorsTable-module__pPMXBq__toastSuccess {
+  color: #065f46;
+  background: #ecfdf5;
+  border: 1px solid #6ee7b7;
+}
+
+.auditorsTable-module__pPMXBq__toastError {
+  color: #991b1b;
+  background: #fef2f2;
+  border: 1px solid #fca5a5;
+}
+
+@keyframes auditorsTable-module__pPMXBq__slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* [project]/app/editors/Addauditormodal.module.css [app-client] (css) */
 .Addauditormodal-module__bjAXRW__overlay {
   z-index: 50;
