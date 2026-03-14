@@ -1,0 +1,3 @@
+{
+  "/api/auditors/deleteAuditor/route": "app/api/auditors/deleteAuditor/route.js"
+}

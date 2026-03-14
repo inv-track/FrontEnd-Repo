@@ -1,4 +1,272 @@
-[00:00:04.252] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
-[00:00:05.406] Server  LOG      ✓ Ready in 4.4s
-[00:00:09.394] Server  LOG      ○ Compiling /login ...
-[00:00:15.584] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:06.512] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+[00:00:08.737] Server  LOG      ✓ Ready in 7.6s
+[00:00:12.603] Server  LOG      ○ Compiling / ...
+[00:00:21.937] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:53.087] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:57.198] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:03:14.469] Server  LOG     PUT toggle hit!
+[00:03:17.513] Server  LOG     PUT toggle hit!
+[00:09:33.364] Server  LOG      ✓ Compiled in 207ms
+[00:09:37.916] Server  LOG      ✓ Compiled in 701ms
+[00:09:40.361] Server  LOG     toggleActive POST hit!
+[00:09:42.631] Server  LOG     toggleActive POST hit!
+[00:09:44.211] Server  LOG     toggleActive POST hit!
+[00:12:04.145] Server  LOG     toggleActive POST hit!
+[00:12:47.800] Server  LOG     toggleActive POST hit!
+[00:12:59.942] Server  LOG     toggleActive POST hit!
+[00:13:07.746] Server  LOG     toggleActive POST hit!
+[00:14:24.397] Server  LOG     toggleActive POST hit!
+[00:14:24.406] Server  LOG     Token: "found"
+[00:15:29.083] Server  LOG     toggleActive POST hit!
+[00:15:29.086] Server  LOG     Token: "found"
+[00:15:29.346] Server  LOG     External status: 405
+[00:15:29.348] Server  LOG     External response: ""
+[00:16:43.887] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:16:47.194] Server  LOG     toggleActive POST hit!
+[00:16:47.229] Server  LOG     Token: "found"
+[00:16:47.344] Server  LOG     External status: 200
+[00:16:47.346] Server  LOG     External response: "Updated Successfully"
+[00:16:50.672] Server  LOG     toggleActive POST hit!
+[00:16:50.678] Server  LOG     Token: "found"
+[00:16:50.777] Server  LOG     External status: 200
+[00:16:50.778] Server  LOG     External response: "Updated Successfully"
+[00:16:51.916] Server  LOG     toggleActive POST hit!
+[00:16:51.927] Server  LOG     Token: "found"
+[00:16:52.023] Server  LOG     External status: 200
+[00:16:52.025] Server  LOG     External response: "Updated Successfully"
+[00:16:52.937] Server  LOG     toggleActive POST hit!
+[00:16:52.941] Server  LOG     Token: "found"
+[00:16:53.055] Server  LOG     External status: 200
+[00:16:53.057] Server  LOG     External response: "Updated Successfully"
+[00:16:53.772] Server  LOG     toggleActive POST hit!
+[00:16:53.777] Server  LOG     Token: "found"
+[00:16:53.877] Server  LOG     External status: 200
+[00:16:53.882] Server  LOG     External response: "Updated Successfully"
+[00:16:54.466] Server  LOG     toggleActive POST hit!
+[00:16:54.478] Server  LOG     Token: "found"
+[00:16:54.575] Server  LOG     External status: 200
+[00:16:54.576] Server  LOG     External response: "Updated Successfully"
+[00:16:55.492] Server  LOG     toggleActive POST hit!
+[00:16:55.499] Server  LOG     Token: "found"
+[00:16:55.619] Server  LOG     External status: 200
+[00:16:55.621] Server  LOG     External response: "Updated Successfully"
+[00:16:58.809] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:22:33.245] Server  LOG      ✓ Compiled in 320ms
+[00:22:36.832] Server  LOG      ✓ Compiled in 1895ms
+[00:23:08.136] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:23:14.801] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:23:22.275] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:23:44.495] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:23:48.687] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:24:19.676] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:25:33.258] Server  LOG     API called
+[00:25:33.268] Server  LOG     Token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0ZXIiLCJqdGkiOiI2YTk2YjkxMC1iMzhhLTQxZTUtOTNmZC02YTljMjRkZTU1NTYiLCJuYW1laWQiOiIyIiwicm9sZXMiOiJBZG1pbiIsImV4cCI6MTc3MzYxMDQyNSwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMSIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjUwMDEifQ.qgS_wFyRw3YCmdHfWoUU3SAKyx_NbYX59u9F-iEJakE"
+[00:25:33.531] Server  LOG     External status: 200
+[00:25:33.632] Server  LOG     API called
+[00:25:33.641] Server  LOG     Token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0ZXIiLCJqdGkiOiI2YTk2YjkxMC1iMzhhLTQxZTUtOTNmZC02YTljMjRkZTU1NTYiLCJuYW1laWQiOiIyIiwicm9sZXMiOiJBZG1pbiIsImV4cCI6MTc3MzYxMDQyNSwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMSIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjUwMDEifQ.qgS_wFyRw3YCmdHfWoUU3SAKyx_NbYX59u9F-iEJakE"
+[00:25:33.733] Server  LOG     External status: 200
+[00:26:52.560] Server  LOG      ✓ Compiled in 772ms
+[00:26:55.044] Server  LOG      ✓ Compiled in 718ms
+[00:27:14.420] Server  LOG      ✓ Compiled in 241ms
+[00:27:38.001] Server  LOG      ✓ Compiled in 226ms
+[00:29:19.532] Server  LOG      ✓ Compiled in 88ms
+[00:29:45.922] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:30:06.896] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:32:36.744] Server  LOG      ✓ Compiled in 194ms
+[00:33:07.726] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:33:19.356] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:34:13.934] Server  LOG     API called
+[00:34:14.046] Server  LOG     Token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0ZXIiLCJqdGkiOiI2YTk2YjkxMC1iMzhhLTQxZTUtOTNmZC02YTljMjRkZTU1NTYiLCJuYW1laWQiOiIyIiwicm9sZXMiOiJBZG1pbiIsImV4cCI6MTc3MzYxMDQyNSwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMSIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjUwMDEifQ.qgS_wFyRw3YCmdHfWoUU3SAKyx_NbYX59u9F-iEJakE"
+[00:34:14.269] Server  LOG     External status: 200
+[00:34:14.371] Server  LOG     API called
+[00:34:14.381] Server  LOG     Token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0ZXIiLCJqdGkiOiI2YTk2YjkxMC1iMzhhLTQxZTUtOTNmZC02YTljMjRkZTU1NTYiLCJuYW1laWQiOiIyIiwicm9sZXMiOiJBZG1pbiIsImV4cCI6MTc3MzYxMDQyNSwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMSIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjUwMDEifQ.qgS_wFyRw3YCmdHfWoUU3SAKyx_NbYX59u9F-iEJakE"
+[00:34:14.482] Server  LOG     External status: 200
+[00:41:27.973] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:45:23.763] Server  LOG      ✓ Compiled in 1342ms
+[00:45:24.444] Browser ERROR   ./app/editors/EditAuditorModal.tsx:1:1
+Ecmascript file had an error
+> 1 | import { cookies } from "next/headers";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 | import { NextResponse } from "next/server";
+  3 |
+  4 | const BASE_URL = "http://invtrackapi.runasp.net/api/DetainedPerson";
+
+You're importing a component that needs "next/headers". That only works in a Server Component but one of its parents is marked with "use client", so it's a Client Component.
+Learn more: https://nextjs.org/docs/app/building-your-application/rendering
+
+Import traces:
+  Client Component Browser:
+    ./app/editors/EditAuditorModal.tsx [Client Component Browser]
+    ./app/editors/AuditorsTable.tsx [Client Component Browser]
+    ./app/editors/AuditorsTable.tsx [Server Component]
+    ./app/editors/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/editors/EditAuditorModal.tsx [Client Component SSR]
+    ./app/editors/AuditorsTable.tsx [Client Component SSR]
+    ./app/editors/AuditorsTable.tsx [Server Component]
+    ./app/editors/page.tsx [Server Component]
+[00:45:24.444] Browser ERROR   ./app/editors/AuditorsTable.tsx:18:1
+Export default doesn't exist in target module
+  16 | import AddAuditorModal from "./Addauditormodal";
+  17 | import AuditorAccessModal from "./AuditorAccessModal";
+> 18 | import EditAuditorModal from "./EditAuditorModal";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  19 |
+  20 | // ─── Types ────────────────────────────────────────────────────────────────────
+  21 |
+
+The export default was not found in module [project]/app/editors/EditAuditorModal.tsx [app-client] (ecmascript).
+Did you mean to import POST?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/editors/AuditorsTable.tsx
+    ./app/editors/page.tsx
+[00:45:24.444] Browser ERROR   ./app/editors/AuditorsTable.tsx:18:1
+Export default doesn't exist in target module
+  16 | import AddAuditorModal from "./Addauditormodal";
+  17 | import AuditorAccessModal from "./AuditorAccessModal";
+> 18 | import EditAuditorModal from "./EditAuditorModal";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  19 |
+  20 | // ─── Types ────────────────────────────────────────────────────────────────────
+  21 |
+
+The export default was not found in module [project]/app/editors/EditAuditorModal.tsx [app-ssr] (ecmascript).
+Did you mean to import POST?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/editors/AuditorsTable.tsx
+    ./app/editors/page.tsx
+[00:45:25.753] Browser ERROR   ./app/editors/EditAuditorModal.tsx:1:1
+Ecmascript file had an error
+> 1 | import { cookies } from "next/headers";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 | import { NextResponse } from "next/server";
+  3 |
+  4 | const BASE_URL = "http://invtrackapi.runasp.net/api/DetainedPerson";
+
+You're importing a component that needs "next/headers". That only works in a Server Component but one of its parents is marked with "use client", so it's a Client Component.
+Learn more: https://nextjs.org/docs/app/building-your-application/rendering
+
+Import traces:
+  Client Component Browser:
+    ./app/editors/EditAuditorModal.tsx [Client Component Browser]
+    ./app/editors/AuditorsTable.tsx [Client Component Browser]
+    ./app/editors/AuditorsTable.tsx [Server Component]
+    ./app/editors/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/editors/EditAuditorModal.tsx [Client Component SSR]
+    ./app/editors/AuditorsTable.tsx [Client Component SSR]
+    ./app/editors/AuditorsTable.tsx [Server Component]
+    ./app/editors/page.tsx [Server Component]
+[00:45:25.753] Browser ERROR   ./app/editors/AuditorsTable.tsx:18:1
+Export default doesn't exist in target module
+  16 | import AddAuditorModal from "./Addauditormodal";
+  17 | import AuditorAccessModal from "./AuditorAccessModal";
+> 18 | import EditAuditorModal from "./EditAuditorModal";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  19 |
+  20 | // ─── Types ────────────────────────────────────────────────────────────────────
+  21 |
+
+The export default was not found in module [project]/app/editors/EditAuditorModal.tsx [app-client] (ecmascript).
+Did you mean to import POST?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/editors/AuditorsTable.tsx
+    ./app/editors/page.tsx
+[00:45:25.753] Browser ERROR   ./app/editors/AuditorsTable.tsx:18:1
+Export default doesn't exist in target module
+  16 | import AddAuditorModal from "./Addauditormodal";
+  17 | import AuditorAccessModal from "./AuditorAccessModal";
+> 18 | import EditAuditorModal from "./EditAuditorModal";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  19 |
+  20 | // ─── Types ────────────────────────────────────────────────────────────────────
+  21 |
+
+The export default was not found in module [project]/app/editors/EditAuditorModal.tsx [app-ssr] (ecmascript).
+Did you mean to import POST?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/editors/AuditorsTable.tsx
+    ./app/editors/page.tsx
+[00:45:37.819] Server  LOG      ✓ Compiled in 371ms
+[00:45:40.158] Server  LOG      ✓ Compiled in 531ms
+[00:45:40.527] Browser ERROR   ./app/editors/EditAuditorModal.tsx:42:1
+Ecmascript file had an error
+  40 |   return NextResponse.json({ message: text });
+  41 | }
+> 42 | "use client";
+     | ^^^^^^^^^^^^^
+  43 |
+  44 | import { useState, useEffect, useMemo, useCallback } from "react";
+  45 | import {
+
+The "use client" directive must be placed before other expressions. Move it to the top of the file to resolve this issue.
+
+Import traces:
+  Client Component Browser:
+    ./app/editors/EditAuditorModal.tsx [Client Component Browser]
+    ./app/editors/AuditorsTable.tsx [Client Component Browser]
+    ./app/editors/AuditorsTable.tsx [Server Component]
+    ./app/editors/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/editors/EditAuditorModal.tsx [Client Component SSR]
+    ./app/editors/AuditorsTable.tsx [Client Component SSR]
+    ./app/editors/AuditorsTable.tsx [Server Component]
+    ./app/editors/page.tsx [Server Component]
+[00:45:40.527] Browser ERROR   ./app/editors/EditAuditorModal.tsx:1:1
+Ecmascript file had an error
+> 1 | import { cookies } from "next/headers";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 | import { NextResponse } from "next/server";
+  3 |
+  4 | const BASE_URL = "http://invtrackapi.runasp.net/api/DetainedPerson";
+
+You're importing a component that needs "next/headers". That only works in a Server Component but one of its parents is marked with "use client", so it's a Client Component.
+Learn more: https://nextjs.org/docs/app/building-your-application/rendering
+
+Import traces:
+  Client Component Browser:
+    ./app/editors/EditAuditorModal.tsx [Client Component Browser]
+    ./app/editors/AuditorsTable.tsx [Client Component Browser]
+    ./app/editors/AuditorsTable.tsx [Server Component]
+    ./app/editors/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/editors/EditAuditorModal.tsx [Client Component SSR]
+    ./app/editors/AuditorsTable.tsx [Client Component SSR]
+    ./app/editors/AuditorsTable.tsx [Server Component]
+    ./app/editors/page.tsx [Server Component]
+[00:45:48.833] Server  LOG      ✓ Compiled in 56ms
+[00:45:54.479] Server  LOG      ✓ Compiled in 612ms
+[00:46:03.170] Server  LOG      ✓ Compiled in 463ms
+[00:46:09.934] Server  LOG      ✓ Compiled in 233ms
+[00:46:14.888] Server  LOG      ✓ Compiled in 367ms
+[00:46:26.206] Server  LOG      ✓ Compiled in 452ms
+[00:46:27.803] Server  LOG      ✓ Compiled in 669ms
+[00:46:51.427] Server  LOG      ✓ Compiled in 185ms
+[00:46:53.568] Server  LOG      ✓ Compiled in 1026ms
+[00:48:02.509] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:48:06.494] Server  LOG     API called
+[00:48:06.503] Server  LOG     Token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0ZXIiLCJqdGkiOiI2YTk2YjkxMC1iMzhhLTQxZTUtOTNmZC02YTljMjRkZTU1NTYiLCJuYW1laWQiOiIyIiwicm9sZXMiOiJBZG1pbiIsImV4cCI6MTc3MzYxMDQyNSwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMSIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjUwMDEifQ.qgS_wFyRw3YCmdHfWoUU3SAKyx_NbYX59u9F-iEJakE"
+[00:48:06.732] Server  LOG     External status: 200
+[00:48:06.775] Server  LOG     API called
+[00:48:06.780] Server  LOG     Token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0ZXIiLCJqdGkiOiI2YTk2YjkxMC1iMzhhLTQxZTUtOTNmZC02YTljMjRkZTU1NTYiLCJuYW1laWQiOiIyIiwicm9sZXMiOiJBZG1pbiIsImV4cCI6MTc3MzYxMDQyNSwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMSIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjUwMDEifQ.qgS_wFyRw3YCmdHfWoUU3SAKyx_NbYX59u9F-iEJakE"
+[00:48:06.986] Server  LOG     External status: 200
+[00:49:06.685] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:49:48.907] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:49:53.791] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:49:57.958] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold

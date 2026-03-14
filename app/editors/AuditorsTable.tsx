@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useEffect, useMemo, useCallback } from "react";
 import {
   Plus,
   Search,
@@ -9,6 +9,8 @@ import {
   Smartphone,
   ChevronLeft,
   ChevronRight,
+  CheckCircle,
+  XCircle,
 } from "lucide-react";
 import styles from "./auditorsTable.module.css";
 import AddAuditorModal from "./Addauditormodal";
@@ -17,195 +19,182 @@ import EditAuditorModal from "./EditAuditorModal";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
-type Status = "Active" | "Offline" | "Wait";
+type Status = "Active" | "Inactive" | "Wait";
 
 interface Auditor {
-  id: number;
   name: string;
-  phone: string;
-  department: string;
-  lastActivity: string;
+  nationalNumber: string;
+  isActive: boolean;
   status: Status;
-  enabled: boolean;
+}
+
+interface Toast {
+  id: number;
+  message: string;
+  type: "success" | "error";
 }
 
 const PAGE_SIZE = 7;
 
 const STATUS_STYLES: Record<Status, { text: string; dot: string }> = {
   Active: { text: styles.active, dot: styles.dotActive },
-  Offline: { text: styles.offline, dot: styles.dotOffline },
+  Inactive: { text: styles.offline, dot: styles.dotOffline },
   Wait: { text: styles.wait, dot: styles.dotWait },
 };
-
-// ─── Mock data (شيلها لما الـ API يبقى جاهز) ─────────────────────────────────
-
-const MOCK: Auditor[] = [
-  {
-    id: 1,
-    name: "م. خالد أحمد سالم",
-    phone: "01278945612",
-    department: "قسم جرد الاصول",
-    lastActivity: "2025-10-24 14:30",
-    status: "Offline",
-    enabled: true,
-  },
-  {
-    id: 2,
-    name: "م. شنوده اشرف عزيز",
-    phone: "01278945612",
-    department: "قسم التدقيق المالي",
-    lastActivity: "2025-10-23 11:15",
-    status: "Active",
-    enabled: true,
-  },
-  {
-    id: 3,
-    name: "م. نورة محمد إبراهيم",
-    phone: "01278945612",
-    department: "إدارة المراجعة الداخلية",
-    lastActivity: "2025-10-24 14:30",
-    status: "Active",
-    enabled: true,
-  },
-  {
-    id: 4,
-    name: "أ. عبدالله حسين علي",
-    phone: "01278945612",
-    department: "قسم جرد الاصول",
-    lastActivity: "2025-10-23 11:15",
-    status: "Wait",
-    enabled: true,
-  },
-  {
-    id: 5,
-    name: "م. خالد أحمد سالم",
-    phone: "01278945612",
-    department: "قسم التدقيق المالي",
-    lastActivity: "2025-10-24 14:30",
-    status: "Wait",
-    enabled: true,
-  },
-  {
-    id: 6,
-    name: "م. شنوده اشرف عزيز",
-    phone: "01278945612",
-    department: "إدارة المراجعة الداخلية",
-    lastActivity: "2025-10-23 11:15",
-    status: "Offline",
-    enabled: false,
-  },
-  {
-    id: 7,
-    name: "م. نورة محمد إبراهيم",
-    phone: "01278945612",
-    department: "قسم جرد الاصول",
-    lastActivity: "2025-10-24 14:30",
-    status: "Offline",
-    enabled: true,
-  },
-  {
-    id: 8,
-    name: "أ. محمد علي حسن",
-    phone: "01198765432",
-    department: "قسم التدقيق المالي",
-    lastActivity: "2025-10-22 09:00",
-    status: "Active",
-    enabled: true,
-  },
-  {
-    id: 9,
-    name: "م. سارة يوسف إبراهيم",
-    phone: "01012345678",
-    department: "إدارة المراجعة الداخلية",
-    lastActivity: "2025-10-21 13:45",
-    status: "Wait",
-    enabled: false,
-  },
-];
 
 // ─── Component ────────────────────────────────────────────────────────────────
 
 export default function AuditorsTable() {
-  const [auditors, setAuditors] = useState<Auditor[]>(MOCK);
+  const [auditors, setAuditors] = useState<Auditor[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [toasts, setToasts] = useState<Toast[]>([]);
+
   const [selectedAuditor, setSelectedAuditor] = useState<null | {
-    id: number;
     name: string;
-    department: string;
-    phone: string;
-    addedAt: string;
+    nationalNumber: string;
     username: string;
     password: string;
   }>(null);
+
   const [editAuditor, setEditAuditor] = useState<null | {
-    id: number;
+    nationalNumber: string;
     name: string;
-    phone: string;
-    department: string;
   }>(null);
 
-  // ── Filter ──
+  // ── Toast ───────────────────────────────────────────────────────────────────
+  const showToast = (message: string, type: "success" | "error") => {
+    const id = Date.now();
+    setToasts((prev) => [...prev, { id, message, type }]);
+    setTimeout(
+      () => setToasts((prev) => prev.filter((t) => t.id !== id)),
+      3000,
+    );
+  };
+
+  // ── Fetch ───────────────────────────────────────────────────────────────────
+  const fetchAuditors = useCallback(async () => {
+    try {
+      setIsLoading(true);
+      const res = await fetch("/api/auditors/getAllAuditors");
+      if (res.status === 401) {
+        setError("غير مصرح، يرجى تسجيل الدخول");
+        return;
+      }
+      if (!res.ok) throw new Error("فشل تحميل البيانات");
+      const data: Auditor[] = await res.json();
+      setAuditors(data);
+    } catch {
+      setError("حدث خطأ أثناء تحميل البيانات");
+    } finally {
+      setIsLoading(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    fetchAuditors();
+  }, [fetchAuditors]);
+
+  // ── Filter ──────────────────────────────────────────────────────────────────
   const filtered = useMemo(() => {
     const q = search.trim().toLowerCase();
     if (!q) return auditors;
     return auditors.filter(
-      (a) =>
-        a.name.includes(q) || a.department.includes(q) || a.phone.includes(q),
+      (a) => a.name.toLowerCase().includes(q) || a.nationalNumber.includes(q),
     );
   }, [auditors, search]);
 
-  // ── Pagination ──
+  // ── Pagination ──────────────────────────────────────────────────────────────
   const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
   const paginated = filtered.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
 
-  // ── Toggle (optimistic) ──
-  const handleToggle = async (id: number) => {
-    setAuditors((prev) =>
-      prev.map((a) => (a.id === id ? { ...a, enabled: !a.enabled } : a)),
-    );
-    const target = auditors.find((a) => a.id === id);
+  // ── Toggle ──────────────────────────────────────────────────────────────────
+  const handleToggle = async (nationalNumber: string) => {
+    const target = auditors.find((a) => a.nationalNumber === nationalNumber);
     if (!target) return;
+
+    const newIsActive = !target.isActive;
+    const newStatus: Status = newIsActive ? "Active" : "Inactive";
+
+    setAuditors((prev) =>
+      prev.map((a) =>
+        a.nationalNumber === nationalNumber
+          ? { ...a, isActive: newIsActive, status: newStatus }
+          : a,
+      ),
+    );
+
     try {
-      await fetch(`/api/auditors/${id}`, {
-        method: "PATCH",
+      const res = await fetch("/api/auditors/toggleActive", {
+        method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ enabled: !target.enabled }),
+        body: JSON.stringify({ nationalNumber, isActive: newIsActive }),
       });
+      if (!res.ok) throw new Error("فشل التحديث");
     } catch {
       setAuditors((prev) =>
-        prev.map((a) => (a.id === id ? { ...a, enabled: target.enabled } : a)),
+        prev.map((a) =>
+          a.nationalNumber === nationalNumber
+            ? { ...a, isActive: target.isActive, status: target.status }
+            : a,
+        ),
       );
     }
   };
 
-  // ── Delete (optimistic) ──
-  const handleDelete = async (id: number) => {
-    const backup = auditors.find((a) => a.id === id);
-    setAuditors((prev) => prev.filter((a) => a.id !== id));
+  // ── Delete ──────────────────────────────────────────────────────────────────
+  const handleDelete = async (nationalNumber: string) => {
+    const backup = auditors.find((a) => a.nationalNumber === nationalNumber);
+    setAuditors((prev) =>
+      prev.filter((a) => a.nationalNumber !== nationalNumber),
+    );
     try {
-      await fetch(`/api/auditors/${id}`, { method: "DELETE" });
+      const res = await fetch(
+        `/api/auditors/deleteAuditor?nationalNumber=${nationalNumber}`,
+        { method: "DELETE" },
+      );
+      if (!res.ok) throw new Error("فشل الحذف");
+      showToast("تم الحذف بنجاح", "success");
     } catch {
-      if (backup)
-        setAuditors((prev) => [...prev, backup].sort((a, b) => a.id - b.id));
+      if (backup) setAuditors((prev) => [...prev, backup]);
+      showToast("فشل الحذف، حاول مرة أخرى", "error");
     }
   };
 
-  // ── Pages list ──
+  // ── Pages list ──────────────────────────────────────────────────────────────
   const getPages = (): (number | "...")[] => {
     if (totalPages <= 6)
       return Array.from({ length: totalPages }, (_, i) => i + 1);
     return [1, 2, 3, "...", totalPages - 2, totalPages - 1, totalPages];
   };
 
-  // ─────────────────────────────────────────────────────────────────────────
+  // ────────────────────────────────────────────────────────────────────────────
 
   return (
     <div className={styles.wrapper}>
+      {/* Toasts */}
+      <div className={styles.toastContainer}>
+        {toasts.map((t) => (
+          <div
+            key={t.id}
+            className={`${styles.toast} ${t.type === "success" ? styles.toastSuccess : styles.toastError}`}
+          >
+            {t.type === "success" ? (
+              <CheckCircle size={16} />
+            ) : (
+              <XCircle size={16} />
+            )}
+            {t.message}
+          </div>
+        ))}
+      </div>
+
       {/* Header */}
       <div className={styles.header}>
-        <h1 className={styles.title}>قائمة المجردين</h1>
+        <h1 className={styles.title}>قائمة الفجّرين</h1>
         <button className={styles.addBtn} onClick={() => setIsModalOpen(true)}>
           <Plus size={16} />
           إضافة مجرد جديد
@@ -217,7 +206,7 @@ export default function AuditorsTable() {
         <Search size={15} className={styles.searchIcon} />
         <input
           type="text"
-          placeholder="بحث...."
+          placeholder="بحث بالاسم أو الرقم القومي..."
           value={search}
           onChange={(e) => {
             setSearch(e.target.value);
@@ -233,35 +222,40 @@ export default function AuditorsTable() {
           <table className={styles.table}>
             <thead className={styles.thead}>
               <tr>
-                {[
-                  "الاسم",
-                  "رقم الهاتف",
-                  "القسم",
-                  "أخر نشاط",
-                  "الحالة",
-                  "الإجراءات",
-                ].map((h) => (
+                {["الاسم", "الرقم القومي", "الحالة", "الإجراءات"].map((h) => (
                   <th key={h}>{h}</th>
                 ))}
               </tr>
             </thead>
 
             <tbody className={styles.tbody}>
-              {paginated.length === 0 ? (
+              {isLoading ? (
+                Array.from({ length: 5 }).map((_, i) => (
+                  <tr key={i}>
+                    {Array.from({ length: 4 }).map((_, j) => (
+                      <td key={j}>
+                        <div className={styles.skeleton} />
+                      </td>
+                    ))}
+                  </tr>
+                ))
+              ) : error ? (
                 <tr className={styles.emptyRow}>
-                  <td colSpan={6}>لا توجد نتائج مطابقة</td>
+                  <td colSpan={4}>{error}</td>
+                </tr>
+              ) : paginated.length === 0 ? (
+                <tr className={styles.emptyRow}>
+                  <td colSpan={4}>لا توجد نتائج مطابقة</td>
                 </tr>
               ) : (
                 paginated.map((a) => {
-                  const sc = STATUS_STYLES[a.status];
+                  const sc =
+                    STATUS_STYLES[a.status] ?? STATUS_STYLES["Inactive"];
                   return (
-                    <tr key={a.id}>
+                    <tr key={a.nationalNumber}>
                       <td className={styles.nameCell}>{a.name}</td>
-                      <td className={styles.ltrCell}>{a.phone}</td>
-                      <td>{a.department}</td>
-                      <td className={styles.ltrCell}>{a.lastActivity}</td>
+                      <td className={styles.ltrCell}>{a.nationalNumber}</td>
 
-                      {/* Status */}
                       <td>
                         <span className={`${styles.badge} ${sc.text}`}>
                           <span className={`${styles.dot} ${sc.dot}`} />
@@ -269,62 +263,52 @@ export default function AuditorsTable() {
                         </span>
                       </td>
 
-                      {/* Actions */}
                       <td>
                         <div className={styles.actions}>
-                          {/* Smartphone */}
                           <button
                             className={`${styles.actionBtn} ${styles.contactBtn}`}
                             title="تواصل"
                             onClick={() =>
                               setSelectedAuditor({
-                                id: a.id,
                                 name: a.name,
-                                department: a.department,
-                                phone: a.phone,
-                                addedAt: a.lastActivity,
-                                username: "khalid.inspector", // TODO: من الـ API
-                                password: "pass1234", // TODO: من الـ API
+                                nationalNumber: a.nationalNumber,
+                                username: "TODO",
+                                password: "TODO",
                               })
                             }
                           >
                             <Smartphone size={15} />
                           </button>
 
-                          {/* Edit */}
                           <button
                             className={`${styles.actionBtn} ${styles.editBtn}`}
                             title="تعديل"
                             onClick={() =>
                               setEditAuditor({
-                                id: a.id,
+                                nationalNumber: a.nationalNumber,
                                 name: a.name,
-                                phone: a.phone,
-                                department: a.department,
                               })
                             }
                           >
                             <Pencil size={15} />
                           </button>
 
-                          {/* Delete */}
                           <button
                             className={`${styles.actionBtn} ${styles.deleteBtn}`}
-                            onClick={() => handleDelete(a.id)}
                             title="حذف"
+                            onClick={() => handleDelete(a.nationalNumber)}
                           >
                             <Trash2 size={15} />
                           </button>
 
-                          {/* Toggle */}
                           <button
-                            className={`${styles.toggle} ${a.enabled ? styles.toggleOn : styles.toggleOff}`}
-                            onClick={() => handleToggle(a.id)}
+                            className={`${styles.toggle} ${a.isActive ? styles.toggleOn : styles.toggleOff}`}
+                            onClick={() => handleToggle(a.nationalNumber)}
                             role="switch"
-                            aria-checked={a.enabled}
+                            aria-checked={a.isActive}
                           >
                             <span
-                              className={`${styles.toggleThumb} ${a.enabled ? styles.toggleThumbOn : styles.toggleThumbOff}`}
+                              className={`${styles.toggleThumb} ${a.isActive ? styles.toggleThumbOn : styles.toggleThumbOff}`}
                             />
                           </button>
                         </div>
@@ -337,8 +321,7 @@ export default function AuditorsTable() {
           </table>
         </div>
 
-        {/* Pagination */}
-        {totalPages > 1 && (
+        {!isLoading && totalPages > 1 && (
           <div className={styles.pagination}>
             <button
               className={styles.pageBtn}
@@ -380,7 +363,14 @@ export default function AuditorsTable() {
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         onSubmit={async (data) => {
-          console.log(data); // TODO: API
+          const res = await fetch("/api/auditors/addAuditors", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data),
+          });
+          if (!res.ok) throw new Error("فشل الإضافة");
+          showToast("تم إضافة المجرد بنجاح", "success");
+          await fetchAuditors(); // refetch عشان الداتا تتحدث
         }}
       />
 
@@ -388,7 +378,19 @@ export default function AuditorsTable() {
       <AuditorAccessModal
         isOpen={!!selectedAuditor}
         onClose={() => setSelectedAuditor(null)}
-        auditor={selectedAuditor}
+        auditor={
+          selectedAuditor
+            ? {
+                id: 0,
+                name: selectedAuditor.name,
+                department: "",
+                phone: selectedAuditor.nationalNumber,
+                addedAt: "",
+                username: selectedAuditor.username,
+                password: selectedAuditor.password,
+              }
+            : null
+        }
       />
 
       {/* Edit Modal */}
@@ -397,9 +399,18 @@ export default function AuditorsTable() {
         onClose={() => setEditAuditor(null)}
         auditor={editAuditor}
         onSubmit={async (data) => {
-          setAuditors((prev) =>
-            prev.map((a) => (a.id === editAuditor?.id ? { ...a, ...data } : a)),
-          );
+          const res = await fetch("/api/auditors/updateAuditor", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              name: data.name,
+              oldNationalNumber: editAuditor?.nationalNumber,
+              newNationalNumber: data.newNationalNumber,
+            }),
+          });
+          if (!res.ok) throw new Error("فشل التعديل");
+          showToast("تم التعديل بنجاح", "success");
+          await fetchAuditors();
         }}
       />
     </div>

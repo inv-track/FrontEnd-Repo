@@ -1,0 +1,3 @@
+{
+  "/api/auditors/addAuditors/route": "app/api/auditors/addAuditors/route.js"
+}

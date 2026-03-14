@@ -128,6 +128,51 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
   type __Unused = __Check
 }
 
+// Validate ../../../app/api/auditors/addAuditors/route.ts
+{
+  type __IsExpected<Specific extends RouteHandlerConfig<"/api/auditors/addAuditors">> = Specific
+  const handler = {} as typeof import("../../../app/api/auditors/addAuditors/route.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../../app/api/auditors/deleteAuditor/route.ts
+{
+  type __IsExpected<Specific extends RouteHandlerConfig<"/api/auditors/deleteAuditor">> = Specific
+  const handler = {} as typeof import("../../../app/api/auditors/deleteAuditor/route.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../../app/api/auditors/getAllAuditors/route.ts
+{
+  type __IsExpected<Specific extends RouteHandlerConfig<"/api/auditors/getAllAuditors">> = Specific
+  const handler = {} as typeof import("../../../app/api/auditors/getAllAuditors/route.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../../app/api/auditors/toggleActive/route.ts
+{
+  type __IsExpected<Specific extends RouteHandlerConfig<"/api/auditors/toggleActive">> = Specific
+  const handler = {} as typeof import("../../../app/api/auditors/toggleActive/route.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../../app/api/auditors/updateAuditor/route.ts
+{
+  type __IsExpected<Specific extends RouteHandlerConfig<"/api/auditors/updateAuditor">> = Specific
+  const handler = {} as typeof import("../../../app/api/auditors/updateAuditor/route.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
 // Validate ../../../app/api/employee/addEmployee/route.ts
 {
   type __IsExpected<Specific extends RouteHandlerConfig<"/api/employee/addEmployee">> = Specific

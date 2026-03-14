@@ -8,14 +8,12 @@ import styles from "./Addauditormodal.module.css";
 
 interface AddAuditorForm {
   name: string;
-  phone: string;
-  department: string;
+  nationalNumber: string;
 }
 
 interface FormErrors {
   name?: string;
-  phone?: string;
-  department?: string;
+  nationalNumber?: string;
 }
 
 interface AddAuditorModalProps {
@@ -29,9 +27,9 @@ interface AddAuditorModalProps {
 function validate(form: AddAuditorForm): FormErrors {
   const errors: FormErrors = {};
   if (!form.name.trim()) errors.name = "الاسم مطلوب";
-  if (!form.phone.trim()) errors.phone = "رقم الهاتف مطلوب";
-  else if (!/^01[0-9]{9}$/.test(form.phone)) errors.phone = "رقم هاتف غير صحيح";
-  if (!form.department.trim()) errors.department = "القسم مطلوب";
+  if (!form.nationalNumber.trim()) errors.nationalNumber = "الرقم القومي مطلوب";
+  else if (form.nationalNumber.length < 14)
+    errors.nationalNumber = "الرقم القومي يجب أن يكون 14 رقم";
   return errors;
 }
 
@@ -44,8 +42,7 @@ export default function AddAuditorModal({
 }: AddAuditorModalProps) {
   const [form, setForm] = useState<AddAuditorForm>({
     name: "",
-    phone: "",
-    department: "",
+    nationalNumber: "",
   });
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -54,7 +51,6 @@ export default function AddAuditorModal({
 
   const handleChange = (field: keyof AddAuditorForm, value: string) => {
     setForm((prev) => ({ ...prev, [field]: value }));
-    // Clear error on change
     if (errors[field]) setErrors((prev) => ({ ...prev, [field]: undefined }));
   };
 
@@ -67,7 +63,7 @@ export default function AddAuditorModal({
     setIsSubmitting(true);
     try {
       await onSubmit(form);
-      setForm({ name: "", phone: "", department: "" });
+      setForm({ name: "", nationalNumber: "" });
       setErrors({});
       onClose();
     } catch (err) {
@@ -118,34 +114,20 @@ export default function AddAuditorModal({
             )}
           </div>
 
-          {/* رقم الهاتف */}
+          {/* الرقم القومي */}
           <div className={styles.field}>
-            <label className={styles.label}>رقم الهاتف</label>
-            <input
-              type="tel"
-              placeholder="012742476"
-              value={form.phone}
-              onChange={(e) => handleChange("phone", e.target.value)}
-              className={`${styles.input} ${errors.phone ? styles.error : ""}`}
-              dir="ltr"
-            />
-            {errors.phone && (
-              <span className={styles.errorMsg}>{errors.phone}</span>
-            )}
-          </div>
-
-          {/* القسم */}
-          <div className={styles.field}>
-            <label className={styles.label}>القسم</label>
+            <label className={styles.label}>الرقم القومي</label>
             <input
               type="text"
-              placeholder="مثال: قسم جرد الاصول"
-              value={form.department}
-              onChange={(e) => handleChange("department", e.target.value)}
-              className={`${styles.input} ${errors.department ? styles.error : ""}`}
+              placeholder="مثال: 30201011234567"
+              value={form.nationalNumber}
+              onChange={(e) => handleChange("nationalNumber", e.target.value)}
+              className={`${styles.input} ${errors.nationalNumber ? styles.error : ""}`}
+              maxLength={14}
+              dir="ltr"
             />
-            {errors.department && (
-              <span className={styles.errorMsg}>{errors.department}</span>
+            {errors.nationalNumber && (
+              <span className={styles.errorMsg}>{errors.nationalNumber}</span>
             )}
           </div>
 
