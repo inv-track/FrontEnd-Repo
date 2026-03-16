@@ -1,0 +1,121 @@
+/* ===== Container ===== */
+.container-operations {
+  background-color: #fff;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e8e8e8;
+  color: #333;
+  padding: 20px;
+  margin: 20px;
+  direction: rtl;
+}
+
+/* ===== Add Button ===== */
+.add-button-operations {
+  display: flex;
+  justify-content: flex-end;
+  margin: 20px;
+}
+
+.add-button-operations button {
+  background-color: #0f4c81;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.add-button-operations button:hover {
+  background-color: #0a3a5b;
+}
+
+/* ===== Table ===== */
+.table-container-operations {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.table-container-operations table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+  margin: 10px 0;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.table-container-operations thead {
+  background: #d6d6d6;
+}
+
+.table-container-operations th {
+  padding: 12px;
+  text-align: center;
+  font-weight: 600;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.table-container-operations td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #d6d6d6;
+}
+
+.table-container-operations tbody tr {
+  background-color: #f5f5f5;
+}
+
+.table-container-operations tbody tr:hover {
+  background-color: #f9fafb;
+  transition: 0.2s;
+}
+
+/* ===== Title ===== */
+.title-table-operations {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  text-align: right;
+  color: #333;
+}
+
+/* ===== Badge ===== */
+.badge {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.badge-assign {
+  background: #e8f4fd;
+  color: #1a3c6e;
+}
+
+.badge-return {
+  background: #fef3e8;
+  color: #d4730a;
+}
+
+/* ===== Scrollbar ===== */
+.table-container-operations::-webkit-scrollbar {
+  height: 6px;
+}
+
+.table-container-operations::-webkit-scrollbar-track {
+  background: #fff;
+  border-radius: 10px;
+}
+
+.table-container-operations::-webkit-scrollbar-thumb {
+  background: #d6d6d6;
+  border-radius: 10px;
+}

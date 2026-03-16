@@ -1,272 +1,688 @@
-[00:00:06.512] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
-[00:00:08.737] Server  LOG      ✓ Ready in 7.6s
-[00:00:12.603] Server  LOG      ○ Compiling / ...
-[00:00:21.937] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:53.087] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:57.198] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:03:14.469] Server  LOG     PUT toggle hit!
-[00:03:17.513] Server  LOG     PUT toggle hit!
-[00:09:33.364] Server  LOG      ✓ Compiled in 207ms
-[00:09:37.916] Server  LOG      ✓ Compiled in 701ms
-[00:09:40.361] Server  LOG     toggleActive POST hit!
-[00:09:42.631] Server  LOG     toggleActive POST hit!
-[00:09:44.211] Server  LOG     toggleActive POST hit!
-[00:12:04.145] Server  LOG     toggleActive POST hit!
-[00:12:47.800] Server  LOG     toggleActive POST hit!
-[00:12:59.942] Server  LOG     toggleActive POST hit!
-[00:13:07.746] Server  LOG     toggleActive POST hit!
-[00:14:24.397] Server  LOG     toggleActive POST hit!
-[00:14:24.406] Server  LOG     Token: "found"
-[00:15:29.083] Server  LOG     toggleActive POST hit!
-[00:15:29.086] Server  LOG     Token: "found"
-[00:15:29.346] Server  LOG     External status: 405
-[00:15:29.348] Server  LOG     External response: ""
-[00:16:43.887] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:16:47.194] Server  LOG     toggleActive POST hit!
-[00:16:47.229] Server  LOG     Token: "found"
-[00:16:47.344] Server  LOG     External status: 200
-[00:16:47.346] Server  LOG     External response: "Updated Successfully"
-[00:16:50.672] Server  LOG     toggleActive POST hit!
-[00:16:50.678] Server  LOG     Token: "found"
-[00:16:50.777] Server  LOG     External status: 200
-[00:16:50.778] Server  LOG     External response: "Updated Successfully"
-[00:16:51.916] Server  LOG     toggleActive POST hit!
-[00:16:51.927] Server  LOG     Token: "found"
-[00:16:52.023] Server  LOG     External status: 200
-[00:16:52.025] Server  LOG     External response: "Updated Successfully"
-[00:16:52.937] Server  LOG     toggleActive POST hit!
-[00:16:52.941] Server  LOG     Token: "found"
-[00:16:53.055] Server  LOG     External status: 200
-[00:16:53.057] Server  LOG     External response: "Updated Successfully"
-[00:16:53.772] Server  LOG     toggleActive POST hit!
-[00:16:53.777] Server  LOG     Token: "found"
-[00:16:53.877] Server  LOG     External status: 200
-[00:16:53.882] Server  LOG     External response: "Updated Successfully"
-[00:16:54.466] Server  LOG     toggleActive POST hit!
-[00:16:54.478] Server  LOG     Token: "found"
-[00:16:54.575] Server  LOG     External status: 200
-[00:16:54.576] Server  LOG     External response: "Updated Successfully"
-[00:16:55.492] Server  LOG     toggleActive POST hit!
-[00:16:55.499] Server  LOG     Token: "found"
-[00:16:55.619] Server  LOG     External status: 200
-[00:16:55.621] Server  LOG     External response: "Updated Successfully"
-[00:16:58.809] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:22:33.245] Server  LOG      ✓ Compiled in 320ms
-[00:22:36.832] Server  LOG      ✓ Compiled in 1895ms
-[00:23:08.136] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:23:14.801] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:23:22.275] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:23:44.495] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:23:48.687] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:24:19.676] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:25:33.258] Server  LOG     API called
-[00:25:33.268] Server  LOG     Token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0ZXIiLCJqdGkiOiI2YTk2YjkxMC1iMzhhLTQxZTUtOTNmZC02YTljMjRkZTU1NTYiLCJuYW1laWQiOiIyIiwicm9sZXMiOiJBZG1pbiIsImV4cCI6MTc3MzYxMDQyNSwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMSIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjUwMDEifQ.qgS_wFyRw3YCmdHfWoUU3SAKyx_NbYX59u9F-iEJakE"
-[00:25:33.531] Server  LOG     External status: 200
-[00:25:33.632] Server  LOG     API called
-[00:25:33.641] Server  LOG     Token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0ZXIiLCJqdGkiOiI2YTk2YjkxMC1iMzhhLTQxZTUtOTNmZC02YTljMjRkZTU1NTYiLCJuYW1laWQiOiIyIiwicm9sZXMiOiJBZG1pbiIsImV4cCI6MTc3MzYxMDQyNSwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMSIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjUwMDEifQ.qgS_wFyRw3YCmdHfWoUU3SAKyx_NbYX59u9F-iEJakE"
-[00:25:33.733] Server  LOG     External status: 200
-[00:26:52.560] Server  LOG      ✓ Compiled in 772ms
-[00:26:55.044] Server  LOG      ✓ Compiled in 718ms
-[00:27:14.420] Server  LOG      ✓ Compiled in 241ms
-[00:27:38.001] Server  LOG      ✓ Compiled in 226ms
-[00:29:19.532] Server  LOG      ✓ Compiled in 88ms
-[00:29:45.922] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:30:06.896] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:32:36.744] Server  LOG      ✓ Compiled in 194ms
-[00:33:07.726] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:33:19.356] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:34:13.934] Server  LOG     API called
-[00:34:14.046] Server  LOG     Token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0ZXIiLCJqdGkiOiI2YTk2YjkxMC1iMzhhLTQxZTUtOTNmZC02YTljMjRkZTU1NTYiLCJuYW1laWQiOiIyIiwicm9sZXMiOiJBZG1pbiIsImV4cCI6MTc3MzYxMDQyNSwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMSIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjUwMDEifQ.qgS_wFyRw3YCmdHfWoUU3SAKyx_NbYX59u9F-iEJakE"
-[00:34:14.269] Server  LOG     External status: 200
-[00:34:14.371] Server  LOG     API called
-[00:34:14.381] Server  LOG     Token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0ZXIiLCJqdGkiOiI2YTk2YjkxMC1iMzhhLTQxZTUtOTNmZC02YTljMjRkZTU1NTYiLCJuYW1laWQiOiIyIiwicm9sZXMiOiJBZG1pbiIsImV4cCI6MTc3MzYxMDQyNSwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMSIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjUwMDEifQ.qgS_wFyRw3YCmdHfWoUU3SAKyx_NbYX59u9F-iEJakE"
-[00:34:14.482] Server  LOG     External status: 200
-[00:41:27.973] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:45:23.763] Server  LOG      ✓ Compiled in 1342ms
-[00:45:24.444] Browser ERROR   ./app/editors/EditAuditorModal.tsx:1:1
-Ecmascript file had an error
-> 1 | import { cookies } from "next/headers";
-    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  2 | import { NextResponse } from "next/server";
-  3 |
-  4 | const BASE_URL = "http://invtrackapi.runasp.net/api/DetainedPerson";
+[00:00:02.782] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+[00:00:03.250] Server  LOG      ✓ Ready in 2.3s
+[00:00:10.760] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:10.947] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
 
-You're importing a component that needs "next/headers". That only works in a Server Component but one of its parents is marked with "use client", so it's a Client Component.
-Learn more: https://nextjs.org/docs/app/building-your-application/rendering
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/warehouse" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html lang="ar">
+                          <head>
+                          <body
+                            className="geist_a71539c9-module__T19VSG__variable geist_mono_8d43a2aa-module__8Li5zG__var..."
+-                           cz-shortcut-listen="true"
+                          >
+                  ...
+
+[00:00:14.826] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. مبنى الادارة
+[00:00:14.826] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. مبنى العلوم
+[00:00:14.827] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. مبنى الادارة
+[00:00:14.827] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. مبنى الادارة
+[00:00:14.827] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. مبنى العلوم
+[00:00:14.827] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. مبنى الادارة
+[00:00:14.827] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. مبنى الادارة
+[00:00:14.827] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. مبنى العلوم
+[00:00:14.827] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. مبنى الادارة
+[00:10:09.933] Server  LOG      ✓ Compiled in 29ms
+[00:10:10.763] Browser ERROR   ./app/components/sidebar.tsx:7:88
+Parsing ecmascript source code failed
+   5 | import styles from "./sidebar.module.css";
+   6 | import { fetchWithAuth } from "../lib/fetchWithAuth";
+>  7 | import { Home, RefreshCw, Package, Users, MapPin, UserCog, LogOut } from "lucide-react"ك
+     |                                                                                        ^^
+   8 |
+   9 | export default function Sidebar() {
+  10 |   const pathname = usePathname();
+
+Expected ';', got 'ك'
 
 Import traces:
   Client Component Browser:
-    ./app/editors/EditAuditorModal.tsx [Client Component Browser]
-    ./app/editors/AuditorsTable.tsx [Client Component Browser]
-    ./app/editors/AuditorsTable.tsx [Server Component]
-    ./app/editors/page.tsx [Server Component]
+    ./app/components/sidebar.tsx [Client Component Browser]
+    ./app/warehouse/page.tsx [Client Component Browser]
+    ./app/warehouse/page.tsx [Server Component]
 
   Client Component SSR:
-    ./app/editors/EditAuditorModal.tsx [Client Component SSR]
-    ./app/editors/AuditorsTable.tsx [Client Component SSR]
-    ./app/editors/AuditorsTable.tsx [Server Component]
-    ./app/editors/page.tsx [Server Component]
-[00:45:24.444] Browser ERROR   ./app/editors/AuditorsTable.tsx:18:1
-Export default doesn't exist in target module
-  16 | import AddAuditorModal from "./Addauditormodal";
-  17 | import AuditorAccessModal from "./AuditorAccessModal";
-> 18 | import EditAuditorModal from "./EditAuditorModal";
-     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  19 |
-  20 | // ─── Types ────────────────────────────────────────────────────────────────────
-  21 |
+    ./app/components/sidebar.tsx [Client Component SSR]
+    ./app/warehouse/page.tsx [Client Component SSR]
+    ./app/warehouse/page.tsx [Server Component]
+[00:11:07.060] Server  LOG      ✓ Compiled in 88ms
+[00:11:08.210] Server  LOG      ✓ Compiled in 12ms
+[00:12:49.714] Server  LOG      ✓ Compiled in 68ms
+[00:13:00.070] Server  LOG      ✓ Compiled in 34ms
+[00:13:05.661] Server  LOG      ✓ Compiled in 35ms
+[00:13:32.988] Server  LOG     API called
+[00:13:32.991] Server  LOG     Token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0ZXIiLCJqdGkiOiJiNTgyZTc3My0wOTY1LTRiMTctYWNmNS01ZmQ0MzRiMDIyNGYiLCJuYW1laWQiOiIyIiwicm9sZXMiOiJBZG1pbiIsImV4cCI6MTc3MzcwMTgzMCwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMSIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjUwMDEifQ.dG_DoIpXgI-khh1OE4IE1ekpYWb2WMeA56p6Me01eLs"
+[00:13:33.133] Server  LOG     External status: 200
+[00:13:33.148] Server  LOG     API called
+[00:13:33.150] Server  LOG     Token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0ZXIiLCJqdGkiOiJiNTgyZTc3My0wOTY1LTRiMTctYWNmNS01ZmQ0MzRiMDIyNGYiLCJuYW1laWQiOiIyIiwicm9sZXMiOiJBZG1pbiIsImV4cCI6MTc3MzcwMTgzMCwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMSIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjUwMDEifQ.dG_DoIpXgI-khh1OE4IE1ekpYWb2WMeA56p6Me01eLs"
+[00:13:33.260] Server  LOG     External status: 200
+[00:15:13.298] Server  LOG      ✓ Compiled in 110ms
+[00:15:15.496] Server  LOG      ✓ Compiled in 17ms
+[00:15:19.424] Server  LOG      ✓ Compiled in 97ms
+[00:15:26.979] Server  LOG      ✓ Compiled in 23ms
+[00:15:27.086] Browser ERROR   ./app/components/sidebar.tsx:7:88
+Parsing ecmascript source code failed
+   5 | import styles from "./sidebar.module.css";
+   6 | import { fetchWithAuth } from "../lib/fetchWithAuth";
+>  7 | import { Home, RefreshCw, Package, Users, MapPin, UserCog, LogOut } from "lucide-react"ك
+     |                                                                                        ^^
+   8 |
+   9 | export default function Sidebar() {
+  10 |   const pathname = usePathname();
 
-The export default was not found in module [project]/app/editors/EditAuditorModal.tsx [app-client] (ecmascript).
-Did you mean to import POST?
-All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
-
-Import trace:
-  Server Component:
-    ./app/editors/AuditorsTable.tsx
-    ./app/editors/page.tsx
-[00:45:24.444] Browser ERROR   ./app/editors/AuditorsTable.tsx:18:1
-Export default doesn't exist in target module
-  16 | import AddAuditorModal from "./Addauditormodal";
-  17 | import AuditorAccessModal from "./AuditorAccessModal";
-> 18 | import EditAuditorModal from "./EditAuditorModal";
-     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  19 |
-  20 | // ─── Types ────────────────────────────────────────────────────────────────────
-  21 |
-
-The export default was not found in module [project]/app/editors/EditAuditorModal.tsx [app-ssr] (ecmascript).
-Did you mean to import POST?
-All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
-
-Import trace:
-  Server Component:
-    ./app/editors/AuditorsTable.tsx
-    ./app/editors/page.tsx
-[00:45:25.753] Browser ERROR   ./app/editors/EditAuditorModal.tsx:1:1
-Ecmascript file had an error
-> 1 | import { cookies } from "next/headers";
-    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  2 | import { NextResponse } from "next/server";
-  3 |
-  4 | const BASE_URL = "http://invtrackapi.runasp.net/api/DetainedPerson";
-
-You're importing a component that needs "next/headers". That only works in a Server Component but one of its parents is marked with "use client", so it's a Client Component.
-Learn more: https://nextjs.org/docs/app/building-your-application/rendering
+Expected ';', got 'ك'
 
 Import traces:
   Client Component Browser:
-    ./app/editors/EditAuditorModal.tsx [Client Component Browser]
-    ./app/editors/AuditorsTable.tsx [Client Component Browser]
-    ./app/editors/AuditorsTable.tsx [Server Component]
-    ./app/editors/page.tsx [Server Component]
+    ./app/components/sidebar.tsx [Client Component Browser]
+    ./app/warehouse/page.tsx [Client Component Browser]
+    ./app/warehouse/page.tsx [Server Component]
 
   Client Component SSR:
-    ./app/editors/EditAuditorModal.tsx [Client Component SSR]
-    ./app/editors/AuditorsTable.tsx [Client Component SSR]
-    ./app/editors/AuditorsTable.tsx [Server Component]
-    ./app/editors/page.tsx [Server Component]
-[00:45:25.753] Browser ERROR   ./app/editors/AuditorsTable.tsx:18:1
-Export default doesn't exist in target module
-  16 | import AddAuditorModal from "./Addauditormodal";
-  17 | import AuditorAccessModal from "./AuditorAccessModal";
-> 18 | import EditAuditorModal from "./EditAuditorModal";
-     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  19 |
-  20 | // ─── Types ────────────────────────────────────────────────────────────────────
-  21 |
+    ./app/components/sidebar.tsx [Client Component SSR]
+    ./app/warehouse/page.tsx [Client Component SSR]
+    ./app/warehouse/page.tsx [Server Component]
+[00:15:30.799] Server  LOG      ✓ Compiled in 17ms
+[00:15:43.750] Server  LOG     API called
+[00:15:43.752] Server  LOG     Token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0ZXIiLCJqdGkiOiJiNTgyZTc3My0wOTY1LTRiMTctYWNmNS01ZmQ0MzRiMDIyNGYiLCJuYW1laWQiOiIyIiwicm9sZXMiOiJBZG1pbiIsImV4cCI6MTc3MzcwMTgzMCwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMSIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjUwMDEifQ.dG_DoIpXgI-khh1OE4IE1ekpYWb2WMeA56p6Me01eLs"
+[00:15:43.855] Server  LOG     External status: 200
+[00:15:43.870] Server  LOG     API called
+[00:15:43.876] Server  LOG     Token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0ZXIiLCJqdGkiOiJiNTgyZTc3My0wOTY1LTRiMTctYWNmNS01ZmQ0MzRiMDIyNGYiLCJuYW1laWQiOiIyIiwicm9sZXMiOiJBZG1pbiIsImV4cCI6MTc3MzcwMTgzMCwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMSIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjUwMDEifQ.dG_DoIpXgI-khh1OE4IE1ekpYWb2WMeA56p6Me01eLs"
+[00:15:43.981] Server  LOG     External status: 200
+[00:15:47.447] Server  LOG     API called
+[00:15:47.449] Server  LOG     Token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0ZXIiLCJqdGkiOiJiNTgyZTc3My0wOTY1LTRiMTctYWNmNS01ZmQ0MzRiMDIyNGYiLCJuYW1laWQiOiIyIiwicm9sZXMiOiJBZG1pbiIsImV4cCI6MTc3MzcwMTgzMCwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMSIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjUwMDEifQ.dG_DoIpXgI-khh1OE4IE1ekpYWb2WMeA56p6Me01eLs"
+[00:15:47.550] Server  LOG     External status: 200
+[00:15:47.568] Server  LOG     API called
+[00:15:47.571] Server  LOG     Token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0ZXIiLCJqdGkiOiJiNTgyZTc3My0wOTY1LTRiMTctYWNmNS01ZmQ0MzRiMDIyNGYiLCJuYW1laWQiOiIyIiwicm9sZXMiOiJBZG1pbiIsImV4cCI6MTc3MzcwMTgzMCwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMSIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjUwMDEifQ.dG_DoIpXgI-khh1OE4IE1ekpYWb2WMeA56p6Me01eLs"
+[00:15:47.673] Server  LOG     External status: 200
+[00:15:50.399] Server  LOG     API called
+[00:15:50.400] Server  LOG     Token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0ZXIiLCJqdGkiOiJiNTgyZTc3My0wOTY1LTRiMTctYWNmNS01ZmQ0MzRiMDIyNGYiLCJuYW1laWQiOiIyIiwicm9sZXMiOiJBZG1pbiIsImV4cCI6MTc3MzcwMTgzMCwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMSIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjUwMDEifQ.dG_DoIpXgI-khh1OE4IE1ekpYWb2WMeA56p6Me01eLs"
+[00:15:50.503] Server  LOG     External status: 200
+[00:15:50.516] Server  LOG     API called
+[00:15:50.528] Server  LOG     Token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0ZXIiLCJqdGkiOiJiNTgyZTc3My0wOTY1LTRiMTctYWNmNS01ZmQ0MzRiMDIyNGYiLCJuYW1laWQiOiIyIiwicm9sZXMiOiJBZG1pbiIsImV4cCI6MTc3MzcwMTgzMCwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMSIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjUwMDEifQ.dG_DoIpXgI-khh1OE4IE1ekpYWb2WMeA56p6Me01eLs"
+[00:15:50.639] Server  LOG     External status: 200
+[00:16:12.154] Server  LOG     API called
+[00:16:12.158] Server  LOG     Token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0ZXIiLCJqdGkiOiJiNTgyZTc3My0wOTY1LTRiMTctYWNmNS01ZmQ0MzRiMDIyNGYiLCJuYW1laWQiOiIyIiwicm9sZXMiOiJBZG1pbiIsImV4cCI6MTc3MzcwMTgzMCwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMSIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjUwMDEifQ.dG_DoIpXgI-khh1OE4IE1ekpYWb2WMeA56p6Me01eLs"
+[00:16:12.264] Server  LOG     External status: 200
+[00:16:12.278] Server  LOG     API called
+[00:16:12.279] Server  LOG     Token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0ZXIiLCJqdGkiOiJiNTgyZTc3My0wOTY1LTRiMTctYWNmNS01ZmQ0MzRiMDIyNGYiLCJuYW1laWQiOiIyIiwicm9sZXMiOiJBZG1pbiIsImV4cCI6MTc3MzcwMTgzMCwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMSIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjUwMDEifQ.dG_DoIpXgI-khh1OE4IE1ekpYWb2WMeA56p6Me01eLs"
+[00:16:12.379] Server  LOG     External status: 200
+[00:16:25.841] Server  LOG      ✓ Compiled in 73ms
+[00:16:34.876] Server  LOG      ✓ Compiled in 23ms
+[00:16:37.994] Server  LOG      ✓ Compiled in 19ms
+[00:16:46.249] Server  LOG      ✓ Compiled in 20ms
+[00:17:05.547] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:17:05.739] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
 
-The export default was not found in module [project]/app/editors/EditAuditorModal.tsx [app-client] (ecmascript).
-Did you mean to import POST?
-All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
 
-Import trace:
-  Server Component:
-    ./app/editors/AuditorsTable.tsx
-    ./app/editors/page.tsx
-[00:45:25.753] Browser ERROR   ./app/editors/AuditorsTable.tsx:18:1
-Export default doesn't exist in target module
-  16 | import AddAuditorModal from "./Addauditormodal";
-  17 | import AuditorAccessModal from "./AuditorAccessModal";
-> 18 | import EditAuditorModal from "./EditAuditorModal";
-     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  19 |
-  20 | // ─── Types ────────────────────────────────────────────────────────────────────
-  21 |
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
 
-The export default was not found in module [project]/app/editors/EditAuditorModal.tsx [app-ssr] (ecmascript).
-Did you mean to import POST?
-All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+%s%s https://react.dev/link/hydration-mismatch 
 
-Import trace:
-  Server Component:
-    ./app/editors/AuditorsTable.tsx
-    ./app/editors/page.tsx
-[00:45:37.819] Server  LOG      ✓ Compiled in 371ms
-[00:45:40.158] Server  LOG      ✓ Compiled in 531ms
-[00:45:40.527] Browser ERROR   ./app/editors/EditAuditorModal.tsx:42:1
-Ecmascript file had an error
-  40 |   return NextResponse.json({ message: text });
-  41 | }
-> 42 | "use client";
-     | ^^^^^^^^^^^^^
-  43 |
-  44 | import { useState, useEffect, useMemo, useCallback } from "react";
-  45 | import {
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/home" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html lang="ar">
+                          <head>
+                          <body
+                            className="geist_a71539c9-module__T19VSG__variable geist_mono_8d43a2aa-module__8Li5zG__var..."
+-                           cz-shortcut-listen="true"
+                          >
+                  ...
 
-The "use client" directive must be placed before other expressions. Move it to the top of the file to resolve this issue.
+[00:17:09.284] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:22:38.671] Server  LOG      ✓ Compiled in 14ms
+[00:22:39.752] Server  LOG      ✓ Compiled in 15ms
+[00:22:40.758] Browser ERROR   uncaughtError: ReferenceError: useEffect is not defined
+[00:22:41.373] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:22:41.693] Server  ERROR   D:\mashro3 elta5rog\FrontEnd-Repo\.next\dev\server\chunks\ssr\[root-of-the-server]__f82a6829._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:22:41.695] Server  ERROR    ⨯ ReferenceError: useEffect is not defined
+[00:22:41.732] Server  LOG      ✓ Compiled in 17ms
+[00:22:41.990] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:22:42.774] Browser ERROR   uncaughtError: ReferenceError: useEffect is not defined
+[00:22:59.569] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:22:59.880] Server  LOG      ✓ Compiled in 20ms
+[00:23:00.051] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:23:02.098] Server  LOG      ✓ Compiled in 11ms
+[00:23:03.890] Server  LOG      ✓ Compiled in 10ms
+[00:23:05.049] Server  LOG      ✓ Compiled in 23ms
+[00:23:05.767] Browser ERROR   uncaughtError: ReferenceError: useEffect is not defined
+[00:23:07.822] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:23:08.123] Server  ERROR   D:\mashro3 elta5rog\FrontEnd-Repo\.next\dev\server\chunks\ssr\[root-of-the-server]__f82a6829._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:23:08.123] Server  ERROR    ⨯ ReferenceError: useEffect is not defined
+[00:23:08.151] Server  LOG      ✓ Compiled in 13ms
+[00:23:08.389] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:23:08.769] Browser ERROR   uncaughtError: ReferenceError: useEffect is not defined
+[00:23:51.054] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:23:51.387] Server  LOG      ✓ Compiled in 73ms
+[00:23:51.635] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:23:52.761] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/operations" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html lang="ar">
+                          <head>
+                          <body
+                            className="geist_a71539c9-module__T19VSG__variable geist_mono_8d43a2aa-module__8Li5zG__var..."
+-                           cz-shortcut-listen="true"
+                          >
+                  ...
+
+[00:24:24.776] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:24:25.977] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:24:32.021] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:24:35.087] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:24:38.614] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:24:44.749] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:26:14.063] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:30:56.916] Server  LOG      ✓ Compiled in 18ms
+[00:30:59.342] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:30:59.689] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/warehouse" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html lang="ar">
+                          <head>
+                          <body
+                            className="geist_a71539c9-module__T19VSG__variable geist_mono_8d43a2aa-module__8Li5zG__var..."
+-                           cz-shortcut-listen="true"
+                          >
+                  ...
+
+[00:31:05.229] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:31:12.034] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:31:40.173] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:32:08.943] Server  LOG      ✓ Compiled in 9ms
+[00:33:35.279] Server  LOG      ✓ Compiled in 8ms
+[00:33:44.939] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:33:45.079] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/warehouse" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html lang="ar">
+                          <head>
+                          <body
+                            className="geist_a71539c9-module__T19VSG__variable geist_mono_8d43a2aa-module__8Li5zG__var..."
+-                           cz-shortcut-listen="true"
+                          >
+                  ...
+
+[00:33:45.990] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:33:50.159] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:35:34.636] Server  LOG      ✓ Compiled in 8ms
+[00:35:39.259] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:35:39.407] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/warehouse" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html lang="ar">
+                          <head>
+                          <body
+                            className="geist_a71539c9-module__T19VSG__variable geist_mono_8d43a2aa-module__8Li5zG__var..."
+-                           cz-shortcut-listen="true"
+                          >
+                  ...
+
+[00:36:06.039] Server  LOG      ✓ Compiled in 9ms
+[00:36:54.950] Server  LOG      ✓ Compiled in 13ms
+[00:36:59.406] Server  LOG      ✓ Compiled in 14ms
+[00:36:59.761] Browser ERROR   ./app/components/sidebar.module.css:111:23
+Parsing CSS source code failed
+  109 |     background-color: #0f4c81; /* ✅ أضف */
+  110 |     z-index: 99;        /
+> 111 |     padding: 10px 16px;
+      |                       ^
+  112 |   }
+  113 |
+  114 |   /* Show menu when active */
+
+Unexpected token Semicolon
 
 Import traces:
   Client Component Browser:
-    ./app/editors/EditAuditorModal.tsx [Client Component Browser]
-    ./app/editors/AuditorsTable.tsx [Client Component Browser]
-    ./app/editors/AuditorsTable.tsx [Server Component]
-    ./app/editors/page.tsx [Server Component]
+    ./app/components/sidebar.module.css [Client Component Browser]
+    ./app/components/sidebar.tsx [Client Component Browser]
+    ./app/warehouse/page.tsx [Client Component Browser]
+    ./app/warehouse/page.tsx [Server Component]
 
   Client Component SSR:
-    ./app/editors/EditAuditorModal.tsx [Client Component SSR]
-    ./app/editors/AuditorsTable.tsx [Client Component SSR]
-    ./app/editors/AuditorsTable.tsx [Server Component]
-    ./app/editors/page.tsx [Server Component]
-[00:45:40.527] Browser ERROR   ./app/editors/EditAuditorModal.tsx:1:1
-Ecmascript file had an error
-> 1 | import { cookies } from "next/headers";
-    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  2 | import { NextResponse } from "next/server";
-  3 |
-  4 | const BASE_URL = "http://invtrackapi.runasp.net/api/DetainedPerson";
+    ./app/components/sidebar.module.css [Client Component SSR]
+    ./app/components/sidebar.tsx [Client Component SSR]
+    ./app/warehouse/page.tsx [Client Component SSR]
+    ./app/warehouse/page.tsx [Server Component]
+[00:37:59.139] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:37:59.332] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
 
-You're importing a component that needs "next/headers". That only works in a Server Component but one of its parents is marked with "use client", so it's a Client Component.
-Learn more: https://nextjs.org/docs/app/building-your-application/rendering
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
 
-Import traces:
-  Client Component Browser:
-    ./app/editors/EditAuditorModal.tsx [Client Component Browser]
-    ./app/editors/AuditorsTable.tsx [Client Component Browser]
-    ./app/editors/AuditorsTable.tsx [Server Component]
-    ./app/editors/page.tsx [Server Component]
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
 
-  Client Component SSR:
-    ./app/editors/EditAuditorModal.tsx [Client Component SSR]
-    ./app/editors/AuditorsTable.tsx [Client Component SSR]
-    ./app/editors/AuditorsTable.tsx [Server Component]
-    ./app/editors/page.tsx [Server Component]
-[00:45:48.833] Server  LOG      ✓ Compiled in 56ms
-[00:45:54.479] Server  LOG      ✓ Compiled in 612ms
-[00:46:03.170] Server  LOG      ✓ Compiled in 463ms
-[00:46:09.934] Server  LOG      ✓ Compiled in 233ms
-[00:46:14.888] Server  LOG      ✓ Compiled in 367ms
-[00:46:26.206] Server  LOG      ✓ Compiled in 452ms
-[00:46:27.803] Server  LOG      ✓ Compiled in 669ms
-[00:46:51.427] Server  LOG      ✓ Compiled in 185ms
-[00:46:53.568] Server  LOG      ✓ Compiled in 1026ms
-[00:48:02.509] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:48:06.494] Server  LOG     API called
-[00:48:06.503] Server  LOG     Token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0ZXIiLCJqdGkiOiI2YTk2YjkxMC1iMzhhLTQxZTUtOTNmZC02YTljMjRkZTU1NTYiLCJuYW1laWQiOiIyIiwicm9sZXMiOiJBZG1pbiIsImV4cCI6MTc3MzYxMDQyNSwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMSIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjUwMDEifQ.qgS_wFyRw3YCmdHfWoUU3SAKyx_NbYX59u9F-iEJakE"
-[00:48:06.732] Server  LOG     External status: 200
-[00:48:06.775] Server  LOG     API called
-[00:48:06.780] Server  LOG     Token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0ZXIiLCJqdGkiOiI2YTk2YjkxMC1iMzhhLTQxZTUtOTNmZC02YTljMjRkZTU1NTYiLCJuYW1laWQiOiIyIiwicm9sZXMiOiJBZG1pbiIsImV4cCI6MTc3MzYxMDQyNSwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMSIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjUwMDEifQ.qgS_wFyRw3YCmdHfWoUU3SAKyx_NbYX59u9F-iEJakE"
-[00:48:06.986] Server  LOG     External status: 200
-[00:49:06.685] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:49:48.907] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:49:53.791] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:49:57.958] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/warehouse" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html lang="ar">
+                          <head>
+                          <body
+                            className="geist_a71539c9-module__T19VSG__variable geist_mono_8d43a2aa-module__8Li5zG__var..."
+-                           cz-shortcut-listen="true"
+                          >
+                  ...
+
+[00:38:00.051] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:38:07.857] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:38:33.148] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:39:46.546] Server  LOG      ✓ Compiled in 24ms
+[00:40:50.806] Server  LOG      ✓ Compiled in 11ms
+[00:41:21.871] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:41:22.069] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/warehouse" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html lang="ar">
+                          <head>
+                          <body
+                            className="geist_a71539c9-module__T19VSG__variable geist_mono_8d43a2aa-module__8Li5zG__var..."
+-                           cz-shortcut-listen="true"
+                          >
+                  ...
+
+[00:41:55.477] Server  LOG      ✓ Compiled in 8ms
+[00:42:00.503] Server  LOG      ✓ Compiled in 7ms
+[00:42:38.565] Server  LOG      ✓ Compiled in 8ms
+[00:42:49.989] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:42:50.121] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/warehouse" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html lang="ar">
+                          <head>
+                          <body
+                            className="geist_a71539c9-module__T19VSG__variable geist_mono_8d43a2aa-module__8Li5zG__var..."
+-                           cz-shortcut-listen="true"
+                          >
+                  ...
+
+[00:42:51.157] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:42:57.698] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:42:58.815] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:43:02.857] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:43:05.227] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:43:07.258] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:46:24.464] Server  LOG      ✓ Compiled in 10ms
+[00:46:59.827] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:46:59.965] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/operations" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html lang="ar">
+                          <head>
+                          <body
+                            className="geist_a71539c9-module__T19VSG__variable geist_mono_8d43a2aa-module__8Li5zG__var..."
+-                           cz-shortcut-listen="true"
+                          >
+                  ...
+
+[00:47:11.104] Server  LOG      ✓ Compiled in 8ms
+[00:47:11.986] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:47:17.498] Server  LOG      ✓ Compiled in 8ms
+[00:47:18.134] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:50:12.468] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:50:12.670] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/operations" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html lang="ar">
+                          <head>
+                          <body
+                            className="geist_a71539c9-module__T19VSG__variable geist_mono_8d43a2aa-module__8Li5zG__var..."
+-                           cz-shortcut-listen="true"
+                          >
+                  ...
+
+[00:50:39.371] Server  LOG      ✓ Compiled in 8ms
+[00:50:47.148] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:50:47.276] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/operations" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html lang="ar">
+                          <head>
+                          <body
+                            className="geist_a71539c9-module__T19VSG__variable geist_mono_8d43a2aa-module__8Li5zG__var..."
+-                           cz-shortcut-listen="true"
+                          >
+                  ...
+
+[00:50:51.810] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:51:04.523] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:51:11.900] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:51:28.188] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:51:30.230] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:55:28.193] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:55:28.339] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/home" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html lang="ar">
+                          <head>
+                          <body
+                            className="geist_a71539c9-module__T19VSG__variable geist_mono_8d43a2aa-module__8Li5zG__var..."
+-                           cz-shortcut-listen="true"
+                          >
+                  ...
+
+[00:55:32.726] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold

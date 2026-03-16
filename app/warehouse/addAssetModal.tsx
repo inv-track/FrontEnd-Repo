@@ -4,10 +4,22 @@ import { useEffect, useState } from "react";
 import "./addAssetModal.css";
 import { fetchWithAuth } from "../lib/fetchWithAuth";
 
+interface Asset {
+  name: string;
+  status: string;
+  price: number;
+  serialNumber: string;
+  assetType: string;
+  room: string;
+  category: string;
+  unit: string;
+  quantity: number;
+}
 interface AddAssetModalProps {
   isOpen: boolean;
   onClose: () => void;
   onSuccess: () => void;
+  editData?: Asset | null;
 }
 
 interface AssetForm {
@@ -52,7 +64,13 @@ export default function AddAssetModal({
   isOpen,
   onClose,
   onSuccess,
+  editData,
 }: AddAssetModalProps) {
+  const [assetTypes, setAssetTypes] = useState<{ typeName: string }[]>([]);
+  const [newAssetType, setNewAssetType] = useState("");
+  const [addingAssetType, setAddingAssetType] = useState(false);
+  const [showAddAssetType, setShowAddAssetType] = useState(false);
+
   const [buildings, setBuildings] = useState<Building[]>([]);
   const [selectedBuilding, setSelectedBuilding] = useState("");
   const [selectedFloor, setSelectedFloor] = useState("");
@@ -75,7 +93,29 @@ export default function AddAssetModal({
 
   //  جلب البيانات لما الـ modal يفتح
   useEffect(() => {
+    if (editData) {
+      setForm({
+        name: editData.name,
+        status: editData.status,
+        price: editData.price,
+        serialNumber: editData.serialNumber,
+        assetType: editData.assetType,
+        room: editData.room,
+        category: editData.category,
+        unit: editData.unit,
+        quantity: editData.quantity,
+      });
+    } else {
+      setForm(EMPTY_FORM);
+    }
+
     if (isOpen) {
+      //  جلب أنواع الأصول
+      fetchWithAuth("/api/warehouse/assettypes", { credentials: "include" })
+        .then((res) => res.json())
+        .then((data) => setAssetTypes(Array.isArray(data) ? data : []))
+        .catch(() => setAssetTypes([]));
+
       //  المباني
       fetchWithAuth("/api/warehouse/locations", {
         method: "GET",
@@ -97,7 +137,7 @@ export default function AddAssetModal({
         .then((data) => setUnits(Array.isArray(data) ? data : []))
         .catch(() => setUnits([]));
     }
-  }, [isOpen]);
+  }, [editData, isOpen]);
 
   //  لما يختار مبنى
   const handleBuildingChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -119,6 +159,31 @@ export default function AddAssetModal({
 
     const floor = floors.find((f) => f.name === floorName);
     setRooms(floor ? floor.rooms : []);
+  };
+
+  //  إضافة نوع اصل جديد
+  const handleAddAssetType = async () => {
+    if (!newAssetType.trim()) return;
+    setAddingAssetType(true);
+    try {
+      const res = await fetchWithAuth("/api/warehouse/assettypes", {
+        method: "POST",
+        credentials: "include",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ typeName: newAssetType }),
+      });
+
+      if (!res.ok) throw new Error("فشل");
+
+      setAssetTypes((prev) => [...prev, { typeName: newAssetType }]);
+      setForm((prev) => ({ ...prev, assetType: newAssetType }));
+      setNewAssetType("");
+      setShowAddAssetType(false);
+    } catch {
+      // handle error
+    } finally {
+      setAddingAssetType(false);
+    }
   };
 
   //  إضافة فئة جديدة
@@ -151,7 +216,7 @@ export default function AddAssetModal({
     if (!newUnit.trim()) return;
     setAddingUnit(true);
     try {
-      const res = await fetch("/api/warehouse/units", {
+      const res = await fetchWithAuth("/api/warehouse/units", {
         method: "POST",
         credentials: "include",
         headers: { "Content-Type": "application/json" },
@@ -205,14 +270,17 @@ export default function AddAssetModal({
       quantity: form.quantity === "" ? 1 : form.quantity,
     };
     try {
-      const res = await fetchWithAuth("/api/warehouse/add", {
-        method: "POST",
+      const url = editData ? "/api/warehouse/update" : "/api/warehouse/add";
+      const method = editData ? "PUT" : "POST";
+      const res = await fetchWithAuth(url, {
+        method,
         credentials: "include",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formToSend),
       });
 
-      if (!res.ok) throw new Error("فشل إضافة العهدة");
+      if (!res.ok)
+        throw new Error(editData ? "فشل تعديل العهدة" : "فشل إضافة العهدة");
 
       setForm(EMPTY_FORM);
       setSelectedBuilding("");
@@ -221,6 +289,8 @@ export default function AddAssetModal({
       setRooms([]);
       setShowAddCategory(false);
       setNewCategory("");
+      setShowAddAssetType(false);
+      setNewAssetType("");
       setShowAddUnit(false);
       setNewUnit("");
       onSuccess();
@@ -239,8 +309,9 @@ export default function AddAssetModal({
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-box" onClick={(e) => e.stopPropagation()}>
-        <h2 className="modal-title">إضافة عهدة جديدة</h2>
-
+        <h2 className="modal-title">
+          {editData ? "تعديل عهدة" : "إضافة عهدة جديدة"}
+        </h2>
         {error && <p className="modal-error">{error}</p>}
 
         <div className="modal-grid">
@@ -263,6 +334,11 @@ export default function AddAssetModal({
               onChange={handleChange}
               placeholder="الرقم التسلسلي"
               autoComplete="off"
+              disabled={!!editData}
+              style={{
+                opacity: editData ? 0.6 : 1,
+                cursor: editData ? "not-allowed" : "text",
+              }}
             />
           </div>
 
@@ -323,13 +399,58 @@ export default function AddAssetModal({
 
           <div className="modal-field">
             <label>نوع الأصل *</label>
-            <input
-              name="assetType"
-              value={form.assetType}
-              onChange={handleChange}
-              placeholder="نوع الأصل"
-              autoComplete="off"
-            />
+            <div className="filter-select">
+              <select
+                name="assetType"
+                value={form.assetType}
+                onChange={handleChange}
+              >
+                <option value="">اختر نوع الأصل</option>
+                {assetTypes.map((t) => (
+                  <option key={t.typeName} value={t.typeName}>
+                    {t.typeName}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            {!showAddAssetType ? (
+              <button
+                type="button"
+                onClick={() => setShowAddAssetType(true)}
+                className="add-category-btn"
+              >
+                + إضافة نوع جديد
+              </button>
+            ) : (
+              <div className="new-category-row">
+                <input
+                  type="text"
+                  value={newAssetType}
+                  onChange={(e) => setNewAssetType(e.target.value)}
+                  placeholder="اسم النوع الجديد"
+                  autoComplete="off"
+                />
+                <button
+                  type="button"
+                  onClick={handleAddAssetType}
+                  disabled={addingAssetType}
+                  className="btn-add"
+                >
+                  {addingAssetType ? "..." : "إضافة"}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setShowAddAssetType(false);
+                    setNewAssetType("");
+                  }}
+                  className="btn-close"
+                >
+                  ✕
+                </button>
+              </div>
+            )}
           </div>
 
           <div className="modal-field">
@@ -484,7 +605,13 @@ export default function AddAssetModal({
             onClick={handleSubmit}
             disabled={loading}
           >
-            {loading ? "جاري الإضافة..." : "إضافة"}
+            {loading
+              ? editData
+                ? "جاري التعديل..."
+                : "جاري الإضافة..."
+              : editData
+                ? "حفظ التعديلات"
+                : "إضافة"}
           </button>
         </div>
       </div>

@@ -1,0 +1,271 @@
+/* ===== Overlay ===== */
+.assign-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ===== Box ===== */
+.assign-box {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 32px;
+  width: 580px;
+  max-width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  direction: rtl;
+  animation: scaleIn 0.2s ease;
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to   { transform: scale(1);    opacity: 1; }
+}
+
+.assign-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #1a3c6e;
+  margin-bottom: 24px;
+}
+
+/* ===== Section ===== */
+.assign-section {
+  margin-bottom: 20px;
+}
+
+.assign-section label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #444;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.assign-input-row {
+  display: flex;
+  gap: 8px;
+}
+
+.assign-input-row input {
+  padding: 9px 12px;
+  border: 1px solid #d1d5db;
+  background-color: #fff;
+  color: #333;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  transition: border 0.2s;
+  width: 100%;
+  box-sizing: border-box;
+  transition: 0.2s;
+}
+
+.assign-input-row input:focus {
+  border-color: #333;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+}
+
+.assign-search-btn {
+  background: #0f4c81;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 9px 16px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.assign-search-btn:hover { background: #0a3a5b; }
+.assign-search-btn:disabled { background: #aaa; cursor: not-allowed; }
+
+/* ===== Result Card ===== */
+.assign-result-card {
+  margin-top: 8px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.assign-result-card.success {
+  background: #f0f9f0;
+  border: 1px solid #c3e6c3;
+  color: #2d7a2d;
+}
+
+.assign-result-card.error {
+  background: #fff0f0;
+  border: 1px solid #f5c6c6;
+  color: #c0392b;
+}
+
+.assign-result-card.warning {
+  background: #fffbf0;
+  border: 1px solid #f5e6c6;
+  color: #b7770d;
+}
+
+/* ===== Assets List ===== */
+.assign-assets-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.assign-asset-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #eee;
+  font-size: 13px;
+}
+
+.assign-asset-item .asset-name {
+  flex: 1;
+  font-weight: 600;
+  color: #1a3c6e;
+}
+
+.assign-asset-item .asset-serial {
+  color: #888;
+  font-size: 12px;
+}
+
+.assign-asset-item .asset-qty {
+  color: #555;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.assign-asset-item .asset-qty.warning {
+  color: #b7770d;
+  font-weight: 600;
+}
+
+.assign-asset-remove {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #e53e3e;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+}
+
+/* ===== Quantity Input ===== */
+.qty-input {
+  width: 70px;
+  padding: 6px 10px;
+  background-color: #fff;
+  color: #333;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 13px;
+  outline: none;
+  text-align: center;
+  transition: 0.2s;
+}
+
+.qty-input:focus { border-color: #333;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2); }
+
+/* ===== Add Asset Row ===== */
+.assign-add-row {
+  display: flex;
+  gap: 8px;
+  align-items: flex-end;
+}
+
+.assign-add-row input {
+  padding: 9px 12px;
+  border: 1px solid #d1d5db;
+  background-color: #fff;
+  color: #333;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  transition: border 0.2s;
+  width: 100%;
+  box-sizing: border-box;
+  transition: 0.2s;
+}
+
+.assign-add-row input:focus { border-color: #333;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2); }
+
+/* ===== Divider ===== */
+.assign-divider {
+  height: 1px;
+  background: #f0f0f0;
+  margin: 16px 0;
+}
+
+/* ===== Error ===== */
+.assign-error {
+  color: #e53e3e;
+  font-size: 13px;
+  background: #fff0f0;
+  padding: 8px 12px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+/* ===== Actions ===== */
+.assign-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+  justify-content: flex-end;
+}
+
+.btn-cancel {
+  background: #f0f0f0;
+  color: #333;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 24px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+
+.btn-cancel:hover { background: #e0e0e0; }
+
+.btn-submit {
+  background: #0f4c81;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 24px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn-submit:hover { background: #0a3a5b; }
+.btn-submit:disabled { background: #aaa; cursor: not-allowed; }
