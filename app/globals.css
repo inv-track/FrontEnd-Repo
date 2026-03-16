@@ -59,3 +59,8 @@ a {
     color-scheme: dark;
   }
 }
+@media (max-width: 900px) {
+  .main-layout {
+    flex-direction: column; 
+  }
+}

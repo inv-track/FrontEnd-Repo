@@ -1,0 +1,59 @@
+import { cookies } from "next/headers";
+import { NextRequest, NextResponse } from "next/server";
+
+interface AssetRequest {
+  serialNumber: string;
+  requestedQuantity: number;
+}
+
+export async function POST(req: NextRequest): Promise<NextResponse> {
+  try {
+    const cookieStore = await cookies();
+    const token = cookieStore.get("token")?.value;
+
+    if (!token) {
+      return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
+    }
+
+    const { searchParams } = new URL(req.url);
+    const nationalid = searchParams.get("nationalid");
+    const creatbyuser = searchParams.get("creatbyuser");
+
+    const body: AssetRequest[] = await req.json();
+
+    const response = await fetch(
+      `http://invtrackapi.runasp.net/api/Transaction/GenerateAssignmentAssetPDF?nationalid=${nationalid}&creatbyuser=${creatbyuser}`,
+      {
+        method: "POST",
+        headers: {
+          Accept: "*/*",
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(body),
+      }
+    );
+
+    if (!response.ok) {
+      return NextResponse.json({ message: "فشل تنفيذ العملية" }, { status: response.status });
+    }
+
+    //  بيرجع PDF binary
+    const pdfBuffer = await response.arrayBuffer();
+
+    return new NextResponse(pdfBuffer, {
+      status: 200,
+      headers: {
+        "Content-Type": "application/pdf",
+        "Content-Disposition": "inline",
+      },
+    });
+
+  } catch (err: unknown) {
+    const errorMessage = err instanceof Error ? err.message : "Unknown error";
+    return NextResponse.json(
+      { message: "Server error", error: errorMessage },
+      { status: 500 }
+    );
+  }
+}

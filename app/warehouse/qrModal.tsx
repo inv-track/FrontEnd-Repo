@@ -42,7 +42,7 @@ export default function QRModal({
       </head>
       <body>
         <h2>${name}</h2>
-        <p>الرقم التسلسلي: ${serialNumber}</p>
+        <p>نظام جرد العهد الشخصية - كلية العلوم - جامعة قناة السويس</p>
         <img src="/api/warehouse/qr?code=${serialNumber}" />
         <script>window.onload = () => { window.print(); window.close(); }</script>
       </body>
@@ -65,7 +65,9 @@ export default function QRModal({
         {/* الاسم والرقم التسلسلي */}
         <div className="qr-info">
           <h2 className="qr-name">{name}</h2>
-          <p className="qr-serial">الرقم التسلسلي: {serialNumber}</p>
+          {/* <p className="qr-serial">الرقم التسلسلي: {serialNumber}</p> */}
+          {/* <p>الرقم التسلسلي: ${serialNumber}</p> */}
+          <p className="qr-serial">نظام جرد العهد الشخصية - كلية العلوم - جامعة قناة السويس</p>
         </div>
 
         {/* صورة الـ QR */}

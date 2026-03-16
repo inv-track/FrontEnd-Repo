@@ -152,6 +152,12 @@ a {
   }
 }
 
+@media (max-width: 900px) {
+  .main-layout {
+    flex-direction: column;
+  }
+}
+
 /* [project]/app/components/scrollToTop.css [app-client] (css) */
 .scroll-top-btn {
   color: #fff;

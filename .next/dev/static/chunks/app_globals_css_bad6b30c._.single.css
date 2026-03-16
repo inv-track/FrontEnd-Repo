@@ -60,4 +60,10 @@ a {
   }
 }
 
+@media (max-width: 900px) {
+  .main-layout {
+    flex-direction: column;
+  }
+}
+
 /*# sourceMappingURL=app_globals_css_bad6b30c._.single.css.map*/

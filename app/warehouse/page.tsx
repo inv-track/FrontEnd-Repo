@@ -8,6 +8,8 @@ import MainTitle from "../components/mainTitle";
 import AddAssetModal from "./addAssetModal";
 import "./warehouse.css";
 import QRModal from "./qrModal";
+import { Pencil, Trash2 } from "lucide-react";
+import DeleteConfirmModal from "./deleteConfirmModal";
 import { fetchWithAuth } from "../lib/fetchWithAuth";
 
 interface Asset {
@@ -42,6 +44,14 @@ export default function Warehouse() {
     serialNumber: "",
     name: "",
   });
+
+  const [deleteModal, setDeleteModal] = useState<{
+    isOpen: boolean;
+    serialNumber: string;
+    assetName: string;
+  }>({ isOpen: false, serialNumber: "", assetName: "" });
+
+  const [editAsset, setEditAsset] = useState<Asset | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [allAssets, setAllAssets] = useState<Asset[]>([]); //  الكل من الـ API
   const [assets, setAssets] = useState<Asset[]>([]); //  المعروض بعد الفلترة
@@ -61,9 +71,9 @@ export default function Warehouse() {
 
       const res = await fetchWithAuth(url, {
         credentials: "include",
-        cache: "no-store", 
+        cache: "no-store",
         headers: {
-          "Cache-Control": "no-cache", 
+          "Cache-Control": "no-cache",
         },
       });
 
@@ -172,7 +182,12 @@ export default function Warehouse() {
         <main className="main-content">
           <MainTitle />
           <div className="add-button">
-            <button onClick={() => setIsModalOpen(true)}>
+            <button
+              onClick={() => {
+                setEditAsset(null);
+                setIsModalOpen(true);
+              }}
+            >
               <img src="/icon/plus.svg" alt="plus" />
               اضافة عهدة
             </button>
@@ -242,16 +257,17 @@ export default function Warehouse() {
                 <table>
                   <thead>
                     <tr>
-                      <th>الاسم</th>
-                      <th>الحالة</th>
-                      <th>السعر</th>
                       <th>الرقم التسلسلي</th>
-                      <th>نوع الأصل</th>
-                      <th>المكان</th>
-                      <th>الفئة</th>
+                      <th>الاسم</th>
                       <th>الوحدة</th>
                       <th>الكمية</th>
+                      <th>المكان</th>
+                      <th>الفئة</th>
+                      <th>نوع الأصل</th>
+                      <th>السعر</th>
+                      <th>الحالة</th>
                       <th>QR</th>
+                      <th>إجراءات</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -264,15 +280,15 @@ export default function Warehouse() {
                     ) : (
                       assets.map((asset, index) => (
                         <tr key={index}>
-                          <td>{asset.name}</td>
-                          <td>{asset.status}</td>
-                          <td>{asset.price}</td>
                           <td>{asset.serialNumber}</td>
-                          <td>{asset.assetType}</td>
-                          <td>{asset.room}</td>
-                          <td>{asset.category}</td>
+                          <td>{asset.name}</td>
                           <td>{asset.unit}</td>
                           <td>{asset.quantity}</td>
+                          <td>{asset.room}</td>
+                          <td>{asset.category}</td>
+                          <td>{asset.assetType}</td>
+                          <td>{asset.price}</td>
+                          <td>{asset.status}</td>
                           <td>
                             <img
                               src={`/api/warehouse/qr?code=${asset.serialNumber}`}
@@ -287,6 +303,54 @@ export default function Warehouse() {
                               }
                             />
                           </td>
+                          <td>
+                            <div
+                              style={{
+                                display: "flex",
+                                gap: "8px",
+                                justifyContent: "center",
+                              }}
+                            >
+                              {/*  تعديل */}
+                              <button
+                                onClick={() => {
+                                  setEditAsset(asset);
+                                  setIsModalOpen(true);
+                                }}
+                                style={{
+                                  background: "none",
+                                  border: "none",
+                                  cursor: "pointer",
+                                  color: "#0f4c81",
+                                  padding: "4px",
+                                }}
+                                title="تعديل"
+                              >
+                                <Pencil size={18} />
+                              </button>
+
+                              {/*  حذف */}
+                              <button
+                                onClick={() =>
+                                  setDeleteModal({
+                                    isOpen: true,
+                                    serialNumber: asset.serialNumber,
+                                    assetName: asset.name,
+                                  })
+                                }
+                                style={{
+                                  background: "none",
+                                  border: "none",
+                                  cursor: "pointer",
+                                  color: "#e53e3e",
+                                  padding: "4px",
+                                }}
+                                title="حذف"
+                              >
+                                <Trash2 size={18} />
+                              </button>
+                            </div>
+                          </td>
                         </tr>
                       ))
                     )}
@@ -299,8 +363,21 @@ export default function Warehouse() {
       </div>
       <AddAssetModal
         isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
+        onClose={() => {
+          setIsModalOpen(false);
+          setEditAsset(null);
+        }}
         onSuccess={() => fetchAssets()}
+        editData={editAsset}
+      />
+      <DeleteConfirmModal
+        isOpen={deleteModal.isOpen}
+        onClose={() =>
+          setDeleteModal({ isOpen: false, serialNumber: "", assetName: "" })
+        }
+        onSuccess={() => fetchAssets()}
+        serialNumber={deleteModal.serialNumber}
+        assetName={deleteModal.assetName}
       />
       <QRModal
         isOpen={qrModal.isOpen}
