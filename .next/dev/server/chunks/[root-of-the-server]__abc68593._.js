@@ -45,6 +45,8 @@ module.exports = mod;
 "use strict";
 
 __turbopack_context__.s([
+    "GET",
+    ()=>GET,
     "POST",
     ()=>POST
 ]);
@@ -52,13 +54,58 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$serv
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$headers$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/headers.js [app-route] (ecmascript)");
 ;
 ;
+async function GET(req, context) {
+    try {
+        const params = await context.params;
+        const action = params.action;
+        const cookieStore = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$headers$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["cookies"])();
+        const token = cookieStore.get("token")?.value;
+        // ===== DEBUG =====
+        console.log("=== Location GET ===");
+        console.log("action:", action);
+        console.log("token exists:", !!token);
+        console.log("token value:", token ? token.substring(0, 30) + "..." : "MISSING");
+        // =================
+        const headers = {
+            "Content-Type": "application/json",
+            Accept: "*/*"
+        };
+        if (token) {
+            headers["Authorization"] = `Bearer ${token}`;
+        }
+        const backendRes = await fetch(`http://invtrackapi.runasp.net/api/Location/${action}`, {
+            method: "GET",
+            headers
+        });
+        console.log("Backend response status:", backendRes.status);
+        let data;
+        const contentType = backendRes.headers.get("content-type");
+        if (contentType && contentType.includes("application/json")) {
+            data = await backendRes.json();
+        } else {
+            const text = await backendRes.text();
+            data = {
+                message: text || "Success or empty response"
+            };
+        }
+        return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json(data, {
+            status: backendRes.status
+        });
+    } catch (error) {
+        console.error("API Route GET Error:", error);
+        return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
+            error: error.message
+        }, {
+            status: 500
+        });
+    }
+}
 async function POST(req, context) {
     try {
         const params = await context.params;
         const action = params.action;
-        const cookieStore = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$headers$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["cookies"])();
-        // Await it in case it's Next.js 15+ where cookies() returns a Promise
-        const token = (await cookieStore).get("token")?.value;
+        const cookieStore = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$headers$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["cookies"])();
+        const token = cookieStore.get("token")?.value;
         let body = undefined;
         try {
             body = await req.json();

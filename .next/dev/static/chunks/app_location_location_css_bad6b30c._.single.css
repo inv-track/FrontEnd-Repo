@@ -27,6 +27,7 @@
   border-radius: 8px;
   flex-direction: column;
   min-height: 500px;
+  max-height: 600px;
   padding: 16px;
   display: flex;
   box-shadow: 0 1px 3px #0000001a;
@@ -107,8 +108,28 @@
   flex-direction: column;
   flex: 1;
   gap: 12px;
+  max-height: 420px;
+  padding-right: 4px;
   display: flex;
   overflow-y: auto;
+}
+
+.locations-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.locations-list::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 10px;
+}
+
+.locations-list::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+}
+
+.locations-list::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
 }
 
 .location-card {
@@ -562,8 +583,17 @@
     padding: 12px;
   }
 
-  .detail-box, .left-box {
+  .detail-box {
     min-height: auto;
+  }
+
+  .left-box {
+    min-height: auto;
+    max-height: none;
+  }
+
+  .locations-list {
+    max-height: 300px;
   }
 
   .back-btn {
