@@ -1,8 +1,8 @@
 {
-  "/_not-found/page": "app/_not-found/page.js",
   "/api/Location/[action]/route": "app/api/Location/[action]/route.js",
   "/api/auditors/getAllAuditors/route": "app/api/auditors/getAllAuditors/route.js",
   "/api/employee/getAllEmployee/route": "app/api/employee/getAllEmployee/route.js",
+  "/api/login/route": "app/api/login/route.js",
   "/api/operations/route": "app/api/operations/route.js",
   "/api/warehouse/assettypes/route": "app/api/warehouse/assettypes/route.js",
   "/api/warehouse/categories/route": "app/api/warehouse/categories/route.js",
@@ -14,7 +14,7 @@
   "/employee/page": "app/employee/page.js",
   "/home/page": "app/home/page.js",
   "/location/page": "app/location/page.js",
+  "/login/page": "app/login/page.js",
   "/operations/page": "app/operations/page.js",
-  "/page": "app/page.js",
   "/warehouse/page": "app/warehouse/page.js"
 }

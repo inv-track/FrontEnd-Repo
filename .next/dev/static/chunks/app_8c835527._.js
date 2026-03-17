@@ -77,7 +77,7 @@ function Sidebar() {
                 size: 18
             }, void 0, false, {
                 fileName: "[project]/app/components/sidebar.tsx",
-                lineNumber: 14,
+                lineNumber: 22,
                 columnNumber: 28
             }, this),
             text: "الرئيسية"
@@ -88,7 +88,7 @@ function Sidebar() {
                 size: 18
             }, void 0, false, {
                 fileName: "[project]/app/components/sidebar.tsx",
-                lineNumber: 15,
+                lineNumber: 23,
                 columnNumber: 34
             }, this),
             text: "العمليات"
@@ -99,7 +99,7 @@ function Sidebar() {
                 size: 18
             }, void 0, false, {
                 fileName: "[project]/app/components/sidebar.tsx",
-                lineNumber: 16,
+                lineNumber: 24,
                 columnNumber: 33
             }, this),
             text: "العهد/المخازن"
@@ -110,7 +110,7 @@ function Sidebar() {
                 size: 18
             }, void 0, false, {
                 fileName: "[project]/app/components/sidebar.tsx",
-                lineNumber: 17,
+                lineNumber: 25,
                 columnNumber: 32
             }, this),
             text: "الموظفين"
@@ -121,7 +121,7 @@ function Sidebar() {
                 size: 18
             }, void 0, false, {
                 fileName: "[project]/app/components/sidebar.tsx",
-                lineNumber: 18,
+                lineNumber: 26,
                 columnNumber: 32
             }, this),
             text: "المكان"
@@ -132,12 +132,19 @@ function Sidebar() {
                 size: 18
             }, void 0, false, {
                 fileName: "[project]/app/components/sidebar.tsx",
-                lineNumber: 19,
+                lineNumber: 27,
                 columnNumber: 31
             }, this),
             text: "المجردين"
         }
     ];
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
+        "Sidebar.useEffect": ()=>{
+            setIsMenuOpen(false);
+        }
+    }["Sidebar.useEffect"], [
+        pathname
+    ]);
     const toggleMenu = ()=>setIsMenuOpen(!isMenuOpen);
     const closeMenu = ()=>setIsMenuOpen(false);
     const handleLogout = async ()=>{
@@ -156,7 +163,7 @@ function Sidebar() {
                 children: "القائمة"
             }, void 0, false, {
                 fileName: "[project]/app/components/sidebar.tsx",
-                lineNumber: 32,
+                lineNumber: 47,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("nav", {
@@ -174,7 +181,7 @@ function Sidebar() {
                                     children: link.icon
                                 }, void 0, false, {
                                     fileName: "[project]/app/components/sidebar.tsx",
-                                    lineNumber: 49,
+                                    lineNumber: 66,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -182,13 +189,13 @@ function Sidebar() {
                                     children: link.text
                                 }, void 0, false, {
                                     fileName: "[project]/app/components/sidebar.tsx",
-                                    lineNumber: 52,
+                                    lineNumber: 67,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, link.href, true, {
                             fileName: "[project]/app/components/sidebar.tsx",
-                            lineNumber: 43,
+                            lineNumber: 60,
                             columnNumber: 13
                         }, this);
                     }),
@@ -202,12 +209,12 @@ function Sidebar() {
                                     size: 18
                                 }, void 0, false, {
                                     fileName: "[project]/app/components/sidebar.tsx",
-                                    lineNumber: 62,
+                                    lineNumber: 77,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/components/sidebar.tsx",
-                                lineNumber: 61,
+                                lineNumber: 76,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -215,29 +222,29 @@ function Sidebar() {
                                 children: "تسجيل الخروج"
                             }, void 0, false, {
                                 fileName: "[project]/app/components/sidebar.tsx",
-                                lineNumber: 64,
+                                lineNumber: 79,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/components/sidebar.tsx",
-                        lineNumber: 57,
+                        lineNumber: 72,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/components/sidebar.tsx",
-                lineNumber: 39,
+                lineNumber: 54,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/app/components/sidebar.tsx",
-        lineNumber: 31,
+        lineNumber: 46,
         columnNumber: 5
     }, this);
 }
-_s(Sidebar, "d/L2GqF9l44rBl7/rgBWSc2ljcI=", false, function() {
+_s(Sidebar, "G/oCNHPY0yrYKyrA5YXyZI2tyXY=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["usePathname"]
     ];
