@@ -673,17 +673,22 @@ const getAuthHeaders = ()=>({
     });
 function LocationPage() {
     _s();
-    const [searchQuery, setSearchQuery] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])('');
-    const [showAddModal, setShowAddModal] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
-    const [selectedLocation, setSelectedLocation] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
-    const [addLoading, setAddLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
+    const [buildingsData, setBuildingsData] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])([]);
     const [fetchLoading, setFetchLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(true);
     const [itemsLoading, setItemsLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
-    const [locations, setLocations] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])([]);
-    const [buildingsData, setBuildingsData] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])([]);
-    const [selectedBuilding, setSelectedBuilding] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])('');
-    const [selectedFloor, setSelectedFloor] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])('');
+    const [viewLevel, setViewLevel] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])('buildings');
+    const [selectedBuilding, setSelectedBuilding] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
+    const [selectedFloor, setSelectedFloor] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
     const [selectedRoom, setSelectedRoom] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])('');
+    const [items, setItems] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])([]);
+    const [itemsCount, setItemsCount] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(0);
+    const [searchQuery, setSearchQuery] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])('');
+    const [showAddModal, setShowAddModal] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
+    const [addLoading, setAddLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
+    // Modal states
+    const [selectedBuildingModal, setSelectedBuildingModal] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])('');
+    const [selectedFloorModal, setSelectedFloorModal] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])('');
+    const [selectedRoomModal, setSelectedRoomModal] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])('');
     const [addingBuilding, setAddingBuilding] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const [addingFloor, setAddingFloor] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const [addingRoom, setAddingRoom] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
@@ -691,14 +696,13 @@ function LocationPage() {
     const [newFloorName, setNewFloorName] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])('');
     const [newRoomName, setNewRoomName] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])('');
     const availableBuildings = buildingsData.map((b)=>b.name);
-    const availableFloors = selectedBuilding ? (buildingsData.find((b)=>b.name === selectedBuilding)?.floors || []).map((f)=>f.name) : [];
-    const availableRooms = selectedBuilding && selectedFloor ? (buildingsData.find((b)=>b.name === selectedBuilding)?.floors.find((f)=>f.name === selectedFloor)?.rooms || []).map((r)=>r.roomName) : [];
+    const availableFloors = selectedBuildingModal ? (buildingsData.find((b)=>b.name === selectedBuildingModal)?.floors || []).map((f)=>f.name) : [];
+    const availableRooms = selectedBuildingModal && selectedFloorModal ? (buildingsData.find((b)=>b.name === selectedBuildingModal)?.floors.find((f)=>f.name === selectedFloorModal)?.rooms || []).map((r)=>r.roomName) : [];
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "LocationPage.useEffect": ()=>{
             fetchLocations();
         }
     }["LocationPage.useEffect"], []);
-    const filteredLocations = locations.filter((loc)=>loc.name.includes(searchQuery) || loc.building.includes(searchQuery) || loc.floor && loc.floor.includes(searchQuery));
     const fetchLocations = async ()=>{
         setFetchLoading(true);
         try {
@@ -709,67 +713,27 @@ function LocationPage() {
             if (!res.ok) return;
             const data = await res.json();
             setBuildingsData(data);
-            const parsed = [];
-            data.forEach((building)=>{
-                if (!building.floors || building.floors.length === 0) {
-                    parsed.push({
-                        id: Date.now() + Math.random(),
-                        name: building.name,
-                        building: building.name,
-                        items: 0,
-                        itemsList: []
-                    });
-                } else {
-                    building.floors.forEach((floor)=>{
-                        if (!floor.rooms || floor.rooms.length === 0) {
-                            parsed.push({
-                                id: Date.now() + Math.random(),
-                                name: floor.name,
-                                building: building.name,
-                                floor: floor.name,
-                                items: 0,
-                                itemsList: []
-                            });
-                        } else {
-                            floor.rooms.forEach((room)=>{
-                                parsed.push({
-                                    id: Date.now() + Math.random(),
-                                    name: room.roomName,
-                                    building: building.name,
-                                    floor: floor.name,
-                                    items: 0,
-                                    itemsList: []
-                                });
-                            });
-                        }
-                    });
-                }
-            });
-            setLocations(parsed);
         } catch (err) {
             console.error("Error:", err);
         } finally{
             setFetchLoading(false);
         }
     };
-    // ===== Fetch items for selected location =====
-    const fetchLocationItems = async (location)=>{
+    const fetchItems = async (building, floor, room)=>{
         setItemsLoading(true);
+        setItems([]);
         try {
             const params = new URLSearchParams();
-            params.append('buildingName', location.building);
-            if (location.floor) params.append('floorName', location.floor);
-            if (location.name !== location.building && location.name !== location.floor) {
-                params.append('roomName', location.name);
-            }
+            params.append('buildingName', building);
+            if (floor) params.append('floorName', floor);
+            if (room) params.append('roomName', room);
             const res = await fetch(`${ASSET_API}/GetAllAssetByLocation?${params.toString()}`, {
                 method: 'GET',
                 headers: getAuthHeaders()
             });
             if (!res.ok) return;
             const data = await res.json();
-            // API returns { count: number, data: [...] }
-            const items = (data.data || []).map((asset, index)=>({
+            const parsed = (data.data || []).map((asset, index)=>({
                     id: index + 1,
                     name: asset.name,
                     category: asset.category,
@@ -778,23 +742,75 @@ function LocationPage() {
                     status: asset.status,
                     price: asset.price
                 }));
-            const updated = {
-                ...location,
-                items: data.count || items.length,
-                itemsList: items
-            };
-            setSelectedLocation(updated);
-            setLocations((prev)=>prev.map((l)=>l.id === location.id ? updated : l));
+            setItems(parsed);
+            setItemsCount(data.count || parsed.length);
         } catch (err) {
             console.error("Error fetching items:", err);
         } finally{
             setItemsLoading(false);
         }
     };
-    const handleSelectLocation = (location)=>{
-        setSelectedLocation(location);
-        fetchLocationItems(location);
+    // ===== Navigation =====
+    const handleSelectBuilding = (building)=>{
+        setSelectedBuilding(building);
+        setSelectedFloor(null);
+        setSelectedRoom('');
+        setItems([]);
+        setSearchQuery('');
+        if (building.floors && building.floors.length > 0) {
+            setViewLevel('floors');
+        } else {
+            setViewLevel('items');
+            fetchItems(building.name, '', '');
+        }
     };
+    const handleSelectFloor = (floor)=>{
+        setSelectedFloor(floor);
+        setSelectedRoom('');
+        setItems([]);
+        setSearchQuery('');
+        if (floor.rooms && floor.rooms.length > 0) {
+            setViewLevel('rooms');
+        } else {
+            setViewLevel('items');
+            fetchItems(selectedBuilding.name, floor.name, '');
+        }
+    };
+    const handleSelectRoom = (room)=>{
+        setSelectedRoom(room);
+        setItems([]);
+        setSearchQuery('');
+        setViewLevel('items');
+        fetchItems(selectedBuilding.name, selectedFloor?.name || '', room);
+    };
+    const goBack = ()=>{
+        if (viewLevel === 'items') {
+            if (selectedRoom) {
+                setSelectedRoom('');
+                setViewLevel('rooms');
+            } else if (selectedFloor) {
+                setSelectedFloor(null);
+                setViewLevel('floors');
+            } else {
+                setSelectedBuilding(null);
+                setViewLevel('buildings');
+            }
+        } else if (viewLevel === 'rooms') {
+            setSelectedFloor(null);
+            setViewLevel('floors');
+        } else if (viewLevel === 'floors') {
+            setSelectedBuilding(null);
+            setViewLevel('buildings');
+        }
+        setItems([]);
+        setSearchQuery('');
+    };
+    // ===== Filter current list =====
+    const filteredBuildings = buildingsData.filter((b)=>b.name.includes(searchQuery));
+    const filteredFloors = selectedBuilding?.floors.filter((f)=>f.name.includes(searchQuery)) || [];
+    const filteredRooms = selectedFloor?.rooms.filter((r)=>r.roomName.includes(searchQuery)) || [];
+    const filteredItems = items.filter((i)=>i.name.includes(searchQuery) || i.category.includes(searchQuery));
+    // ===== Modal handlers =====
     const handleAddBuilding = async ()=>{
         if (!newBuildingName.trim()) return;
         await fetch(`${API_BASE}/AddBuilding`, {
@@ -805,44 +821,44 @@ function LocationPage() {
             })
         });
         await fetchLocations();
-        setSelectedBuilding(newBuildingName);
+        setSelectedBuildingModal(newBuildingName);
         setNewBuildingName('');
         setAddingBuilding(false);
     };
     const handleAddFloor = async ()=>{
-        if (!newFloorName.trim() || !selectedBuilding) return;
+        if (!newFloorName.trim() || !selectedBuildingModal) return;
         await fetch(`${API_BASE}/AddFloor`, {
             method: 'POST',
             headers: getAuthHeaders(),
             body: JSON.stringify({
                 floorName: newFloorName,
-                buildingName: selectedBuilding
+                buildingName: selectedBuildingModal
             })
         });
         await fetchLocations();
-        setSelectedFloor(newFloorName);
+        setSelectedFloorModal(newFloorName);
         setNewFloorName('');
         setAddingFloor(false);
     };
     const handleAddRoom = async ()=>{
-        if (!newRoomName.trim() || !selectedBuilding) return;
+        if (!newRoomName.trim() || !selectedBuildingModal) return;
         await fetch(`${API_BASE}/AddRoom`, {
             method: 'POST',
             headers: getAuthHeaders(),
             body: JSON.stringify({
                 roomName: newRoomName,
-                floorName: selectedFloor || '',
-                buildingName: selectedBuilding,
+                floorName: selectedFloorModal || '',
+                buildingName: selectedBuildingModal,
                 description: ''
             })
         });
         await fetchLocations();
-        setSelectedRoom(newRoomName);
+        setSelectedRoomModal(newRoomName);
         setNewRoomName('');
         setAddingRoom(false);
     };
     const handleSaveLocation = async ()=>{
-        if (!selectedBuilding) return;
+        if (!selectedBuildingModal) return;
         setAddLoading(true);
         await fetchLocations();
         setAddLoading(false);
@@ -850,9 +866,9 @@ function LocationPage() {
         setShowAddModal(false);
     };
     const resetModal = ()=>{
-        setSelectedBuilding('');
-        setSelectedFloor('');
-        setSelectedRoom('');
+        setSelectedBuildingModal('');
+        setSelectedFloorModal('');
+        setSelectedRoomModal('');
         setAddingBuilding(false);
         setAddingFloor(false);
         setAddingRoom(false);
@@ -861,26 +877,121 @@ function LocationPage() {
         setNewRoomName('');
     };
     const handlePrint = ()=>{
-        if (!selectedLocation) return;
         const w = window.open('', '_blank');
         if (!w) return;
-        w.document.write(`<html dir="rtl"><head><title>طباعة العهد - ${selectedLocation.name}</title>
+        const title = selectedRoom || selectedFloor?.name || selectedBuilding?.name || '';
+        w.document.write(`<html dir="rtl"><head><title>طباعة العهد - ${title}</title>
     <style>body{font-family:Arial,sans-serif;padding:24px;direction:rtl;}table{width:100%;border-collapse:collapse;margin-top:24px;}th{background:#0F4C81;color:white;padding:10px 14px;text-align:right;}td{padding:10px 14px;border-bottom:1px solid #E2E8F0;}</style></head>
-    <body><h1>${selectedLocation.name}</h1><p>المبنى: ${selectedLocation.building}${selectedLocation.floor ? ' - ' + selectedLocation.floor : ''}</p>
-    <p>إجمالي العهد: ${selectedLocation.items}</p>
-    <table><thead><tr><th>#</th><th>اسم العهدة</th><th>الفئة</th><th>الكمية</th><th>الحالة</th><th>الرقم التسلسلي</th></th></tr></thead><tbody>
-    ${selectedLocation.itemsList?.map((item, i)=>`<tr><td>${i + 1}</td><td>${item.name}</td><td>${item.category}</td><td>${item.quantity}</td><td>${item.status || ''}</td><td>${item.serialNumber}</td></tr>`).join('') || '<tr><td colspan="5" style="text-align:center">لا توجد عهد</td></tr>'}
+    <body><h1>${title}</h1><p>إجمالي العهد: ${itemsCount}</p>
+    <table><thead><tr><th>#</th><th>اسم العهدة</th><th>الفئة</th><th>الكمية</th><th>الحالة</th><th>الرقم التسلسلي</th></tr></thead><tbody>
+    ${items.map((item, i)=>`<tr><td>${i + 1}</td><td>${item.name}</td><td>${item.category}</td><td>${item.quantity}</td><td>${item.status || ''}</td><td>${item.serialNumber || ''}</td></tr>`).join('') || '<tr><td colspan="6" style="text-align:center">لا توجد عهد</td></tr>'}
     </tbody></table></body></html>`);
         w.document.close();
         w.print();
         w.close();
     };
+    // ===== Breadcrumb =====
+    const renderBreadcrumb = ()=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+            className: "loc-breadcrumb",
+            children: [
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                    className: viewLevel === 'buildings' ? 'loc-bc-active' : 'loc-bc-link',
+                    onClick: ()=>{
+                        setViewLevel('buildings');
+                        setSelectedBuilding(null);
+                        setSelectedFloor(null);
+                        setSelectedRoom('');
+                        setItems([]);
+                    },
+                    children: "المباني"
+                }, void 0, false, {
+                    fileName: "[project]/app/location/page.tsx",
+                    lineNumber: 207,
+                    columnNumber: 7
+                }, this),
+                selectedBuilding && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                            className: "loc-bc-sep",
+                            children: "←"
+                        }, void 0, false, {
+                            fileName: "[project]/app/location/page.tsx",
+                            lineNumber: 211,
+                            columnNumber: 9
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                            className: viewLevel === 'floors' ? 'loc-bc-active' : 'loc-bc-link',
+                            onClick: ()=>{
+                                setViewLevel('floors');
+                                setSelectedFloor(null);
+                                setSelectedRoom('');
+                                setItems([]);
+                            },
+                            children: selectedBuilding.name
+                        }, void 0, false, {
+                            fileName: "[project]/app/location/page.tsx",
+                            lineNumber: 212,
+                            columnNumber: 9
+                        }, this)
+                    ]
+                }, void 0, true),
+                selectedFloor && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                            className: "loc-bc-sep",
+                            children: "←"
+                        }, void 0, false, {
+                            fileName: "[project]/app/location/page.tsx",
+                            lineNumber: 217,
+                            columnNumber: 9
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                            className: viewLevel === 'rooms' ? 'loc-bc-active' : 'loc-bc-link',
+                            onClick: ()=>{
+                                setViewLevel('rooms');
+                                setSelectedRoom('');
+                                setItems([]);
+                            },
+                            children: selectedFloor.name
+                        }, void 0, false, {
+                            fileName: "[project]/app/location/page.tsx",
+                            lineNumber: 218,
+                            columnNumber: 9
+                        }, this)
+                    ]
+                }, void 0, true),
+                selectedRoom && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                            className: "loc-bc-sep",
+                            children: "←"
+                        }, void 0, false, {
+                            fileName: "[project]/app/location/page.tsx",
+                            lineNumber: 223,
+                            columnNumber: 9
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                            className: "loc-bc-active",
+                            children: selectedRoom
+                        }, void 0, false, {
+                            fileName: "[project]/app/location/page.tsx",
+                            lineNumber: 224,
+                            columnNumber: 9
+                        }, this)
+                    ]
+                }, void 0, true)
+            ]
+        }, void 0, true, {
+            fileName: "[project]/app/location/page.tsx",
+            lineNumber: 206,
+            columnNumber: 5
+        }, this);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "container",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$header$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                 fileName: "[project]/app/location/page.tsx",
-                lineNumber: 198,
+                lineNumber: 231,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -888,7 +999,7 @@ function LocationPage() {
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$sidebar$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                         fileName: "[project]/app/location/page.tsx",
-                        lineNumber: 200,
+                        lineNumber: 233,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
@@ -896,7 +1007,7 @@ function LocationPage() {
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$mainTitle$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                                 fileName: "[project]/app/location/page.tsx",
-                                lineNumber: 202,
+                                lineNumber: 235,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -913,13 +1024,14 @@ function LocationPage() {
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                             className: "left-title",
                                                             children: [
-                                                                "قائمة المواقع (",
-                                                                locations.length,
-                                                                ")"
+                                                                viewLevel === 'buildings' && `المباني (${buildingsData.length})`,
+                                                                viewLevel === 'floors' && `الأدوار (${selectedBuilding?.floors.length || 0})`,
+                                                                viewLevel === 'rooms' && `الغرف (${selectedFloor?.rooms.length || 0})`,
+                                                                viewLevel === 'items' && `العهد (${itemsCount})`
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/app/location/page.tsx",
-                                                            lineNumber: 209,
+                                                            lineNumber: 242,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -928,32 +1040,52 @@ function LocationPage() {
                                                             children: "+"
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/location/page.tsx",
-                                                            lineNumber: 210,
+                                                            lineNumber: 248,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/app/location/page.tsx",
-                                                    lineNumber: 208,
+                                                    lineNumber: 241,
                                                     columnNumber: 17
                                                 }, this),
+                                                viewLevel !== 'buildings' && renderBreadcrumb(),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                    className: "serch-box",
-                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                                        type: "text",
-                                                        className: "search-input",
-                                                        placeholder: "بحث....",
-                                                        value: searchQuery,
-                                                        onChange: (e)=>setSearchQuery(e.target.value)
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/app/location/page.tsx",
-                                                        lineNumber: 213,
-                                                        columnNumber: 19
-                                                    }, this)
+                                                    className: "loc-search-wrapper",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                            type: "text",
+                                                            className: "loc-search-input",
+                                                            placeholder: "بحث...",
+                                                            value: searchQuery,
+                                                            onChange: (e)=>setSearchQuery(e.target.value)
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/app/location/page.tsx",
+                                                            lineNumber: 256,
+                                                            columnNumber: 19
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                            className: "loc-search-icon",
+                                                            children: "🔍"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/app/location/page.tsx",
+                                                            lineNumber: 257,
+                                                            columnNumber: 19
+                                                        }, this)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/app/location/page.tsx",
+                                                    lineNumber: 255,
+                                                    columnNumber: 17
+                                                }, this),
+                                                viewLevel !== 'buildings' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                                    className: "loc-back-btn",
+                                                    onClick: goBack,
+                                                    children: "← رجوع"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/location/page.tsx",
-                                                    lineNumber: 212,
-                                                    columnNumber: 17
+                                                    lineNumber: 262,
+                                                    columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                     className: "locations-list",
@@ -962,65 +1094,150 @@ function LocationPage() {
                                                         children: "جاري التحميل..."
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/location/page.tsx",
-                                                        lineNumber: 217,
-                                                        columnNumber: 35
-                                                    }, this) : filteredLocations.length === 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                        lineNumber: 268,
+                                                        columnNumber: 21
+                                                    }, this) : viewLevel === 'buildings' ? filteredBuildings.length === 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                         className: "empty-list",
-                                                        children: "لا توجد نتائج"
+                                                        children: "لا توجد مباني"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/location/page.tsx",
-                                                        lineNumber: 218,
-                                                        columnNumber: 56
-                                                    }, this) : filteredLocations.map((location)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                            className: `location-card ${selectedLocation?.id === location.id ? 'location-card--active' : ''}`,
-                                                            onClick: ()=>handleSelectLocation(location),
-                                                            children: [
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                    className: "location-header",
-                                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                                        lineNumber: 270,
+                                                        columnNumber: 54
+                                                    }, this) : filteredBuildings.map((b, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                            className: "location-card",
+                                                            onClick: ()=>handleSelectBuilding(b),
+                                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                className: "location-header",
+                                                                children: [
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
                                                                         className: "location-name",
-                                                                        children: location.name
+                                                                        children: b.name
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/app/location/page.tsx",
-                                                                        lineNumber: 222,
+                                                                        lineNumber: 274,
+                                                                        columnNumber: 27
+                                                                    }, this),
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                        className: "location-items",
+                                                                        children: [
+                                                                            b.floors?.length || 0,
+                                                                            " دور"
+                                                                        ]
+                                                                    }, void 0, true, {
+                                                                        fileName: "[project]/app/location/page.tsx",
+                                                                        lineNumber: 275,
                                                                         columnNumber: 27
                                                                     }, this)
+                                                                ]
+                                                            }, void 0, true, {
+                                                                fileName: "[project]/app/location/page.tsx",
+                                                                lineNumber: 273,
+                                                                columnNumber: 25
+                                                            }, this)
+                                                        }, i, false, {
+                                                            fileName: "[project]/app/location/page.tsx",
+                                                            lineNumber: 272,
+                                                            columnNumber: 23
+                                                        }, this)) : viewLevel === 'floors' ? filteredFloors.length === 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                        className: "empty-list",
+                                                        children: "لا توجد أدوار"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/app/location/page.tsx",
+                                                        lineNumber: 280,
+                                                        columnNumber: 51
+                                                    }, this) : filteredFloors.map((f, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                            className: "location-card",
+                                                            onClick: ()=>handleSelectFloor(f),
+                                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                className: "location-header",
+                                                                children: [
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                                                        className: "location-name",
+                                                                        children: f.name
+                                                                    }, void 0, false, {
+                                                                        fileName: "[project]/app/location/page.tsx",
+                                                                        lineNumber: 284,
+                                                                        columnNumber: 27
+                                                                    }, this),
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                        className: "location-items",
+                                                                        children: [
+                                                                            f.rooms?.length || 0,
+                                                                            " غرفة"
+                                                                        ]
+                                                                    }, void 0, true, {
+                                                                        fileName: "[project]/app/location/page.tsx",
+                                                                        lineNumber: 285,
+                                                                        columnNumber: 27
+                                                                    }, this)
+                                                                ]
+                                                            }, void 0, true, {
+                                                                fileName: "[project]/app/location/page.tsx",
+                                                                lineNumber: 283,
+                                                                columnNumber: 25
+                                                            }, this)
+                                                        }, i, false, {
+                                                            fileName: "[project]/app/location/page.tsx",
+                                                            lineNumber: 282,
+                                                            columnNumber: 23
+                                                        }, this)) : viewLevel === 'rooms' ? filteredRooms.length === 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                        className: "empty-list",
+                                                        children: "لا توجد غرف"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/app/location/page.tsx",
+                                                        lineNumber: 290,
+                                                        columnNumber: 50
+                                                    }, this) : filteredRooms.map((r, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                            className: "location-card",
+                                                            onClick: ()=>handleSelectRoom(r.roomName),
+                                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                className: "location-header",
+                                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                                                    className: "location-name",
+                                                                    children: r.roomName
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/location/page.tsx",
-                                                                    lineNumber: 221,
-                                                                    columnNumber: 25
-                                                                }, this),
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                                    className: "location-building",
-                                                                    children: [
-                                                                        location.building,
-                                                                        location.floor ? ` - ${location.floor}` : ''
-                                                                    ]
-                                                                }, void 0, true, {
-                                                                    fileName: "[project]/app/location/page.tsx",
-                                                                    lineNumber: 225,
-                                                                    columnNumber: 25
+                                                                    lineNumber: 294,
+                                                                    columnNumber: 27
                                                                 }, this)
-                                                            ]
-                                                        }, location.id, true, {
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/app/location/page.tsx",
+                                                                lineNumber: 293,
+                                                                columnNumber: 25
+                                                            }, this)
+                                                        }, i, false, {
                                                             fileName: "[project]/app/location/page.tsx",
-                                                            lineNumber: 220,
+                                                            lineNumber: 292,
                                                             columnNumber: 23
-                                                        }, this))
+                                                        }, this)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "no-items-side",
+                                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                            className: "empty-list",
+                                                            children: "العهد معروضة على اليمين"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/app/location/page.tsx",
+                                                            lineNumber: 300,
+                                                            columnNumber: 23
+                                                        }, this)
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/app/location/page.tsx",
+                                                        lineNumber: 299,
+                                                        columnNumber: 21
+                                                    }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/location/page.tsx",
-                                                    lineNumber: 216,
+                                                    lineNumber: 266,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/location/page.tsx",
-                                            lineNumber: 207,
+                                            lineNumber: 240,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: `detail-box ${selectedLocation ? 'detail-box--visible' : ''}`,
-                                            children: !selectedLocation ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: `detail-box ${viewLevel === 'items' ? 'detail-box--visible' : ''}`,
+                                            children: viewLevel !== 'items' ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                 className: "no-selection",
                                                 children: [
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1028,27 +1245,18 @@ function LocationPage() {
                                                         children: "📍"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/location/page.tsx",
-                                                        lineNumber: 234,
-                                                        columnNumber: 49
+                                                        lineNumber: 310,
+                                                        columnNumber: 21
                                                     }, this),
-                                                    "اختر موقعاً لعرض التفاصيل"
+                                                    "اختر موقعاً لعرض العهد"
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/location/page.tsx",
-                                                lineNumber: 234,
+                                                lineNumber: 309,
                                                 columnNumber: 19
                                             }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                 className: "detail-content",
                                                 children: [
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                                        className: "back-btn",
-                                                        onClick: ()=>setSelectedLocation(null),
-                                                        children: "← رجوع للقائمة"
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/app/location/page.tsx",
-                                                        lineNumber: 237,
-                                                        columnNumber: 21
-                                                    }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                         className: "detail-info-card",
                                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1061,12 +1269,12 @@ function LocationPage() {
                                                                         alt: "Location Icon"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/app/location/page.tsx",
-                                                                        lineNumber: 240,
-                                                                        columnNumber: 62
+                                                                        lineNumber: 318,
+                                                                        columnNumber: 27
                                                                     }, this)
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/location/page.tsx",
-                                                                    lineNumber: 240,
+                                                                    lineNumber: 317,
                                                                     columnNumber: 25
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1074,24 +1282,23 @@ function LocationPage() {
                                                                     children: [
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
                                                                             className: "detail-name",
-                                                                            children: selectedLocation.name
+                                                                            children: selectedRoom || selectedFloor?.name || selectedBuilding?.name
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/app/location/page.tsx",
-                                                                            lineNumber: 242,
+                                                                            lineNumber: 321,
                                                                             columnNumber: 27
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                                             className: "detail-meta",
                                                                             children: [
                                                                                 "🏢 ",
-                                                                                selectedLocation.building,
-                                                                                selectedLocation.floor && ` - ${selectedLocation.floor}`,
-                                                                                " - ",
-                                                                                selectedLocation.name
+                                                                                selectedBuilding?.name,
+                                                                                selectedFloor && ` - ${selectedFloor.name}`,
+                                                                                selectedRoom && ` - ${selectedRoom}`
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/app/location/page.tsx",
-                                                                            lineNumber: 243,
+                                                                            lineNumber: 322,
                                                                             columnNumber: 27
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1099,33 +1306,33 @@ function LocationPage() {
                                                                             children: [
                                                                                 "📦 إجمالي العهد: ",
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
-                                                                                    children: selectedLocation.items
+                                                                                    children: itemsCount
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/app/location/page.tsx",
-                                                                                    lineNumber: 244,
+                                                                                    lineNumber: 327,
                                                                                     columnNumber: 71
                                                                                 }, this)
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/app/location/page.tsx",
-                                                                            lineNumber: 244,
+                                                                            lineNumber: 327,
                                                                             columnNumber: 27
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/app/location/page.tsx",
-                                                                    lineNumber: 241,
+                                                                    lineNumber: 320,
                                                                     columnNumber: 25
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/app/location/page.tsx",
-                                                            lineNumber: 239,
+                                                            lineNumber: 316,
                                                             columnNumber: 23
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/location/page.tsx",
-                                                        lineNumber: 238,
+                                                        lineNumber: 315,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1136,10 +1343,10 @@ function LocationPage() {
                                                                 children: [
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
                                                                         className: "items-card-title",
-                                                                        children: "العهدة المخزنة في هذا الموقع"
+                                                                        children: "العهدة المخزنة"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/app/location/page.tsx",
-                                                                        lineNumber: 250,
+                                                                        lineNumber: 334,
                                                                         columnNumber: 25
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1155,20 +1362,20 @@ function LocationPage() {
                                                                                 }
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/app/location/page.tsx",
-                                                                                lineNumber: 252,
+                                                                                lineNumber: 336,
                                                                                 columnNumber: 27
                                                                             }, this),
-                                                                            " طباعة العهد"
+                                                                            " طباعة"
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/app/location/page.tsx",
-                                                                        lineNumber: 251,
+                                                                        lineNumber: 335,
                                                                         columnNumber: 25
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/app/location/page.tsx",
-                                                                lineNumber: 249,
+                                                                lineNumber: 333,
                                                                 columnNumber: 23
                                                             }, this),
                                                             itemsLoading ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1176,9 +1383,9 @@ function LocationPage() {
                                                                 children: "جاري تحميل العهد..."
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/location/page.tsx",
-                                                                lineNumber: 256,
+                                                                lineNumber: 341,
                                                                 columnNumber: 25
-                                                            }, this) : selectedLocation.itemsList && selectedLocation.itemsList.length > 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("table", {
+                                                            }, this) : items.length > 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("table", {
                                                                 className: "items-table",
                                                                 children: [
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("thead", {
@@ -1188,63 +1395,63 @@ function LocationPage() {
                                                                                     children: "اسم العهدة"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/app/location/page.tsx",
-                                                                                    lineNumber: 261,
+                                                                                    lineNumber: 346,
                                                                                     columnNumber: 31
                                                                                 }, this),
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
                                                                                     children: "الفئة"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/app/location/page.tsx",
-                                                                                    lineNumber: 262,
+                                                                                    lineNumber: 347,
                                                                                     columnNumber: 31
                                                                                 }, this),
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
                                                                                     children: "الكمية"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/app/location/page.tsx",
-                                                                                    lineNumber: 263,
+                                                                                    lineNumber: 348,
                                                                                     columnNumber: 31
                                                                                 }, this),
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
                                                                                     children: "الحالة"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/app/location/page.tsx",
-                                                                                    lineNumber: 264,
+                                                                                    lineNumber: 349,
                                                                                     columnNumber: 31
                                                                                 }, this),
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
                                                                                     children: "الرقم التسلسلي"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/app/location/page.tsx",
-                                                                                    lineNumber: 265,
+                                                                                    lineNumber: 350,
                                                                                     columnNumber: 31
                                                                                 }, this)
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/app/location/page.tsx",
-                                                                            lineNumber: 260,
+                                                                            lineNumber: 345,
                                                                             columnNumber: 29
                                                                         }, this)
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/app/location/page.tsx",
-                                                                        lineNumber: 259,
+                                                                        lineNumber: 344,
                                                                         columnNumber: 27
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tbody", {
-                                                                        children: selectedLocation.itemsList.map((item)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
+                                                                        children: items.map((item)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
                                                                                 children: [
                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
                                                                                         children: item.name
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/app/location/page.tsx",
-                                                                                        lineNumber: 271,
+                                                                                        lineNumber: 356,
                                                                                         columnNumber: 33
                                                                                     }, this),
                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
                                                                                         children: item.category
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/app/location/page.tsx",
-                                                                                        lineNumber: 272,
+                                                                                        lineNumber: 357,
                                                                                         columnNumber: 33
                                                                                     }, this),
                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -1253,19 +1460,19 @@ function LocationPage() {
                                                                                             children: item.quantity
                                                                                         }, void 0, false, {
                                                                                             fileName: "[project]/app/location/page.tsx",
-                                                                                            lineNumber: 273,
+                                                                                            lineNumber: 358,
                                                                                             columnNumber: 37
                                                                                         }, this)
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/app/location/page.tsx",
-                                                                                        lineNumber: 273,
+                                                                                        lineNumber: 358,
                                                                                         columnNumber: 33
                                                                                     }, this),
                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
                                                                                         children: item.status || '-'
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/app/location/page.tsx",
-                                                                                        lineNumber: 274,
+                                                                                        lineNumber: 359,
                                                                                         columnNumber: 33
                                                                                     }, this),
                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -1276,71 +1483,71 @@ function LocationPage() {
                                                                                         children: item.serialNumber || '-'
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/app/location/page.tsx",
-                                                                                        lineNumber: 275,
+                                                                                        lineNumber: 360,
                                                                                         columnNumber: 33
                                                                                     }, this)
                                                                                 ]
                                                                             }, item.id, true, {
                                                                                 fileName: "[project]/app/location/page.tsx",
-                                                                                lineNumber: 270,
+                                                                                lineNumber: 355,
                                                                                 columnNumber: 31
                                                                             }, this))
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/app/location/page.tsx",
-                                                                        lineNumber: 268,
+                                                                        lineNumber: 353,
                                                                         columnNumber: 27
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/app/location/page.tsx",
-                                                                lineNumber: 258,
+                                                                lineNumber: 343,
                                                                 columnNumber: 25
                                                             }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                                 className: "no-items",
-                                                                children: "لا توجد عهدة مخزنة في هذا الموقع"
+                                                                children: "لا توجد عهدة في هذا الموقع"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/location/page.tsx",
-                                                                lineNumber: 281,
+                                                                lineNumber: 366,
                                                                 columnNumber: 25
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/location/page.tsx",
-                                                        lineNumber: 248,
+                                                        lineNumber: 332,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/location/page.tsx",
-                                                lineNumber: 236,
+                                                lineNumber: 314,
                                                 columnNumber: 19
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/app/location/page.tsx",
-                                            lineNumber: 232,
+                                            lineNumber: 307,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/location/page.tsx",
-                                    lineNumber: 204,
+                                    lineNumber: 237,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/location/page.tsx",
-                                lineNumber: 203,
+                                lineNumber: 236,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/location/page.tsx",
-                        lineNumber: 201,
+                        lineNumber: 234,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/location/page.tsx",
-                lineNumber: 199,
+                lineNumber: 232,
                 columnNumber: 7
             }, this),
             showAddModal && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1363,7 +1570,7 @@ function LocationPage() {
                                             children: "إضافة موقع جديد"
                                         }, void 0, false, {
                                             fileName: "[project]/app/location/page.tsx",
-                                            lineNumber: 298,
+                                            lineNumber: 384,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1371,13 +1578,13 @@ function LocationPage() {
                                             children: "أدخل بيانات الموقع الجديد"
                                         }, void 0, false, {
                                             fileName: "[project]/app/location/page.tsx",
-                                            lineNumber: 299,
+                                            lineNumber: 385,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/location/page.tsx",
-                                    lineNumber: 297,
+                                    lineNumber: 383,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1389,13 +1596,13 @@ function LocationPage() {
                                     children: "✕"
                                 }, void 0, false, {
                                     fileName: "[project]/app/location/page.tsx",
-                                    lineNumber: 301,
+                                    lineNumber: 387,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/location/page.tsx",
-                            lineNumber: 296,
+                            lineNumber: 382,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
@@ -1403,18 +1610,18 @@ function LocationPage() {
                             children: "المبنى *"
                         }, void 0, false, {
                             fileName: "[project]/app/location/page.tsx",
-                            lineNumber: 305,
+                            lineNumber: 390,
                             columnNumber: 13
                         }, this),
                         !addingBuilding ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
                                     className: "modal-input",
-                                    value: selectedBuilding,
+                                    value: selectedBuildingModal,
                                     onChange: (e)=>{
-                                        setSelectedBuilding(e.target.value);
-                                        setSelectedFloor('');
-                                        setSelectedRoom('');
+                                        setSelectedBuildingModal(e.target.value);
+                                        setSelectedFloorModal('');
+                                        setSelectedRoomModal('');
                                     },
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -1422,21 +1629,21 @@ function LocationPage() {
                                             children: "اختر المبنى"
                                         }, void 0, false, {
                                             fileName: "[project]/app/location/page.tsx",
-                                            lineNumber: 309,
+                                            lineNumber: 394,
                                             columnNumber: 19
                                         }, this),
                                         availableBuildings.map((b, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
                                                 value: b,
                                                 children: b
-                                            }, `building-${i}`, false, {
+                                            }, `b-${i}`, false, {
                                                 fileName: "[project]/app/location/page.tsx",
-                                                lineNumber: 310,
+                                                lineNumber: 395,
                                                 columnNumber: 53
                                             }, this))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/location/page.tsx",
-                                    lineNumber: 308,
+                                    lineNumber: 393,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1445,7 +1652,7 @@ function LocationPage() {
                                     children: "+ إضافة مبنى جديد"
                                 }, void 0, false, {
                                     fileName: "[project]/app/location/page.tsx",
-                                    lineNumber: 312,
+                                    lineNumber: 397,
                                     columnNumber: 17
                                 }, this)
                             ]
@@ -1460,7 +1667,7 @@ function LocationPage() {
                                     autoFocus: true
                                 }, void 0, false, {
                                     fileName: "[project]/app/location/page.tsx",
-                                    lineNumber: 316,
+                                    lineNumber: 401,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1472,7 +1679,7 @@ function LocationPage() {
                                             children: "إضافة"
                                         }, void 0, false, {
                                             fileName: "[project]/app/location/page.tsx",
-                                            lineNumber: 318,
+                                            lineNumber: 403,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1484,19 +1691,19 @@ function LocationPage() {
                                             children: "✕"
                                         }, void 0, false, {
                                             fileName: "[project]/app/location/page.tsx",
-                                            lineNumber: 319,
+                                            lineNumber: 404,
                                             columnNumber: 19
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/location/page.tsx",
-                                    lineNumber: 317,
+                                    lineNumber: 402,
                                     columnNumber: 17
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/location/page.tsx",
-                            lineNumber: 315,
+                            lineNumber: 400,
                             columnNumber: 15
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
@@ -1504,50 +1711,50 @@ function LocationPage() {
                             children: "الدور (اختياري)"
                         }, void 0, false, {
                             fileName: "[project]/app/location/page.tsx",
-                            lineNumber: 325,
+                            lineNumber: 409,
                             columnNumber: 13
                         }, this),
                         !addingFloor ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
                                     className: "modal-input",
-                                    value: selectedFloor,
+                                    value: selectedFloorModal,
                                     onChange: (e)=>{
-                                        setSelectedFloor(e.target.value);
-                                        setSelectedRoom('');
+                                        setSelectedFloorModal(e.target.value);
+                                        setSelectedRoomModal('');
                                     },
-                                    disabled: !selectedBuilding,
+                                    disabled: !selectedBuildingModal,
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
                                             value: "",
                                             children: "اختر الدور"
                                         }, void 0, false, {
                                             fileName: "[project]/app/location/page.tsx",
-                                            lineNumber: 329,
+                                            lineNumber: 413,
                                             columnNumber: 19
                                         }, this),
                                         availableFloors.map((f, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
                                                 value: f,
                                                 children: f
-                                            }, `floor-${i}`, false, {
+                                            }, `f-${i}`, false, {
                                                 fileName: "[project]/app/location/page.tsx",
-                                                lineNumber: 330,
+                                                lineNumber: 414,
                                                 columnNumber: 50
                                             }, this))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/location/page.tsx",
-                                    lineNumber: 328,
+                                    lineNumber: 412,
                                     columnNumber: 17
                                 }, this),
-                                selectedBuilding && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                selectedBuildingModal && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                     className: "loc-add-inline-btn",
                                     onClick: ()=>setAddingFloor(true),
                                     children: "+ إضافة دور جديد"
                                 }, void 0, false, {
                                     fileName: "[project]/app/location/page.tsx",
-                                    lineNumber: 332,
-                                    columnNumber: 38
+                                    lineNumber: 416,
+                                    columnNumber: 43
                                 }, this)
                             ]
                         }, void 0, true) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1561,7 +1768,7 @@ function LocationPage() {
                                     autoFocus: true
                                 }, void 0, false, {
                                     fileName: "[project]/app/location/page.tsx",
-                                    lineNumber: 336,
+                                    lineNumber: 420,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1573,7 +1780,7 @@ function LocationPage() {
                                             children: "إضافة"
                                         }, void 0, false, {
                                             fileName: "[project]/app/location/page.tsx",
-                                            lineNumber: 338,
+                                            lineNumber: 422,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1585,19 +1792,19 @@ function LocationPage() {
                                             children: "✕"
                                         }, void 0, false, {
                                             fileName: "[project]/app/location/page.tsx",
-                                            lineNumber: 339,
+                                            lineNumber: 423,
                                             columnNumber: 19
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/location/page.tsx",
-                                    lineNumber: 337,
+                                    lineNumber: 421,
                                     columnNumber: 17
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/location/page.tsx",
-                            lineNumber: 335,
+                            lineNumber: 419,
                             columnNumber: 15
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
@@ -1605,47 +1812,47 @@ function LocationPage() {
                             children: "الغرفة (اختياري)"
                         }, void 0, false, {
                             fileName: "[project]/app/location/page.tsx",
-                            lineNumber: 345,
+                            lineNumber: 428,
                             columnNumber: 13
                         }, this),
                         !addingRoom ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
                                     className: "modal-input",
-                                    value: selectedRoom,
-                                    onChange: (e)=>setSelectedRoom(e.target.value),
-                                    disabled: !selectedBuilding,
+                                    value: selectedRoomModal,
+                                    onChange: (e)=>setSelectedRoomModal(e.target.value),
+                                    disabled: !selectedBuildingModal,
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
                                             value: "",
                                             children: "اختر الغرفة"
                                         }, void 0, false, {
                                             fileName: "[project]/app/location/page.tsx",
-                                            lineNumber: 349,
+                                            lineNumber: 432,
                                             columnNumber: 19
                                         }, this),
                                         availableRooms.map((r, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
                                                 value: r,
                                                 children: r
-                                            }, `room-${i}`, false, {
+                                            }, `r-${i}`, false, {
                                                 fileName: "[project]/app/location/page.tsx",
-                                                lineNumber: 350,
+                                                lineNumber: 433,
                                                 columnNumber: 49
                                             }, this))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/location/page.tsx",
-                                    lineNumber: 348,
+                                    lineNumber: 431,
                                     columnNumber: 17
                                 }, this),
-                                selectedBuilding && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                selectedBuildingModal && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                     className: "loc-add-inline-btn",
                                     onClick: ()=>setAddingRoom(true),
                                     children: "+ إضافة غرفة جديدة"
                                 }, void 0, false, {
                                     fileName: "[project]/app/location/page.tsx",
-                                    lineNumber: 352,
-                                    columnNumber: 38
+                                    lineNumber: 435,
+                                    columnNumber: 43
                                 }, this)
                             ]
                         }, void 0, true) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1659,7 +1866,7 @@ function LocationPage() {
                                     autoFocus: true
                                 }, void 0, false, {
                                     fileName: "[project]/app/location/page.tsx",
-                                    lineNumber: 356,
+                                    lineNumber: 439,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1671,7 +1878,7 @@ function LocationPage() {
                                             children: "إضافة"
                                         }, void 0, false, {
                                             fileName: "[project]/app/location/page.tsx",
-                                            lineNumber: 358,
+                                            lineNumber: 441,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1683,19 +1890,19 @@ function LocationPage() {
                                             children: "✕"
                                         }, void 0, false, {
                                             fileName: "[project]/app/location/page.tsx",
-                                            lineNumber: 359,
+                                            lineNumber: 442,
                                             columnNumber: 19
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/location/page.tsx",
-                                    lineNumber: 357,
+                                    lineNumber: 440,
                                     columnNumber: 17
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/location/page.tsx",
-                            lineNumber: 355,
+                            lineNumber: 438,
                             columnNumber: 15
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1710,44 +1917,44 @@ function LocationPage() {
                                     children: "إلغاء"
                                 }, void 0, false, {
                                     fileName: "[project]/app/location/page.tsx",
-                                    lineNumber: 365,
+                                    lineNumber: 448,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                     className: "save-btn",
                                     onClick: handleSaveLocation,
-                                    disabled: addLoading || !selectedBuilding,
+                                    disabled: addLoading || !selectedBuildingModal,
                                     children: addLoading ? 'جاري الحفظ...' : 'حفظ'
                                 }, void 0, false, {
                                     fileName: "[project]/app/location/page.tsx",
-                                    lineNumber: 366,
+                                    lineNumber: 449,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/location/page.tsx",
-                            lineNumber: 364,
+                            lineNumber: 447,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/location/page.tsx",
-                    lineNumber: 295,
+                    lineNumber: 381,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/location/page.tsx",
-                lineNumber: 294,
+                lineNumber: 380,
                 columnNumber: 9
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/app/location/page.tsx",
-        lineNumber: 197,
+        lineNumber: 230,
         columnNumber: 5
     }, this);
 }
-_s(LocationPage, "iJQq7/ePJpA3jb98lrhprNmNC3E=");
+_s(LocationPage, "i0jHBUmItQmu0w1Rcmjcd1pImRI=");
 _c = LocationPage;
 var _c;
 __turbopack_context__.k.register(_c, "LocationPage");
