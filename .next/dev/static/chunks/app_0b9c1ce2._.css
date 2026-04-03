@@ -412,7 +412,7 @@
   border-color: #6b7280;
 }
 
-.location-serch-icon {
+.location-search-icon {
   pointer-events: none;
   justify-content: center;
   align-items: center;
@@ -421,11 +421,11 @@
   display: flex;
   position: absolute;
   top: 50%;
-  right: 12px;
+  left: 12px;
   transform: translateY(-50%);
 }
 
-.location-serch-icon img {
+.location-search-icon img {
   object-fit: contain;
   width: 100%;
   height: 100%;
@@ -750,6 +750,86 @@
   border-radius: 8px;
   padding: 32px;
   font-size: 14px;
+}
+
+.loc-breadcrumb {
+  direction: rtl;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 12px;
+  font-size: 13px;
+  display: flex;
+}
+
+.loc-bc-active {
+  color: #0f4c81;
+  font-weight: 600;
+}
+
+.loc-bc-link {
+  color: #6b7280;
+  cursor: pointer;
+  transition: color .2s;
+}
+
+.loc-bc-link:hover {
+  color: #0f4c81;
+}
+
+.loc-bc-sep {
+  color: #9ca3af;
+  font-size: 12px;
+}
+
+.loc-search-wrapper {
+  width: 100%;
+  margin-bottom: 12px;
+  position: relative;
+}
+
+.loc-search-input {
+  box-sizing: border-box;
+  color: #1f2937;
+  direction: rtl;
+  background-color: #0000;
+  border: 1px solid #9ca3af;
+  border-radius: 12px;
+  outline: none;
+  width: 100%;
+  padding: 10px 40px 10px 16px;
+  font-size: 15px;
+}
+
+.loc-search-input:focus {
+  border-color: #6b7280;
+}
+
+.loc-search-icon {
+  pointer-events: none;
+  font-size: 16px;
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+}
+
+.loc-back-btn {
+  color: #0f4c81;
+  cursor: pointer;
+  background: none;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  transition: background .2s;
+  display: inline-block;
+}
+
+.loc-back-btn:hover {
+  background: #eff6ff;
 }
 
 .loc-add-inline-btn {
