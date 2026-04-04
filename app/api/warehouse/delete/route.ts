@@ -1,7 +1,12 @@
 import { cookies } from "next/headers";
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 
-export async function DELETE(req: NextRequest): Promise<NextResponse> {
+interface DeleteAssetRequest {
+  serialNumber: string;
+  quantityToDelete: number;
+}
+
+export async function DELETE(req: Request): Promise<NextResponse> {
   try {
     const cookieStore = await cookies();
     const token = cookieStore.get("token")?.value;
@@ -10,26 +15,27 @@ export async function DELETE(req: NextRequest): Promise<NextResponse> {
       return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
     }
 
-    const { searchParams } = new URL(req.url);
-    const serialNumber = searchParams.get("serialNumber");
-
-    if (!serialNumber) {
-      return NextResponse.json({ message: "Serial number required" }, { status: 400 });
-    }
+    const body: DeleteAssetRequest = await req.json();
 
     const response = await fetch(
-      `http://invtrackapi.runasp.net/api/AssetItem/DeleteAssetItem?SerialNumber=${serialNumber}`,
+      "http://invtrackapi.runasp.net/api/AssetItem/DeleteAssetItem",
       {
         method: "DELETE",
         headers: {
           Accept: "*/*",
+          "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         },
+        body: JSON.stringify(body),
       }
     );
 
     if (!response.ok) {
-      return NextResponse.json({ message: "فشل الحذف" }, { status: response.status });
+      const data = await response.json().catch(() => null);
+      return NextResponse.json(
+        { message: data?.message || "فشل الحذف" },
+        { status: response.status }
+      );
     }
 
     return NextResponse.json({ message: "تم الحذف" }, { status: 200 });

@@ -18,7 +18,7 @@ interface Asset {
   price: number;
   serialNumber: string;
   assetType: string;
-  room: string;
+  location: string;
   category: string;
   unit: string;
   quantity: number;
@@ -31,7 +31,7 @@ const SEARCH_MODES = [
   { value: "status", label: "الحالة" },
   { value: "category", label: "الفئة" },
   { value: "assetType", label: "نوع الأصل" },
-  { value: "room", label: "المكان" },
+  { value: "location", label: "المكان" },
 ];
 
 export default function Warehouse() {
@@ -119,8 +119,8 @@ export default function Warehouse() {
           return asset.status.toLowerCase().includes(value.toLowerCase());
         case "category":
           return asset.category.toLowerCase().includes(value.toLowerCase());
-        case "room":
-          return asset.room.toLowerCase().includes(value.toLowerCase());
+        case "location":
+          return asset.location.toLowerCase().includes(value.toLowerCase());
         case "assetType":
           return asset.assetType.toLowerCase().includes(value.toLowerCase());
         case "name":
@@ -205,7 +205,7 @@ export default function Warehouse() {
                         ? "ابحث بالحالة (جديد / مستعمل)..."
                         : searchMode === "category"
                           ? "ابحث بالفئة..."
-                          : searchMode === "room"
+                          : searchMode === "location"
                             ? "ابحث بالمكان..."
                             : searchMode === "assetType"
                               ? "ابحث بنوع الأصل..."
@@ -273,7 +273,7 @@ export default function Warehouse() {
                   <tbody>
                     {assets.length === 0 ? (
                       <tr>
-                        <td colSpan={8} style={{ textAlign: "center" }}>
+                        <td colSpan={11} style={{ textAlign: "center" }}>
                           لا توجد بيانات
                         </td>
                       </tr>
@@ -284,7 +284,7 @@ export default function Warehouse() {
                           <td>{asset.name}</td>
                           <td>{asset.unit}</td>
                           <td>{asset.quantity}</td>
-                          <td>{asset.room}</td>
+                          <td>{asset.location}</td>
                           <td>{asset.category}</td>
                           <td>{asset.assetType}</td>
                           <td>{asset.price}</td>

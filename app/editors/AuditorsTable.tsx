@@ -194,7 +194,7 @@ export default function AuditorsTable() {
 
       {/* Header */}
       <div className={styles.header}>
-        <h1 className={styles.title}>قائمة الفجّرين</h1>
+        <h1 className={styles.title}>قائمة المُجردين </h1>
         <button className={styles.addBtn} onClick={() => setIsModalOpen(true)}>
           <Plus size={16} />
           إضافة مجرد جديد

@@ -8,7 +8,7 @@ interface UpdateAssetRequest {
   price: number;
   serialNumber: string;
   assetType: string;
-  room: string;
+  location: string;
   category: string;
   unit: string;
 }

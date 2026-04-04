@@ -81,5 +81,41 @@
   gap: 6px;
 }
 
+/* ===== Quantity Row ===== */
+.delete-qty-row {
+  margin: 12px 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: center;
+}
+
+.delete-qty-row label {
+  font-size: 14px;
+  color: #555;
+}
+
+.delete-qty-input {
+  width: 70px;
+  padding: 6px 10px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  color: #333;
+  border-radius: 6px;
+  text-align: center;
+  font-size: 14px;
+  outline: none;
+}
+
+.delete-qty-input::-webkit-inner-spin-button,
+.delete-qty-input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.delete-qty-input:focus {
+  border-color: #e53e3e;
+}
+
 .btn-delete:hover { background: #c0392b; }
 .btn-delete:disabled { background: #aaa; cursor: not-allowed; }

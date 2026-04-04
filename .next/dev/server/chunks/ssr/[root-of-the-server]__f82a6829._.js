@@ -632,6 +632,9 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$re
 ;
 ;
 function AssignModal({ isOpen, onClose, onSuccess }) {
+    const [allAssets, setAllAssets] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])([]);
+    const [filteredAssets, setFilteredAssets] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])([]);
+    const [showDropdown, setShowDropdown] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
     // ===== Employee States =====
     const [nationalInput, setNationalInput] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("");
     const [employee, setEmployee] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
@@ -641,12 +644,21 @@ function AssignModal({ isOpen, onClose, onSuccess }) {
     const [serialInput, setSerialInput] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("");
     const [assetResult, setAssetResult] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
     const [assetError, setAssetError] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("");
-    const [searchingAsset, setSearchingAsset] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
     const [assetQty, setAssetQty] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(1);
     const [assets, setAssets] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])([]);
     // ===== Submit States =====
     const [submitting, setSubmitting] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
     const [error, setError] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("");
+    //  جلب كل العهد لما الـ modal يفتح
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
+        if (isOpen) {
+            (0, __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$lib$2f$fetchWithAuth$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["fetchWithAuth"])("/api/warehouse", {
+                credentials: "include"
+            }).then((res)=>res.json()).then((data)=>setAllAssets(Array.isArray(data) ? data : [])).catch(()=>setAllAssets([]));
+        }
+    }, [
+        isOpen
+    ]);
     if (!isOpen) return null;
     // ===== البحث عن موظف =====
     const handleSearchEmployee = async ()=>{
@@ -670,38 +682,15 @@ function AssignModal({ isOpen, onClose, onSuccess }) {
             setSearchingEmployee(false);
         }
     };
-    // ===== البحث عن عهدة =====
-    const handleSearchAsset = async ()=>{
-        if (!serialInput.trim()) return;
-        setSearchingAsset(true);
-        setAssetError("");
-        setAssetResult(null);
-        try {
-            const res = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$lib$2f$fetchWithAuth$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["fetchWithAuth"])(`/api/warehouse?serialNumber=${serialInput}`, {
-                credentials: "include"
-            });
-            if (!res.ok) {
-                setAssetError("عهدة غير موجودة — تأكد من الرقم التسلسلي");
-                return;
-            }
-            const data = await res.json();
-            //  تحقق لو موجودة قبل في القائمة
-            const alreadyAdded = assets.find((a)=>a.serialNumber === data.serialNumber);
-            if (alreadyAdded) {
-                setAssetError("هذه العهدة مضافة بالفعل");
-                return;
-            }
-            setAssetResult(data);
-            setAssetQty(1);
-        } catch  {
-            setAssetError("حدث خطأ أثناء البحث");
-        } finally{
-            setSearchingAsset(false);
-        }
-    };
     // ===== إضافة عهدة للقائمة =====
     const handleAddAsset = ()=>{
         if (!assetResult) return;
+        //  تحقق لو موجودة قبل في القائمة
+        const alreadyAdded = assets.find((a)=>a.serialNumber === assetResult.serialNumber);
+        if (alreadyAdded) {
+            setAssetError("هذه العهدة مضافة بالفعل");
+            return;
+        }
         let warning = "";
         let finalQty = assetQty;
         //  Validation الكمية
@@ -724,6 +713,7 @@ function AssignModal({ isOpen, onClose, onSuccess }) {
         setAssetResult(null);
         setAssetError("");
         setAssetQty(1);
+        setShowDropdown(false);
     };
     // ===== حذف عهدة من القائمة =====
     const handleRemoveAsset = (serialNumber)=>{
@@ -754,7 +744,6 @@ function AssignModal({ isOpen, onClose, onSuccess }) {
         setSubmitting(true);
         setError("");
         try {
-            //  جيب الـ ssn من الـ cookie
             const cookies = document.cookie.split(";");
             const userCookie = cookies.find((c)=>c.trim().startsWith("user="));
             let creatbyuser = "";
@@ -778,16 +767,17 @@ function AssignModal({ isOpen, onClose, onSuccess }) {
                 setError("فشل تنفيذ العملية — حاول مرة أخرى");
                 return;
             }
-            //  فتح الـ PDF في tab جديد
             const pdfBlob = await res.blob();
             const pdfUrl = URL.createObjectURL(pdfBlob);
             window.open(pdfUrl, "_blank");
-            //  Reset
+            //  Reset كامل
             setNationalInput("");
             setEmployee(null);
             setAssets([]);
             setSerialInput("");
             setAssetResult(null);
+            setAssetQty(1);
+            setError("");
             onSuccess();
             onClose();
         } catch  {
@@ -808,7 +798,7 @@ function AssignModal({ isOpen, onClose, onSuccess }) {
                     children: "عملية صرف جديدة"
                 }, void 0, false, {
                     fileName: "[project]/app/operations/assignModal.tsx",
-                    lineNumber: 256,
+                    lineNumber: 244,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -818,7 +808,7 @@ function AssignModal({ isOpen, onClose, onSuccess }) {
                             children: "الرقم القومي للموظف *"
                         }, void 0, false, {
                             fileName: "[project]/app/operations/assignModal.tsx",
-                            lineNumber: 260,
+                            lineNumber: 248,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -837,7 +827,7 @@ function AssignModal({ isOpen, onClose, onSuccess }) {
                                     onKeyDown: (e)=>e.key === "Enter" && handleSearchEmployee()
                                 }, void 0, false, {
                                     fileName: "[project]/app/operations/assignModal.tsx",
-                                    lineNumber: 262,
+                                    lineNumber: 250,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -849,20 +839,20 @@ function AssignModal({ isOpen, onClose, onSuccess }) {
                                             size: 16
                                         }, void 0, false, {
                                             fileName: "[project]/app/operations/assignModal.tsx",
-                                            lineNumber: 279,
+                                            lineNumber: 267,
                                             columnNumber: 15
                                         }, this),
                                         searchingEmployee ? "..." : "بحث"
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/operations/assignModal.tsx",
-                                    lineNumber: 274,
+                                    lineNumber: 262,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/operations/assignModal.tsx",
-                            lineNumber: 261,
+                            lineNumber: 249,
                             columnNumber: 11
                         }, this),
                         employee && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -872,7 +862,7 @@ function AssignModal({ isOpen, onClose, onSuccess }) {
                                     size: 16
                                 }, void 0, false, {
                                     fileName: "[project]/app/operations/assignModal.tsx",
-                                    lineNumber: 287,
+                                    lineNumber: 274,
                                     columnNumber: 15
                                 }, this),
                                 " ",
@@ -882,7 +872,7 @@ function AssignModal({ isOpen, onClose, onSuccess }) {
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/operations/assignModal.tsx",
-                            lineNumber: 286,
+                            lineNumber: 273,
                             columnNumber: 13
                         }, this),
                         employeeError && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -892,7 +882,7 @@ function AssignModal({ isOpen, onClose, onSuccess }) {
                                     size: 16
                                 }, void 0, false, {
                                     fileName: "[project]/app/operations/assignModal.tsx",
-                                    lineNumber: 292,
+                                    lineNumber: 279,
                                     columnNumber: 15
                                 }, this),
                                 " ",
@@ -900,20 +890,20 @@ function AssignModal({ isOpen, onClose, onSuccess }) {
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/operations/assignModal.tsx",
-                            lineNumber: 291,
+                            lineNumber: 278,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/operations/assignModal.tsx",
-                    lineNumber: 259,
+                    lineNumber: 247,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "assign-divider"
                 }, void 0, false, {
                     fileName: "[project]/app/operations/assignModal.tsx",
-                    lineNumber: 297,
+                    lineNumber: 284,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -923,51 +913,99 @@ function AssignModal({ isOpen, onClose, onSuccess }) {
                             children: "إضافة عهدة *"
                         }, void 0, false, {
                             fileName: "[project]/app/operations/assignModal.tsx",
-                            lineNumber: 301,
+                            lineNumber: 288,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "assign-add-row",
+                            style: {
+                                position: "relative"
+                            },
                             children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                    type: "text",
-                                    value: serialInput,
-                                    onChange: (e)=>{
-                                        setSerialInput(e.target.value);
-                                        setAssetResult(null);
-                                        setAssetError("");
-                                    },
-                                    placeholder: "الرقم التسلسلي",
-                                    autoComplete: "off",
-                                    onKeyDown: (e)=>e.key === "Enter" && handleSearchAsset()
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "assign-add-row",
+                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                        type: "text",
+                                        value: serialInput,
+                                        onChange: (e)=>{
+                                            const value = e.target.value;
+                                            setSerialInput(value);
+                                            setAssetResult(null);
+                                            setAssetError("");
+                                            //  فلترة فورية
+                                            if (value.trim()) {
+                                                const filtered = allAssets.filter((a)=>a.name.toLowerCase().includes(value.toLowerCase()) || a.serialNumber.toLowerCase().includes(value.toLowerCase()));
+                                                setFilteredAssets(filtered);
+                                                setShowDropdown(true);
+                                            } else {
+                                                setShowDropdown(false);
+                                                setFilteredAssets([]);
+                                            }
+                                        },
+                                        placeholder: "ابحث بالاسم أو الرقم التسلسلي...",
+                                        autoComplete: "off",
+                                        onFocus: ()=>{
+                                            if (serialInput.trim()) setShowDropdown(true);
+                                        },
+                                        onBlur: ()=>{
+                                            setTimeout(()=>setShowDropdown(false), 200);
+                                        }
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/operations/assignModal.tsx",
+                                        lineNumber: 292,
+                                        columnNumber: 15
+                                    }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/app/operations/assignModal.tsx",
-                                    lineNumber: 303,
+                                    lineNumber: 291,
                                     columnNumber: 13
                                 }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                    className: "assign-search-btn",
-                                    onClick: handleSearchAsset,
-                                    disabled: searchingAsset,
-                                    children: [
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$search$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Search$3e$__["Search"], {
-                                            size: 16
-                                        }, void 0, false, {
+                                showDropdown && filteredAssets.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "asset-dropdown",
+                                    children: filteredAssets.map((asset)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "asset-dropdown-item",
+                                            onMouseDown: ()=>{
+                                                setSerialInput(asset.name);
+                                                setAssetResult(asset);
+                                                setAssetQty(1); //  يبدأ بـ 1 مش بالكمية الكلية
+                                                setShowDropdown(false);
+                                                setAssetError("");
+                                            },
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                    className: "asset-dropdown-name",
+                                                    children: asset.name
+                                                }, void 0, false, {
+                                                    fileName: "[project]/app/operations/assignModal.tsx",
+                                                    lineNumber: 341,
+                                                    columnNumber: 21
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                    className: "asset-dropdown-info",
+                                                    children: [
+                                                        asset.serialNumber,
+                                                        " — متاح: ",
+                                                        asset.quantity
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/app/operations/assignModal.tsx",
+                                                    lineNumber: 342,
+                                                    columnNumber: 21
+                                                }, this)
+                                            ]
+                                        }, asset.serialNumber, true, {
                                             fileName: "[project]/app/operations/assignModal.tsx",
-                                            lineNumber: 320,
-                                            columnNumber: 15
-                                        }, this),
-                                        searchingAsset ? "..." : "بحث"
-                                    ]
-                                }, void 0, true, {
+                                            lineNumber: 330,
+                                            columnNumber: 19
+                                        }, this))
+                                }, void 0, false, {
                                     fileName: "[project]/app/operations/assignModal.tsx",
-                                    lineNumber: 315,
-                                    columnNumber: 13
+                                    lineNumber: 328,
+                                    columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/operations/assignModal.tsx",
-                            lineNumber: 302,
+                            lineNumber: 290,
                             columnNumber: 11
                         }, this),
                         assetResult && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -982,7 +1020,7 @@ function AssignModal({ isOpen, onClose, onSuccess }) {
                                             size: 16
                                         }, void 0, false, {
                                             fileName: "[project]/app/operations/assignModal.tsx",
-                                            lineNumber: 329,
+                                            lineNumber: 355,
                                             columnNumber: 17
                                         }, this),
                                         " ",
@@ -993,7 +1031,7 @@ function AssignModal({ isOpen, onClose, onSuccess }) {
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/operations/assignModal.tsx",
-                                    lineNumber: 328,
+                                    lineNumber: 354,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1012,7 +1050,7 @@ function AssignModal({ isOpen, onClose, onSuccess }) {
                                             children: "الكمية:"
                                         }, void 0, false, {
                                             fileName: "[project]/app/operations/assignModal.tsx",
-                                            lineNumber: 340,
+                                            lineNumber: 366,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -1026,7 +1064,7 @@ function AssignModal({ isOpen, onClose, onSuccess }) {
                                             }
                                         }, void 0, false, {
                                             fileName: "[project]/app/operations/assignModal.tsx",
-                                            lineNumber: 343,
+                                            lineNumber: 369,
                                             columnNumber: 17
                                         }, this),
                                         assetQty > assetResult.quantity && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1042,16 +1080,16 @@ function AssignModal({ isOpen, onClose, onSuccess }) {
                                                     size: 14
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/operations/assignModal.tsx",
-                                                    lineNumber: 361,
+                                                    lineNumber: 388,
                                                     columnNumber: 21
                                                 }, this),
-                                                "سيتم الصرف بالكمية المتاحة (",
+                                                "في المخزن ",
                                                 assetResult.quantity,
-                                                ")"
+                                                " فقط — سيتم الصرف بالكمية المتاحة"
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/operations/assignModal.tsx",
-                                            lineNumber: 352,
+                                            lineNumber: 379,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1062,36 +1100,39 @@ function AssignModal({ isOpen, onClose, onSuccess }) {
                                                     size: 16
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/operations/assignModal.tsx",
-                                                    lineNumber: 366,
+                                                    lineNumber: 394,
                                                     columnNumber: 19
                                                 }, this),
                                                 "إضافة"
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/operations/assignModal.tsx",
-                                            lineNumber: 365,
+                                            lineNumber: 393,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/operations/assignModal.tsx",
-                                    lineNumber: 332,
+                                    lineNumber: 358,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/operations/assignModal.tsx",
-                            lineNumber: 327,
+                            lineNumber: 353,
                             columnNumber: 13
                         }, this),
                         assetError && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             className: "assign-result-card error",
+                            style: {
+                                marginTop: "8px"
+                            },
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2d$x$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__XCircle$3e$__["XCircle"], {
                                     size: 16
                                 }, void 0, false, {
                                     fileName: "[project]/app/operations/assignModal.tsx",
-                                    lineNumber: 375,
+                                    lineNumber: 403,
                                     columnNumber: 15
                                 }, this),
                                 " ",
@@ -1099,13 +1140,13 @@ function AssignModal({ isOpen, onClose, onSuccess }) {
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/operations/assignModal.tsx",
-                            lineNumber: 374,
+                            lineNumber: 402,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/operations/assignModal.tsx",
-                    lineNumber: 300,
+                    lineNumber: 287,
                     columnNumber: 9
                 }, this),
                 assets.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
@@ -1114,7 +1155,7 @@ function AssignModal({ isOpen, onClose, onSuccess }) {
                             className: "assign-divider"
                         }, void 0, false, {
                             fileName: "[project]/app/operations/assignModal.tsx",
-                            lineNumber: 383,
+                            lineNumber: 411,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1128,7 +1169,7 @@ function AssignModal({ isOpen, onClose, onSuccess }) {
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/operations/assignModal.tsx",
-                                    lineNumber: 385,
+                                    lineNumber: 413,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1143,7 +1184,7 @@ function AssignModal({ isOpen, onClose, onSuccess }) {
                                                             children: asset.name
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/operations/assignModal.tsx",
-                                                            lineNumber: 390,
+                                                            lineNumber: 418,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1151,13 +1192,13 @@ function AssignModal({ isOpen, onClose, onSuccess }) {
                                                             children: asset.serialNumber
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/operations/assignModal.tsx",
-                                                            lineNumber: 391,
+                                                            lineNumber: 419,
                                                             columnNumber: 23
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/app/operations/assignModal.tsx",
-                                                    lineNumber: 389,
+                                                    lineNumber: 417,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1179,7 +1220,7 @@ function AssignModal({ isOpen, onClose, onSuccess }) {
                                                             }
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/operations/assignModal.tsx",
-                                                            lineNumber: 401,
+                                                            lineNumber: 429,
                                                             columnNumber: 23
                                                         }, this),
                                                         asset.warning && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1194,7 +1235,7 @@ function AssignModal({ isOpen, onClose, onSuccess }) {
                                                                     size: 14
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/operations/assignModal.tsx",
-                                                                    lineNumber: 425,
+                                                                    lineNumber: 453,
                                                                     columnNumber: 27
                                                                 }, this),
                                                                 " ",
@@ -1202,13 +1243,13 @@ function AssignModal({ isOpen, onClose, onSuccess }) {
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/app/operations/assignModal.tsx",
-                                                            lineNumber: 417,
+                                                            lineNumber: 445,
                                                             columnNumber: 25
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/app/operations/assignModal.tsx",
-                                                    lineNumber: 393,
+                                                    lineNumber: 421,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1218,29 +1259,29 @@ function AssignModal({ isOpen, onClose, onSuccess }) {
                                                         size: 16
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/operations/assignModal.tsx",
-                                                        lineNumber: 433,
+                                                        lineNumber: 461,
                                                         columnNumber: 23
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/operations/assignModal.tsx",
-                                                    lineNumber: 429,
+                                                    lineNumber: 457,
                                                     columnNumber: 21
                                                 }, this)
                                             ]
                                         }, asset.serialNumber, true, {
                                             fileName: "[project]/app/operations/assignModal.tsx",
-                                            lineNumber: 388,
+                                            lineNumber: 416,
                                             columnNumber: 19
                                         }, this))
                                 }, void 0, false, {
                                     fileName: "[project]/app/operations/assignModal.tsx",
-                                    lineNumber: 386,
+                                    lineNumber: 414,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/operations/assignModal.tsx",
-                            lineNumber: 384,
+                            lineNumber: 412,
                             columnNumber: 13
                         }, this)
                     ]
@@ -1250,7 +1291,7 @@ function AssignModal({ isOpen, onClose, onSuccess }) {
                     children: error
                 }, void 0, false, {
                     fileName: "[project]/app/operations/assignModal.tsx",
-                    lineNumber: 442,
+                    lineNumber: 470,
                     columnNumber: 19
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1262,7 +1303,7 @@ function AssignModal({ isOpen, onClose, onSuccess }) {
                             children: "إلغاء"
                         }, void 0, false, {
                             fileName: "[project]/app/operations/assignModal.tsx",
-                            lineNumber: 446,
+                            lineNumber: 474,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1274,31 +1315,31 @@ function AssignModal({ isOpen, onClose, onSuccess }) {
                                     size: 16
                                 }, void 0, false, {
                                     fileName: "[project]/app/operations/assignModal.tsx",
-                                    lineNumber: 454,
+                                    lineNumber: 482,
                                     columnNumber: 13
                                 }, this),
                                 submitting ? "جاري التنفيذ..." : "تنفيذ العملية"
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/operations/assignModal.tsx",
-                            lineNumber: 449,
+                            lineNumber: 477,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/operations/assignModal.tsx",
-                    lineNumber: 445,
+                    lineNumber: 473,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/app/operations/assignModal.tsx",
-            lineNumber: 255,
+            lineNumber: 243,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/app/operations/assignModal.tsx",
-        lineNumber: 254,
+        lineNumber: 242,
         columnNumber: 5
     }, this);
 }
@@ -1314,6 +1355,8 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist
 var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$lib$2f$fetchWithAuth$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/app/lib/fetchWithAuth.ts [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$file$2d$output$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__FileOutput$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/file-output.js [app-ssr] (ecmascript) <export default as FileOutput>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$undo$2d$2$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Undo2$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/undo-2.js [app-ssr] (ecmascript) <export default as Undo2>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$left$2d$right$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowLeftRight$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/arrow-left-right.js [app-ssr] (ecmascript) <export default as ArrowLeftRight>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$sidebar$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/app/components/sidebar.tsx [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$header$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/app/components/header.tsx [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$mainTitle$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/app/components/mainTitle.tsx [app-ssr] (ecmascript)");
@@ -1329,6 +1372,8 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$operations$2f$assignM
 ;
 ;
 function Operations() {
+    const [isReturnModalOpen, setIsReturnModalOpen] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
+    const [isTransferModalOpen, setIsTransferModalOpen] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
     const [transactions, setTransactions] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])([]);
     const [loading, setLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(true);
     const [error, setError] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
@@ -1365,7 +1410,7 @@ function Operations() {
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$header$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                 fileName: "[project]/app/operations/page.tsx",
-                lineNumber: 58,
+                lineNumber: 63,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1373,7 +1418,7 @@ function Operations() {
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$sidebar$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                         fileName: "[project]/app/operations/page.tsx",
-                        lineNumber: 60,
+                        lineNumber: 65,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
@@ -1381,31 +1426,67 @@ function Operations() {
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$mainTitle$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                                 fileName: "[project]/app/operations/page.tsx",
-                                lineNumber: 62,
+                                lineNumber: 67,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "add-button-operations",
-                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                    onClick: ()=>setIsModalOpen(true),
-                                    children: [
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$file$2d$output$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__FileOutput$3e$__["FileOutput"], {
-                                            size: 18
-                                        }, void 0, false, {
-                                            fileName: "[project]/app/operations/page.tsx",
-                                            lineNumber: 67,
-                                            columnNumber: 15
-                                        }, this),
-                                        "عملية صرف"
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "[project]/app/operations/page.tsx",
-                                    lineNumber: 66,
-                                    columnNumber: 13
-                                }, this)
-                            }, void 0, false, {
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                        onClick: ()=>setIsModalOpen(true),
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$file$2d$output$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__FileOutput$3e$__["FileOutput"], {
+                                                size: 18
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/operations/page.tsx",
+                                                lineNumber: 72,
+                                                columnNumber: 15
+                                            }, this),
+                                            "عملية صرف"
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/app/operations/page.tsx",
+                                        lineNumber: 71,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                        onClick: ()=>setIsTransferModalOpen(true),
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$left$2d$right$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowLeftRight$3e$__["ArrowLeftRight"], {
+                                                size: 18
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/operations/page.tsx",
+                                                lineNumber: 76,
+                                                columnNumber: 15
+                                            }, this),
+                                            "عملية نقل"
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/app/operations/page.tsx",
+                                        lineNumber: 75,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                        onClick: ()=>setIsReturnModalOpen(true),
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$undo$2d$2$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Undo2$3e$__["Undo2"], {
+                                                size: 18
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/operations/page.tsx",
+                                                lineNumber: 80,
+                                                columnNumber: 15
+                                            }, this),
+                                            "عملية إرجاع"
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/app/operations/page.tsx",
+                                        lineNumber: 79,
+                                        columnNumber: 13
+                                    }, this)
+                                ]
+                            }, void 0, true, {
                                 fileName: "[project]/app/operations/page.tsx",
-                                lineNumber: 65,
+                                lineNumber: 70,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1416,7 +1497,7 @@ function Operations() {
                                         children: "سجل العمليات"
                                     }, void 0, false, {
                                         fileName: "[project]/app/operations/page.tsx",
-                                        lineNumber: 74,
+                                        lineNumber: 87,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1429,7 +1510,7 @@ function Operations() {
                                             children: "جاري التحميل..."
                                         }, void 0, false, {
                                             fileName: "[project]/app/operations/page.tsx",
-                                            lineNumber: 78,
+                                            lineNumber: 91,
                                             columnNumber: 17
                                         }, this) : error ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                             style: {
@@ -1440,7 +1521,7 @@ function Operations() {
                                             children: error
                                         }, void 0, false, {
                                             fileName: "[project]/app/operations/page.tsx",
-                                            lineNumber: 80,
+                                            lineNumber: 95,
                                             columnNumber: 17
                                         }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("table", {
                                             children: [
@@ -1451,39 +1532,39 @@ function Operations() {
                                                                 children: "نوع العملية"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/operations/page.tsx",
-                                                                lineNumber: 85,
+                                                                lineNumber: 104,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
                                                                 children: "العهدة"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/operations/page.tsx",
-                                                                lineNumber: 86,
+                                                                lineNumber: 105,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
                                                                 children: "التاريخ"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/operations/page.tsx",
-                                                                lineNumber: 87,
+                                                                lineNumber: 106,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
                                                                 children: "ملاحظات"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/operations/page.tsx",
-                                                                lineNumber: 88,
+                                                                lineNumber: 107,
                                                                 columnNumber: 23
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/operations/page.tsx",
-                                                        lineNumber: 84,
+                                                        lineNumber: 103,
                                                         columnNumber: 21
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/operations/page.tsx",
-                                                    lineNumber: 83,
+                                                    lineNumber: 102,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("tbody", {
@@ -1496,12 +1577,12 @@ function Operations() {
                                                             children: "لا توجد عمليات"
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/operations/page.tsx",
-                                                            lineNumber: 94,
+                                                            lineNumber: 113,
                                                             columnNumber: 25
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/operations/page.tsx",
-                                                        lineNumber: 93,
+                                                        lineNumber: 112,
                                                         columnNumber: 23
                                                     }, this) : transactions.map((t, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
                                                             children: [
@@ -1511,73 +1592,73 @@ function Operations() {
                                                                         children: t.transactionType
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/app/operations/page.tsx",
-                                                                        lineNumber: 100,
+                                                                        lineNumber: 121,
                                                                         columnNumber: 29
                                                                     }, this)
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/operations/page.tsx",
-                                                                    lineNumber: 99,
+                                                                    lineNumber: 120,
                                                                     columnNumber: 27
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
                                                                     children: t.assetItem
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/operations/page.tsx",
-                                                                    lineNumber: 104,
+                                                                    lineNumber: 127,
                                                                     columnNumber: 27
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
                                                                     children: t.transactionDate
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/operations/page.tsx",
-                                                                    lineNumber: 105,
+                                                                    lineNumber: 128,
                                                                     columnNumber: 27
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
                                                                     children: t.notes
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/operations/page.tsx",
-                                                                    lineNumber: 106,
+                                                                    lineNumber: 129,
                                                                     columnNumber: 27
                                                                 }, this)
                                                             ]
                                                         }, index, true, {
                                                             fileName: "[project]/app/operations/page.tsx",
-                                                            lineNumber: 98,
+                                                            lineNumber: 119,
                                                             columnNumber: 25
                                                         }, this))
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/operations/page.tsx",
-                                                    lineNumber: 91,
+                                                    lineNumber: 110,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/operations/page.tsx",
-                                            lineNumber: 82,
+                                            lineNumber: 101,
                                             columnNumber: 17
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/app/operations/page.tsx",
-                                        lineNumber: 76,
+                                        lineNumber: 89,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/operations/page.tsx",
-                                lineNumber: 73,
+                                lineNumber: 86,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/operations/page.tsx",
-                        lineNumber: 61,
+                        lineNumber: 66,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/operations/page.tsx",
-                lineNumber: 59,
+                lineNumber: 64,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$operations$2f$assignModal$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -1586,13 +1667,13 @@ function Operations() {
                 onSuccess: ()=>fetchTransactions()
             }, void 0, false, {
                 fileName: "[project]/app/operations/page.tsx",
-                lineNumber: 118,
+                lineNumber: 141,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/app/operations/page.tsx",
-        lineNumber: 57,
+        lineNumber: 62,
         columnNumber: 5
     }, this);
 }

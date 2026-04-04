@@ -1,7 +1,7 @@
 "use client";
 
 import { fetchWithAuth } from "../lib/fetchWithAuth";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Search,
   X,
@@ -47,6 +47,10 @@ export default function AssignModal({
   onClose,
   onSuccess,
 }: AssignModalProps) {
+  const [allAssets, setAllAssets] = useState<AssetResult[]>([]);
+  const [filteredAssets, setFilteredAssets] = useState<AssetResult[]>([]);
+  const [showDropdown, setShowDropdown] = useState(false);
+
   // ===== Employee States =====
   const [nationalInput, setNationalInput] = useState("");
   const [employee, setEmployee] = useState<Employee | null>(null);
@@ -57,13 +61,22 @@ export default function AssignModal({
   const [serialInput, setSerialInput] = useState("");
   const [assetResult, setAssetResult] = useState<AssetResult | null>(null);
   const [assetError, setAssetError] = useState("");
-  const [searchingAsset, setSearchingAsset] = useState(false);
   const [assetQty, setAssetQty] = useState(1);
   const [assets, setAssets] = useState<AssetItem[]>([]);
 
   // ===== Submit States =====
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
+
+  //  جلب كل العهد لما الـ modal يفتح
+  useEffect(() => {
+    if (isOpen) {
+      fetchWithAuth("/api/warehouse", { credentials: "include" })
+        .then((res) => res.json())
+        .then((data) => setAllAssets(Array.isArray(data) ? data : []))
+        .catch(() => setAllAssets([]));
+    }
+  }, [isOpen]);
 
   if (!isOpen) return null;
 
@@ -77,7 +90,7 @@ export default function AssignModal({
     try {
       const res = await fetchWithAuth(
         `/api/operations/employee?nationalNumber=${nationalInput}`,
-        { credentials: "include" },
+        { credentials: "include" }
       );
 
       if (!res.ok) {
@@ -94,46 +107,18 @@ export default function AssignModal({
     }
   };
 
-  // ===== البحث عن عهدة =====
-  const handleSearchAsset = async () => {
-    if (!serialInput.trim()) return;
-    setSearchingAsset(true);
-    setAssetError("");
-    setAssetResult(null);
-
-    try {
-      const res = await fetchWithAuth(`/api/warehouse?serialNumber=${serialInput}`, {
-        credentials: "include",
-      });
-
-      if (!res.ok) {
-        setAssetError("عهدة غير موجودة — تأكد من الرقم التسلسلي");
-        return;
-      }
-
-      const data: AssetResult = await res.json();
-
-      //  تحقق لو موجودة قبل في القائمة
-      const alreadyAdded = assets.find(
-        (a) => a.serialNumber === data.serialNumber,
-      );
-      if (alreadyAdded) {
-        setAssetError("هذه العهدة مضافة بالفعل");
-        return;
-      }
-
-      setAssetResult(data);
-      setAssetQty(1);
-    } catch {
-      setAssetError("حدث خطأ أثناء البحث");
-    } finally {
-      setSearchingAsset(false);
-    }
-  };
-
   // ===== إضافة عهدة للقائمة =====
   const handleAddAsset = () => {
     if (!assetResult) return;
+
+    //  تحقق لو موجودة قبل في القائمة
+    const alreadyAdded = assets.find(
+      (a) => a.serialNumber === assetResult.serialNumber
+    );
+    if (alreadyAdded) {
+      setAssetError("هذه العهدة مضافة بالفعل");
+      return;
+    }
 
     let warning = "";
     let finalQty = assetQty;
@@ -160,6 +145,7 @@ export default function AssignModal({
     setAssetResult(null);
     setAssetError("");
     setAssetQty(1);
+    setShowDropdown(false);
   };
 
   // ===== حذف عهدة من القائمة =====
@@ -177,9 +163,11 @@ export default function AssignModal({
           ...a,
           requestedQuantity: finalQty,
           warning:
-            qty > a.availableQty ? `الكمية المتاحة ${a.availableQty} فقط` : "",
+            qty > a.availableQty
+              ? `الكمية المتاحة ${a.availableQty} فقط`
+              : "",
         };
-      }),
+      })
     );
   };
 
@@ -198,13 +186,12 @@ export default function AssignModal({
     setError("");
 
     try {
-      //  جيب الـ ssn من الـ cookie
       const cookies = document.cookie.split(";");
       const userCookie = cookies.find((c) => c.trim().startsWith("user="));
       let creatbyuser = "";
       if (userCookie) {
         const userData = JSON.parse(
-          decodeURIComponent(userCookie.split("=")[1]),
+          decodeURIComponent(userCookie.split("=")[1])
         );
         creatbyuser = userData.ssn;
       }
@@ -221,7 +208,7 @@ export default function AssignModal({
           credentials: "include",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(body),
-        },
+        }
       );
 
       if (!res.ok) {
@@ -229,17 +216,18 @@ export default function AssignModal({
         return;
       }
 
-      //  فتح الـ PDF في tab جديد
       const pdfBlob = await res.blob();
       const pdfUrl = URL.createObjectURL(pdfBlob);
       window.open(pdfUrl, "_blank");
 
-      //  Reset
+      //  Reset كامل
       setNationalInput("");
       setEmployee(null);
       setAssets([]);
       setSerialInput("");
       setAssetResult(null);
+      setAssetQty(1);
+      setError("");
 
       onSuccess();
       onClose();
@@ -281,7 +269,6 @@ export default function AssignModal({
             </button>
           </div>
 
-          {/* نتيجة الموظف */}
           {employee && (
             <div className="assign-result-card success">
               <CheckCircle size={16} /> {employee.name} — {employee.building}
@@ -299,30 +286,69 @@ export default function AssignModal({
         {/* ===== قسم العهد ===== */}
         <div className="assign-section">
           <label>إضافة عهدة *</label>
-          <div className="assign-add-row">
-            <input
-              type="text"
-              value={serialInput}
-              onChange={(e) => {
-                setSerialInput(e.target.value);
-                setAssetResult(null);
-                setAssetError("");
-              }}
-              placeholder="الرقم التسلسلي"
-              autoComplete="off"
-              onKeyDown={(e) => e.key === "Enter" && handleSearchAsset()}
-            />
-            <button
-              className="assign-search-btn"
-              onClick={handleSearchAsset}
-              disabled={searchingAsset}
-            >
-              <Search size={16} />
-              {searchingAsset ? "..." : "بحث"}
-            </button>
+
+          <div style={{ position: "relative" }}>
+            <div className="assign-add-row">
+              <input
+                type="text"
+                value={serialInput}
+                onChange={(e) => {
+                  const value = e.target.value;
+                  setSerialInput(value);
+                  setAssetResult(null);
+                  setAssetError("");
+
+                  //  فلترة فورية
+                  if (value.trim()) {
+                    const filtered = allAssets.filter(
+                      (a) =>
+                        a.name.toLowerCase().includes(value.toLowerCase()) ||
+                        a.serialNumber.toLowerCase().includes(value.toLowerCase())
+                    );
+                    setFilteredAssets(filtered);
+                    setShowDropdown(true);
+                  } else {
+                    setShowDropdown(false);
+                    setFilteredAssets([]);
+                  }
+                }}
+                placeholder="ابحث بالاسم أو الرقم التسلسلي..."
+                autoComplete="off"
+                onFocus={() => {
+                  if (serialInput.trim()) setShowDropdown(true);
+                }}
+                onBlur={() => {
+                  setTimeout(() => setShowDropdown(false), 200);
+                }}
+              />
+            </div>
+
+            {/*  الـ Dropdown */}
+            {showDropdown && filteredAssets.length > 0 && (
+              <div className="asset-dropdown">
+                {filteredAssets.map((asset) => (
+                  <div
+                    key={asset.serialNumber}
+                    className="asset-dropdown-item"
+                    onMouseDown={() => {
+                      setSerialInput(asset.name);
+                      setAssetResult(asset);
+                      setAssetQty(1); //  يبدأ بـ 1 مش بالكمية الكلية
+                      setShowDropdown(false);
+                      setAssetError("");
+                    }}
+                  >
+                    <span className="asset-dropdown-name">{asset.name}</span>
+                    <span className="asset-dropdown-info">
+                      {asset.serialNumber} — متاح: {asset.quantity}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
 
-          {/* نتيجة العهدة */}
+          {/*  لما يختار عهدة يظهر تفاصيلها */}
           {assetResult && (
             <div style={{ marginTop: "10px" }}>
               <div className="assign-result-card success">
@@ -348,6 +374,7 @@ export default function AssignModal({
                   onChange={(e) => setAssetQty(Number(e.target.value))}
                   style={{ MozAppearance: "textfield" } as React.CSSProperties}
                 />
+                {/* تحذير لو الكمية أكبر من المتاح */}
                 {assetQty > assetResult.quantity && (
                   <span
                     style={{
@@ -359,7 +386,8 @@ export default function AssignModal({
                     }}
                   >
                     <AlertTriangle size={14} />
-                    سيتم الصرف بالكمية المتاحة ({assetResult.quantity})
+                    في المخزن {assetResult.quantity} فقط — سيتم الصرف بالكمية
+                    المتاحة
                   </span>
                 )}
                 <button className="assign-search-btn" onClick={handleAddAsset}>
@@ -371,7 +399,7 @@ export default function AssignModal({
           )}
 
           {assetError && (
-            <div className="assign-result-card error">
+            <div className="assign-result-card error" style={{ marginTop: "8px" }}>
               <XCircle size={16} /> {assetError}
             </div>
           )}
@@ -406,7 +434,7 @@ export default function AssignModal({
                         onChange={(e) =>
                           handleQtyChange(
                             asset.serialNumber,
-                            Number(e.target.value),
+                            Number(e.target.value)
                           )
                         }
                         style={

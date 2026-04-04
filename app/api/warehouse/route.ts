@@ -7,7 +7,7 @@ interface Asset {
   price: number;
   serialNumber: string;
   assetType: string;
-  room: string;
+  location: string;
   category: string;
   unit: string;
   quantity: number;

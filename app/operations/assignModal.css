@@ -269,3 +269,48 @@
 
 .btn-submit:hover { background: #0a3a5b; }
 .btn-submit:disabled { background: #aaa; cursor: not-allowed; }
+
+/* ===== Asset Dropdown ===== */
+.asset-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 0;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  max-height: 200px;
+  overflow-y: auto;
+  direction: rtl;
+}
+
+.asset-dropdown-item {
+  padding: 10px 14px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  transition: background 0.15s;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.asset-dropdown-item:last-child {
+  border-bottom: none;
+}
+
+.asset-dropdown-item:hover {
+  background: #f0f5ff;
+}
+
+.asset-dropdown-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a3c6e;
+}
+
+.asset-dropdown-info {
+  font-size: 12px;
+  color: #888;
+}

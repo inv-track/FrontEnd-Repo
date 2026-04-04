@@ -2,7 +2,9 @@
 
 import { fetchWithAuth } from "../lib/fetchWithAuth";
 import { useEffect, useState } from "react";
-import { FileOutput } from "lucide-react";
+import ReturnModal from "./returnModal";
+import TransferModal from "./transferModal";
+import { FileOutput, Undo2, ArrowLeftRight } from "lucide-react";
 import Sidebar from "../components/sidebar";
 import Header from "../components/header";
 import MainTitle from "../components/mainTitle";
@@ -17,6 +19,8 @@ interface Transaction {
 }
 
 export default function Operations() {
+  const [isReturnModalOpen, setIsReturnModalOpen] = useState(false);
+  const [isTransferModalOpen, setIsTransferModalOpen] = useState(false);
   const [transactions, setTransactions] = useState<Transaction[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -26,7 +30,9 @@ export default function Operations() {
     setLoading(true);
     setError(null);
     try {
-      const res = await fetchWithAuth("/api/operations", { credentials: "include" });
+      const res = await fetchWithAuth("/api/operations", {
+        credentials: "include",
+      });
 
       if (res.status === 401) {
         window.location.href = "/login";
@@ -37,7 +43,6 @@ export default function Operations() {
 
       const data: Transaction[] = await res.json();
       setTransactions(Array.isArray(data) ? data : []);
-
     } catch (err: unknown) {
       if (err instanceof Error) {
         setError(err.message);
@@ -61,11 +66,19 @@ export default function Operations() {
         <main className="main-content">
           <MainTitle />
 
-          {/* ===== زرار الصرف ===== */}
+          {/* ===== الازرار  ===== */}
           <div className="add-button-operations">
             <button onClick={() => setIsModalOpen(true)}>
               <FileOutput size={18} />
               عملية صرف
+            </button>
+            <button onClick={() => setIsTransferModalOpen(true)}>
+              <ArrowLeftRight size={18} />
+              عملية نقل
+            </button>
+            <button onClick={() => setIsReturnModalOpen(true)}>
+              <Undo2 size={18} />
+              عملية إرجاع
             </button>
           </div>
 
@@ -75,9 +88,15 @@ export default function Operations() {
 
             <div className="table-container-operations">
               {loading ? (
-                <p style={{ textAlign: "center", padding: "20px" }}>جاري التحميل...</p>
+                <p style={{ textAlign: "center", padding: "20px" }}>
+                  جاري التحميل...
+                </p>
               ) : error ? (
-                <p style={{ textAlign: "center", color: "red", padding: "20px" }}>{error}</p>
+                <p
+                  style={{ textAlign: "center", color: "red", padding: "20px" }}
+                >
+                  {error}
+                </p>
               ) : (
                 <table>
                   <thead>
@@ -91,13 +110,17 @@ export default function Operations() {
                   <tbody>
                     {transactions.length === 0 ? (
                       <tr>
-                        <td colSpan={4} style={{ textAlign: "center" }}>لا توجد عمليات</td>
+                        <td colSpan={4} style={{ textAlign: "center" }}>
+                          لا توجد عمليات
+                        </td>
                       </tr>
                     ) : (
                       transactions.map((t, index) => (
                         <tr key={index}>
                           <td>
-                            <span className={`badge badge-${t.transactionType === "صرف" ? "assign" : "return"}`}>
+                            <span
+                              className={`badge badge-${t.transactionType === "صرف" ? "assign" : "return"}`}
+                            >
                               {t.transactionType}
                             </span>
                           </td>
@@ -118,6 +141,16 @@ export default function Operations() {
       <AssignModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
+        onSuccess={() => fetchTransactions()}
+      />
+      <ReturnModal
+        isOpen={isReturnModalOpen}
+        onClose={() => setIsReturnModalOpen(false)}
+        onSuccess={() => fetchTransactions()}
+      />
+      <TransferModal
+        isOpen={isTransferModalOpen}
+        onClose={() => setIsTransferModalOpen(false)}
         onSuccess={() => fetchTransactions()}
       />
     </div>

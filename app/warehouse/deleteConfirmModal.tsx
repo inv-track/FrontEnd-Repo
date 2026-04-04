@@ -22,6 +22,7 @@ export default function DeleteConfirmModal({
 }: DeleteConfirmModalProps) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [quantityToDelete, setQuantityToDelete] = useState(1);
 
   if (!isOpen) return null;
 
@@ -29,10 +30,15 @@ export default function DeleteConfirmModal({
     setLoading(true);
     setError("");
     try {
-      const res = await fetchWithAuth(
-        `/api/warehouse/delete?serialNumber=${serialNumber}`,
-        { method: "DELETE", credentials: "include" },
-      );
+      const res = await fetchWithAuth(`/api/warehouse/delete`, {
+        method: "DELETE",
+        credentials: "include",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          serialNumber,
+          quantityToDelete,
+        }),
+      });
 
       if (!res.ok) throw new Error("فشل الحذف");
 
@@ -57,6 +63,17 @@ export default function DeleteConfirmModal({
           <br />
           <span className="delete-serial">رقم تسلسلي: {serialNumber}</span>
         </p>
+
+        <div className="delete-qty-row">
+          <label>الكمية المراد حذفها:</label>
+          <input
+            type="number"
+            min={1}
+            value={quantityToDelete}
+            onChange={(e) => setQuantityToDelete(Number(e.target.value))}
+            className="delete-qty-input"
+          />
+        </div>
 
         {error && <p className="delete-error">{error}</p>}
 

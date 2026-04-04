@@ -14,6 +14,7 @@
 .add-button-operations {
   display: flex;
   justify-content: flex-end;
+  gap: 12px;
   margin: 20px;
 }
 
@@ -96,13 +97,18 @@
 }
 
 .badge-assign {
-  background: #e8f4fd;
-  color: #1a3c6e;
+  background: #d8ecff;
+  color: #0f4c81;
+}
+
+.badge-transfer {
+  background: #e8f5dc;
+  color: #1f6d2f;
 }
 
 .badge-return {
-  background: #fef3e8;
-  color: #d4730a;
+  background: #d8ecff;
+  color: #0f4c81;
 }
 
 /* ===== Scrollbar ===== */

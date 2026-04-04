@@ -5,9 +5,9 @@ interface AssetRequest {
   name: string;
   status: string;
   price: number;
-  serialNumber: string;
+  // serialNumber: string;
   assetType: string;
-  room: string;
+  location: string;
   category: string;
   unit: string;
   quantity?: number;

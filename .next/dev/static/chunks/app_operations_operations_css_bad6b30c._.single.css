@@ -12,6 +12,7 @@
 
 .add-button-operations {
   justify-content: flex-end;
+  gap: 12px;
   margin: 20px;
   display: flex;
 }
@@ -92,13 +93,18 @@
 }
 
 .badge-assign {
-  color: #1a3c6e;
-  background: #e8f4fd;
+  color: #0f4c81;
+  background: #d8ecff;
+}
+
+.badge-transfer {
+  color: #1f6d2f;
+  background: #e8f5dc;
 }
 
 .badge-return {
-  color: #d4730a;
-  background: #fef3e8;
+  color: #0f4c81;
+  background: #d8ecff;
 }
 
 .table-container-operations::-webkit-scrollbar {

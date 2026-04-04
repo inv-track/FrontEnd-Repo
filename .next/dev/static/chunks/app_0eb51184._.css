@@ -956,6 +956,45 @@ tbody tr:hover {
   display: flex;
 }
 
+.delete-qty-row {
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin: 12px 0;
+  display: flex;
+}
+
+.delete-qty-row label {
+  color: #555;
+  font-size: 14px;
+}
+
+.delete-qty-input {
+  color: #333;
+  text-align: center;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  outline: none;
+  width: 70px;
+  padding: 6px 10px;
+  font-size: 14px;
+}
+
+.delete-qty-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.delete-qty-input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.delete-qty-input:focus {
+  border-color: #e53e3e;
+}
+
 .btn-delete:hover {
   background: #c0392b;
 }

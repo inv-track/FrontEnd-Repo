@@ -8,9 +8,9 @@ interface Asset {
   name: string;
   status: string;
   price: number;
-  serialNumber: string;
+  // serialNumber: string;
   assetType: string;
-  room: string;
+  location: string;
   category: string;
   unit: string;
   quantity: number;
@@ -26,9 +26,9 @@ interface AssetForm {
   name: string;
   status: string;
   price: number | "";
-  serialNumber: string;
+  // serialNumber: string;
   assetType: string;
-  room: string;
+  location: string;
   category: string;
   unit: string;
   quantity: number | "";
@@ -52,9 +52,9 @@ const EMPTY_FORM: AssetForm = {
   name: "",
   status: "",
   price: "",
-  serialNumber: "",
+  // serialNumber: "",
   assetType: "",
-  room: "",
+  location: "",
   category: "",
   unit: "",
   quantity: "",
@@ -98,9 +98,9 @@ export default function AddAssetModal({
         name: editData.name,
         status: editData.status,
         price: editData.price,
-        serialNumber: editData.serialNumber,
+        // serialNumber: editData.serialNumber,
         assetType: editData.assetType,
-        room: editData.room,
+        location: editData.location,
         category: editData.category,
         unit: editData.unit,
         quantity: editData.quantity,
@@ -253,9 +253,9 @@ export default function AddAssetModal({
       !form.name ||
       !form.status ||
       form.price === "" ||
-      !form.serialNumber ||
+      // !form.serialNumber ||
       !form.assetType ||
-      !form.room ||
+      !form.location ||
       !form.category ||
       !form.unit
     ) {
@@ -327,6 +327,70 @@ export default function AddAssetModal({
           </div>
 
           <div className="modal-field">
+            <label>الوحدة *</label>
+            <div className="filter-select">
+              <select name="unit" value={form.unit} onChange={handleChange}>
+                <option value="">اختر الوحدة</option>
+                {units.map((u) => (
+                  <option key={u.name} value={u.name}>
+                    {u.name}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            {!showAddUnit ? (
+              <button
+                type="button"
+                onClick={() => setShowAddUnit(true)}
+                className="add-category-btn"
+              >
+                + إضافة وحدة جديدة
+              </button>
+            ) : (
+              <div className="new-category-row">
+                <input
+                  type="text"
+                  value={newUnit}
+                  onChange={(e) => setNewUnit(e.target.value)}
+                  placeholder="اسم الوحدة الجديدة"
+                  autoComplete="off"
+                />
+                <button
+                  type="button"
+                  onClick={handleAddUnit}
+                  disabled={addingUnit}
+                  className="btn-add"
+                >
+                  {addingUnit ? "..." : "إضافة"}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setShowAddUnit(false);
+                    setNewUnit("");
+                  }}
+                  className="btn-close"
+                >
+                  ✕
+                </button>
+              </div>
+            )}
+          </div>
+
+          <div className="modal-field">
+            <label>الكمية</label>
+            <input
+              name="quantity"
+              type="number"
+              value={form.quantity}
+              onChange={handleChange}
+              placeholder="الكمية (افتراضي: 1)"
+              autoComplete="off"
+            />
+          </div>
+
+          {/* <div className="modal-field">
             <label>الرقم التسلسلي *</label>
             <input
               name="serialNumber"
@@ -340,6 +404,60 @@ export default function AddAssetModal({
                 cursor: editData ? "not-allowed" : "text",
               }}
             />
+          </div> */}
+
+          {/* المبنى */}
+          <div className="modal-field">
+            <label>المبنى *</label>
+            <div className="filter-select">
+              <select value={selectedBuilding} onChange={handleBuildingChange}>
+                <option value="">اختر المبنى</option>
+                {buildings.map((b) => (
+                  <option key={b.name} value={b.name}>
+                    {b.name}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
+
+          {/* الدور */}
+          <div className="modal-field">
+            <label>الدور *</label>
+            <div className="filter-select">
+              <select
+                value={selectedFloor}
+                onChange={handleFloorChange}
+                disabled={!selectedBuilding}
+              >
+                <option value="">اختر الدور</option>
+                {floors.map((f) => (
+                  <option key={f.name} value={f.name}>
+                    {f.name}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
+
+          {/* الغرفة */}
+          <div className="modal-field">
+            <label>الغرفة *</label>
+            <div className="filter-select">
+              <select
+                name="location"
+                value={form.location}
+                onChange={handleChange}
+                disabled={!selectedFloor}
+              >
+                <option value="">اختر الغرفة</option>
+                {rooms.map((r) => (
+                  <option key={r.roomName} value={r.roomName}>
+                    {r.roomName}
+                  </option>
+                ))}
+              </select>
+            </div>
           </div>
 
           <div className="modal-field">
@@ -454,18 +572,6 @@ export default function AddAssetModal({
           </div>
 
           <div className="modal-field">
-            <label>الحالة *</label>
-            <div className="filter-select">
-              <select name="status" value={form.status} onChange={handleChange}>
-                <option value="">اختر الحالة</option>
-                <option value="new">جديد</option>
-                <option value="used">مستعمل</option>
-                {/* <option value="damaged">تالف</option> */}
-              </select>
-            </div>
-          </div>
-
-          <div className="modal-field">
             <label>السعر *</label>
             <input
               name="price"
@@ -476,121 +582,14 @@ export default function AddAssetModal({
               autoComplete="off"
             />
           </div>
-
-          {/* المبنى */}
           <div className="modal-field">
-            <label>المبنى *</label>
+            <label>الحالة *</label>
             <div className="filter-select">
-              <select value={selectedBuilding} onChange={handleBuildingChange}>
-                <option value="">اختر المبنى</option>
-                {buildings.map((b) => (
-                  <option key={b.name} value={b.name}>
-                    {b.name}
-                  </option>
-                ))}
-              </select>
-            </div>
-          </div>
-
-          <div className="modal-field">
-            <label>الوحدة *</label>
-            <div className="filter-select">
-              <select name="unit" value={form.unit} onChange={handleChange}>
-                <option value="">اختر الوحدة</option>
-                {units.map((u) => (
-                  <option key={u.name} value={u.name}>
-                    {u.name}
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            {!showAddUnit ? (
-              <button
-                type="button"
-                onClick={() => setShowAddUnit(true)}
-                className="add-category-btn"
-              >
-                + إضافة وحدة جديدة
-              </button>
-            ) : (
-              <div className="new-category-row">
-                <input
-                  type="text"
-                  value={newUnit}
-                  onChange={(e) => setNewUnit(e.target.value)}
-                  placeholder="اسم الوحدة الجديدة"
-                  autoComplete="off"
-                />
-                <button
-                  type="button"
-                  onClick={handleAddUnit}
-                  disabled={addingUnit}
-                  className="btn-add"
-                >
-                  {addingUnit ? "..." : "إضافة"}
-                </button>
-                <button
-                  type="button"
-                  onClick={() => {
-                    setShowAddUnit(false);
-                    setNewUnit("");
-                  }}
-                  className="btn-close"
-                >
-                  ✕
-                </button>
-              </div>
-            )}
-          </div>
-
-          {/* الدور */}
-          <div className="modal-field">
-            <label>الدور *</label>
-            <div className="filter-select">
-              <select
-                value={selectedFloor}
-                onChange={handleFloorChange}
-                disabled={!selectedBuilding}
-              >
-                <option value="">اختر الدور</option>
-                {floors.map((f) => (
-                  <option key={f.name} value={f.name}>
-                    {f.name}
-                  </option>
-                ))}
-              </select>
-            </div>
-          </div>
-
-          <div className="modal-field">
-            <label>الكمية</label>
-            <input
-              name="quantity"
-              type="number"
-              value={form.quantity}
-              onChange={handleChange}
-              placeholder="الكمية (افتراضي: 1)"
-              autoComplete="off"
-            />
-          </div>
-
-          {/* الغرفة */}
-          <div className="modal-field">
-            <label>الغرفة *</label>
-            <div className="filter-select">
-              <select
-                name="room"
-                value={form.room}
-                onChange={handleChange}
-                disabled={!selectedFloor}
-              >
-                <option value="">اختر الغرفة</option>
-                {rooms.map((r) => (
-                  <option key={r.roomName} value={r.roomName}>
-                    {r.roomName}
-                  </option>
-                ))}
+              <select name="status" value={form.status} onChange={handleChange}>
+                <option value="">اختر الحالة</option>
+                <option value="new">جديد</option>
+                <option value="used">مستعمل</option>
+                {/* <option value="damaged">تالف</option> */}
               </select>
             </div>
           </div>

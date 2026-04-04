@@ -63,25 +63,20 @@ async function DELETE(req) {
                 status: 401
             });
         }
-        const { searchParams } = new URL(req.url);
-        const serialNumber = searchParams.get("serialNumber");
-        if (!serialNumber) {
-            return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
-                message: "Serial number required"
-            }, {
-                status: 400
-            });
-        }
-        const response = await fetch(`http://invtrackapi.runasp.net/api/AssetItem/DeleteAssetItem?SerialNumber=${serialNumber}`, {
+        const body = await req.json();
+        const response = await fetch("http://invtrackapi.runasp.net/api/AssetItem/DeleteAssetItem", {
             method: "DELETE",
             headers: {
                 Accept: "*/*",
+                "Content-Type": "application/json",
                 Authorization: `Bearer ${token}`
-            }
+            },
+            body: JSON.stringify(body)
         });
         if (!response.ok) {
+            const data = await response.json().catch(()=>null);
             return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
-                message: "فشل الحذف"
+                message: data?.message || "فشل الحذف"
             }, {
                 status: response.status
             });
