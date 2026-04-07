@@ -1,29 +1,45 @@
-/* خلي الحاوية Flex */
 .contentEmployee {
   display: flex;
-  gap: 20px;
+  gap: 16px;
   width: 100%;
-  max-height: 500px;
-  overflow: hidden; /* عشان ما يطلعش سكرول */
+  height: calc(100vh - 160px);
+  overflow: hidden;
 }
 
-/* EmployeeList على اليمين — عرض ثابت */
+/* List — عرض ثابت */
 .contentEmployee > :first-child {
-  width: 280px; /* عدّلها اللي يناسب التصميم */
+  width: 300px;
   flex-shrink: 0;
 }
 
-/* EmployeeDetails ياخد كل المساحة المتبقية */
+/* Details — يملا الباقي */
 .contentEmployee > :last-child {
   flex: 1;
   min-width: 0;
-  /* مهم جداً عشان ما يعملش overflow */
+  overflow-y: auto;
 }
 
-/* تأكد أن الـ main-content يسمح بالتمدد (غالبًا موجود عندك) */
 .main-content {
   display: flex;
   flex-direction: column;
-  min-height: calc(100vh - 62px); /* لو في header بارتفاع 62px */
+  gap: 16px;
+  min-height: calc(100vh - 62px);
   box-sizing: border-box;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .contentEmployee {
+    flex-direction: column;
+    height: auto;
+    overflow: visible;
+  }
+
+  .contentEmployee > :first-child {
+    width: 100%;
+  }
+
+  .contentEmployee > :last-child {
+    width: 100%;
+  }
 }

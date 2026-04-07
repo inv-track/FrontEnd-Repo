@@ -372,6 +372,68 @@
   color: #991b1b;
   border: 1px solid #fca5a5;
 }
+/* Confirm Delete   */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+}
+
+.confirmModal {
+  background: #fff;
+  border-radius: 12px;
+  padding: 2rem;
+  width: 360px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.confirmIcon {
+  color: #f59e0b;
+}
+.confirmTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+.confirmMsg {
+  color: #6b7280;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.confirmActions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.confirmCancelBtn {
+  padding: 0.5rem 1.25rem;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  background: #fff;
+  cursor: pointer;
+  color: black;
+}
+
+.confirmDeleteBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 1.25rem;
+  border-radius: 8px;
+  border: none;
+  background: #ef4444;
+  color: #fff;
+  cursor: pointer;
+}
 
 @keyframes slideUp {
   from {

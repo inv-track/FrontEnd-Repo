@@ -22,42 +22,44 @@ export default function EmployeeList({
   const [employees, setEmployees] = useState<Employee[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     async function loadEmployees() {
       try {
         const response = await fetchWithAuth("/api/employee/getAllEmployee", {
           method: "GET",
-          credentials: "include", // مهم جدًا
+          credentials: "include",
         });
-
-        if (!response.ok) {
-          throw new Error("Failed to fetch employees");
-        }
-
+        if (!response.ok) throw new Error("Failed to fetch employees");
         const data = await response.json();
         setEmployees(data);
       } catch (err) {
-        if (err instanceof Error) {
-          setError(err.message);
-        } else {
-          setError("Something went wrong");
-        }
+        setError(err instanceof Error ? err.message : "Something went wrong");
       } finally {
         setLoading(false);
       }
     }
-
     loadEmployees();
   }, []);
 
-  const [searchTerm, setSearchTerm] = useState("");
-  const filteredEmployees = employees.filter(
-    (emp) =>
-      emp.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      emp.building.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      emp.nationalNumber.includes(searchTerm),
-  );
+  const filteredEmployees = employees.filter((emp) => {
+    if (!emp) return false;
+    const name = emp.name ?? "";
+    const building = emp.building ?? "";
+    const nationalNumber = emp.nationalNumber ?? "";
+    const q = searchTerm.trim();
+    return (
+      name.includes(q) || building.includes(q) || nationalNumber.includes(q)
+    );
+  });
+
+  const handleSelect = (nationalNumber: string) => {
+    setSelectedId(nationalNumber);
+    onSelect(String(nationalNumber));
+  };
+
   return (
     <div className={styles["employee-list"]}>
       {/* Header */}
@@ -73,38 +75,44 @@ export default function EmployeeList({
           style={{ cursor: "pointer" }}
         />
       </div>
+
       {/* Search */}
       <div className={styles["search-container"]}>
-        <Image className={styles["search-icon"]} src="/icon/search.svg" alt="search" width={20} height={20} />
+        <Image
+          className={styles["search-icon"]}
+          src="/icon/search.svg"
+          alt="search"
+          width={20}
+          height={20}
+        />
         <input
           type="text"
           className={styles["search-input"]}
-          placeholder="بحث..."
+          placeholder="بحث بالاسم أو المبنى..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
       </div>
-      {/* Loading */}
-      {loading && <p>Loading...</p>}
-      {/* Error */}
-      {error && <p style={{ color: "red" }}>{error}</p>}
-      {/* Employees List */}
+
+      {/* States */}
+      {loading && <p className={styles["loading-text"]}>جاري التحميل...</p>}
+      {error && <p className={styles["error-text"]}>{error}</p>}
+
+      {/* List */}
       {!loading && !error && (
         <div className={styles["employee"]}>
           <ul className={styles["list"]}>
             {filteredEmployees.map((emp) => (
               <li
                 key={emp.nationalNumber}
-                className={styles["employee-item"]}
-                onClick={() => {
-                  onSelect(String(emp.nationalNumber));
-                }}
-                style={{ cursor: "pointer" }}
+                className={`${styles["employee-item"]} ${
+                  selectedId === emp.nationalNumber ? styles["selected"] : ""
+                }`}
+                onClick={() => handleSelect(emp.nationalNumber)}
               >
                 <div className={styles["name-custody"]}>
                   <span className={styles["employee-name"]}>{emp.name}</span>
                 </div>
-
                 <span className={styles["employee-location"]}>
                   {emp.building}
                 </span>
@@ -113,6 +121,7 @@ export default function EmployeeList({
           </ul>
         </div>
       )}
+
       <AddEmployeeModal
         isOpen={open}
         onClose={() => setOpen(false)}
