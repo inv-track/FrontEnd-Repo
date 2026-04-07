@@ -6,208 +6,265 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 20px;
+  border-radius: 16px;
+  border: 1px solid #e8edf2;
 }
+
+.text {
+  color: #94a3b8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+}
+
+.spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid #e2e8f0;
+  border-top-color: #145985;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ── Wrapper ── */
 .wrapper {
   width: 100%;
   box-sizing: border-box;
   color: #222;
   background-color: white;
-  padding: 16px;
+  padding: 20px;
   border-radius: 16px;
-}
-
-.text {
-  color: black !important;
+  border: 1px solid #e8edf2;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  gap: 16px;
 }
 
-/* header */
+/* ── Header ── */
 .headerRow {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   gap: 12px;
-  margin-bottom: 12px;
 }
 
 .printBtn {
   background: #145985;
   color: #fff;
   border: none;
-  padding: 10px 14px;
+  padding: 9px 16px;
   border-radius: 10px;
   cursor: pointer;
-  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.06);
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.08);
+  transition: background 0.15s;
+  flex-shrink: 0;
 }
 
-/* profile */
+.printBtn:hover {
+  background: #0f3f63;
+}
+
+/* ── Profile ── */
 .profile {
   display: flex;
-  gap: 12px;
+  gap: 14px;
   align-items: center;
 }
 
-.info {
-  text-align: right;
-}
-.name {
-  font-weight: 700;
-  font-size: 18px;
-  margin-bottom: 6px;
-}
-.job {
-  color: #7f8b91;
-  margin-bottom: 8px;
-}
-.contact {
-  color: #6b6b6b;
-  font-size: 14px;
-}
-.contact img,
-.job img {
-  vertical-align: bottom;
-  margin-left: 6px;
-}
-
-/* avatar */
 .avatar {
-  width: 64px;
-  height: 64px;
-  border-radius: 999px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
   background: rgba(20, 89, 133, 0.08);
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  flex-shrink: 0;
+  border: 2px solid #e2e8f0;
 }
 
-/* tabs container */
-/* خلفية التابات */
+.info {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.name {
+  font-weight: 700;
+  font-size: 17px;
+  color: #1e293b;
+}
+
+.job {
+  color: #64748b;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.contact {
+  color: #64748b;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* ── Tabs ── */
 .tabsRow {
-  background: #ececef; /* نفس اللي في الصورة */
-  padding: 6px;
+  background: #ececef;
+  padding: 5px;
   border-radius: 20px;
   display: flex;
   width: 100%;
-  justify-content: space-between;
-  gap: 6px;
+  gap: 4px;
 }
 
-/* الزر العام */
 .tabBtn {
   flex: 1;
   border: none;
   background: transparent;
-  padding: 10px 0;
-  border-radius: 18px;
-  font-size: 16px;
+  padding: 9px 0;
+  border-radius: 16px;
+  font-size: 14px;
   font-weight: 600;
   cursor: pointer;
-  transition: 0.2s;
-  color: #000;
+  transition: all 0.2s;
+  color: #475569;
 }
 
-/* الزر النشط — اللي شكله أبيض بالظبط زي الصورة */
+.tabBtn:hover:not(.tabActive) {
+  color: #1e293b;
+}
+
 .tabActive {
   background: #ffffff;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.08);
+  color: #145985;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* card */
+/* ── Card ── */
 .card {
   border-radius: 12px;
-  padding: 18px;
   overflow: hidden;
+  border: 1px solid #f1f5f9;
 }
 
-/* table */
+/* ── Table ── */
 .tableWrap {
   width: 100%;
   overflow-x: auto;
 }
+
 .table {
   width: 100%;
   table-layout: fixed;
   border-collapse: collapse;
   direction: rtl;
+  font-size: 13px;
 }
 
-.table th,
+.table th {
+  text-align: center;
+  padding: 12px 10px;
+  font-weight: 600;
+  border-bottom: 1px solid #e2e8f0;
+  color: #475569;
+  background: #f8fafc;
+}
+
 .table td {
   text-align: center;
-  padding: 14px 10px;
+  padding: 12px 10px;
+  border-bottom: 1px solid #f1f5f9;
+  color: #475569;
   vertical-align: middle;
 }
 
-.table thead th {
-  font-weight: 600;
-  border-bottom: 1px solid #ddd;
+.table tbody tr:last-child td {
+  border-bottom: none;
 }
 
-.table tbody td {
-  border-bottom: 1px solid #eee;
+.table tbody tr:hover {
+  background: #f8fafc;
 }
-/* خلي أعمدة العهد المملوكة قد بعض */
+
 .assetsTable th,
 .assetsTable td {
   width: 33.33%;
   text-align: center;
 }
 
-/* column sizing */
+.emptyCell {
+  text-align: center !important;
+  padding: 24px !important;
+  color: #94a3b8;
+  font-size: 13px;
+}
+
+/* ── Columns ── */
 .colAction {
-  width: 140px;
+  width: 130px;
   text-align: center;
 }
 .colName {
   text-align: right;
 }
 .colQty {
-  width: 80px;
+  width: 70px;
   text-align: center;
 }
 .colDate {
-  width: 160px;
+  width: 150px;
   text-align: center;
 }
 
-/* action button */
-.actionBtn {
-  display: inline-flex;
-  gap: 8px;
-  align-items: center;
-  background: #145985;
-  color: #fff;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 10px;
-  cursor: pointer;
-}
-.actionIcon {
-  font-size: 18px;
-  transform: translateY(-1px);
+.actionLabel {
+  display: inline-block;
+  background: rgba(20, 89, 133, 0.08);
+  color: #145985;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
 }
 
-/* responsive tweaks */
-@media (max-width: 900px) {
-  .colDate,
-  .colQty {
-    display: table-cell;
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .wrapper {
+    padding: 14px;
   }
-}
-@media (max-width: 700px) {
+
   .headerRow {
     flex-direction: column-reverse;
     align-items: flex-start;
-    gap: 8px;
   }
-  .tabsRow {
-    gap: 8px;
+
+  .printBtn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .colDate {
+    width: 120px;
   }
   .colAction {
-    width: 120px;
+    width: 100px;
   }
 }

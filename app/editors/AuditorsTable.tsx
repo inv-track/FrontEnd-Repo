@@ -11,6 +11,7 @@ import {
   ChevronRight,
   CheckCircle,
   XCircle,
+  AlertTriangle,
 } from "lucide-react";
 import styles from "./auditorsTable.module.css";
 import AddAuditorModal from "./Addauditormodal";
@@ -52,6 +53,7 @@ export default function AuditorsTable() {
   const [page, setPage] = useState(1);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [toasts, setToasts] = useState<Toast[]>([]);
+  const [confirmDelete, setConfirmDelete] = useState<string | null>(null); // nationalNumber
 
   const [selectedAuditor, setSelectedAuditor] = useState<null | {
     name: string;
@@ -148,6 +150,7 @@ export default function AuditorsTable() {
   // ── Delete ──────────────────────────────────────────────────────────────────
   const handleDelete = async (nationalNumber: string) => {
     const backup = auditors.find((a) => a.nationalNumber === nationalNumber);
+    setConfirmDelete(null);
     setAuditors((prev) =>
       prev.filter((a) => a.nationalNumber !== nationalNumber),
     );
@@ -171,6 +174,10 @@ export default function AuditorsTable() {
     return [1, 2, 3, "...", totalPages - 2, totalPages - 1, totalPages];
   };
 
+  const auditorToDelete = auditors.find(
+    (a) => a.nationalNumber === confirmDelete,
+  );
+
   // ────────────────────────────────────────────────────────────────────────────
 
   return (
@@ -192,9 +199,44 @@ export default function AuditorsTable() {
         ))}
       </div>
 
+      {/* Confirm Delete Dialog */}
+      {confirmDelete && (
+        <div className={styles.overlay} onClick={() => setConfirmDelete(null)}>
+          <div
+            className={styles.confirmModal}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className={styles.confirmIcon}>
+              <AlertTriangle size={32} />
+            </div>
+            <h3 className={styles.confirmTitle}>تأكيد الحذف</h3>
+            <p className={styles.confirmMsg}>
+              هل أنت متأكد من حذف <strong>{auditorToDelete?.name}</strong>؟
+              <br />
+              لا يمكن التراجع عن هذا الإجراء.
+            </p>
+            <div className={styles.confirmActions}>
+              <button
+                className={styles.confirmCancelBtn}
+                onClick={() => setConfirmDelete(null)}
+              >
+                إلغاء
+              </button>
+              <button
+                className={styles.confirmDeleteBtn}
+                onClick={() => handleDelete(confirmDelete)}
+              >
+                <Trash2 size={15} />
+                حذف
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Header */}
       <div className={styles.header}>
-        <h1 className={styles.title}>قائمة الفجّرين</h1>
+        <h1 className={styles.title}>قائمة المجردين</h1>
         <button className={styles.addBtn} onClick={() => setIsModalOpen(true)}>
           <Plus size={16} />
           إضافة مجرد جديد
@@ -268,14 +310,24 @@ export default function AuditorsTable() {
                           <button
                             className={`${styles.actionBtn} ${styles.contactBtn}`}
                             title="تواصل"
-                            onClick={() =>
-                              setSelectedAuditor({
-                                name: a.name,
-                                nationalNumber: a.nationalNumber,
-                                username: "TODO",
-                                password: "TODO",
-                              })
-                            }
+                            onClick={async () => {
+                              try {
+                                const res = await fetch(
+                                  `/api/auditors/getAuditorData?nationalNumber=${a.nationalNumber}`,
+                                );
+                                if (!res.ok)
+                                  throw new Error("فشل جلب البيانات");
+                                const data = await res.json();
+                                setSelectedAuditor({
+                                  name: a.name,
+                                  nationalNumber: a.nationalNumber,
+                                  username: data.username,
+                                  password: data.password,
+                                });
+                              } catch {
+                                showToast("فشل جلب بيانات الدخول", "error");
+                              }
+                            }}
                           >
                             <Smartphone size={15} />
                           </button>
@@ -296,7 +348,7 @@ export default function AuditorsTable() {
                           <button
                             className={`${styles.actionBtn} ${styles.deleteBtn}`}
                             title="حذف"
-                            onClick={() => handleDelete(a.nationalNumber)}
+                            onClick={() => setConfirmDelete(a.nationalNumber)}
                           >
                             <Trash2 size={15} />
                           </button>
@@ -370,7 +422,7 @@ export default function AuditorsTable() {
           });
           if (!res.ok) throw new Error("فشل الإضافة");
           showToast("تم إضافة المجرد بنجاح", "success");
-          await fetchAuditors(); // refetch عشان الداتا تتحدث
+          await fetchAuditors();
         }}
       />
 

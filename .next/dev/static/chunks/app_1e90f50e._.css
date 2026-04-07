@@ -697,6 +697,70 @@
   border: 1px solid #fca5a5;
 }
 
+.auditorsTable-module__pPMXBq__overlay {
+  z-index: 50;
+  background: #00000080;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  position: fixed;
+  inset: 0;
+}
+
+.auditorsTable-module__pPMXBq__confirmModal {
+  text-align: center;
+  background: #fff;
+  border-radius: 12px;
+  flex-direction: column;
+  align-items: center;
+  gap: .75rem;
+  width: 360px;
+  padding: 2rem;
+  display: flex;
+}
+
+.auditorsTable-module__pPMXBq__confirmIcon {
+  color: #f59e0b;
+}
+
+.auditorsTable-module__pPMXBq__confirmTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.auditorsTable-module__pPMXBq__confirmMsg {
+  color: #6b7280;
+  font-size: .9rem;
+  line-height: 1.6;
+}
+
+.auditorsTable-module__pPMXBq__confirmActions {
+  gap: .75rem;
+  margin-top: .5rem;
+  display: flex;
+}
+
+.auditorsTable-module__pPMXBq__confirmCancelBtn {
+  cursor: pointer;
+  color: #000;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: .5rem 1.25rem;
+}
+
+.auditorsTable-module__pPMXBq__confirmDeleteBtn {
+  color: #fff;
+  cursor: pointer;
+  background: #ef4444;
+  border: none;
+  border-radius: 8px;
+  align-items: center;
+  gap: .4rem;
+  padding: .5rem 1.25rem;
+  display: flex;
+}
+
 @keyframes auditorsTable-module__pPMXBq__slideUp {
   from {
     opacity: 0;
