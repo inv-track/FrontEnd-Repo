@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["turbopack:///[project]/app/employee/employee.css"],"sourcesContent":[".contentEmployee {\r\n  display: flex;\r\n  gap: 16px;\r\n  width: 100%;\r\n  height: calc(100vh - 160px);\r\n  overflow: hidden;\r\n}\r\n\r\n/* List — عرض ثابت */\r\n.contentEmployee > :first-child {\r\n  width: 300px;\r\n  flex-shrink: 0;\r\n}\r\n\r\n/* Details — يملا الباقي */\r\n.contentEmployee > :last-child {\r\n  flex: 1;\r\n  min-width: 0;\r\n  overflow-y: auto;\r\n}\r\n\r\n.main-content {\r\n  display: flex;\r\n  flex-direction: column;\r\n  gap: 16px;\r\n  min-height: calc(100vh - 62px);\r\n  box-sizing: border-box;\r\n}\r\n\r\n/* ── Responsive ── */\r\n@media (max-width: 768px) {\r\n  .contentEmployee {\r\n    flex-direction: column;\r\n    height: auto;\r\n    overflow: visible;\r\n  }\r\n\r\n  .contentEmployee > :first-child {\r\n    width: 100%;\r\n  }\r\n\r\n  .contentEmployee > :last-child {\r\n    width: 100%;\r\n  }\r\n}"],"names":[],"mappings":"AAAA;;;;;;;;AASA;;;;;AAMA;;;;;;AAMA;;;;;;;;AASA;EACE;;;;;;EAMA"}}]
-}
